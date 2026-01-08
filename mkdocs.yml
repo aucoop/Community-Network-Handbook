@@ -1,0 +1,82 @@
+site_name: Community Network Handbook
+site_description: A field guide to build community networks from scratch
+site_dir: public
+copyright: Copyright 2025-present, AUCOOP (https://aucoop.upc.edu)
+
+# nav:
+#   - Federation Manager: index.md
+
+theme:
+  name: material
+  features:
+    # - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.footer
+    - toc.integrate
+    - content.code.copy
+    - content.code.annotate
+  palette:
+    - media: "(prefers-color-scheme)"
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - tables
+  - md_in_html
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - https://unpkg.com/mermaid/dist/mermaid.min.js
+
+plugins:
+  - search
+  - build_plantuml:
+      render: "server"
+      server: "http://www.plantuml.com/plantuml"
+      disable_ssl_certificate_validation: true
+      output_format: "svg"
+      allow_multiple_roots: false
+      diagram_root: "docs/plantuml-diagrams"
+      output_folder: "out"
+      input_folder: "../../src"
+      input_extensions: ""
