@@ -3,8 +3,81 @@ site_description: A field guide to build community networks from scratch
 site_dir: public
 copyright: Copyright 2025-present, AUCOOP (https://aucoop.upc.edu)
 
-# nav:
-#   - Federation Manager: index.md
+nav:
+  - Home: index.md
+  - 1. Introduction:
+    - 1-Introduction/index.md
+    - Motivation: 1-Introduction/1.1-Motivation.md
+    - Target Reader: 1-Introduction/1.2-Target-Reader.md
+  - 2. Imaginary Use Case:
+    - 2-Imaginary-Use-Case/index.md
+    # Act 1 — Getting Connected
+    - The First Router:
+      - 2-Imaginary-Use-Case/2.1-The-First-Router/index.md
+      - Choosing Hardware: 2-Imaginary-Use-Case/2.1-The-First-Router/2.1.1-Choosing-Hardware.md
+      - Installing OpenWrt: 2-Imaginary-Use-Case/2.1-The-First-Router/2.1.2-Installing-OpenWrt.md
+    - Expanding Coverage:
+      - 2-Imaginary-Use-Case/2.2-Expanding-Coverage/index.md
+      - Planning: 2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.1-Planning.md
+      - IP Addressing: 2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.2-IP-Addressing.md
+      - Wired vs Wireless: 2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.3-Wired-vs-Wireless.md
+    - The Other Building:
+      - 2-Imaginary-Use-Case/2.3-The-Other-Building/index.md
+      - Antennas: 2-Imaginary-Use-Case/2.3-The-Other-Building/2.3.1-Antennas.md
+    # Act 2 — Growing Pains
+    - Mass Config: 2-Imaginary-Use-Case/2.4-Mass-Config.md
+    - Monitoring: 2-Imaginary-Use-Case/2.5-Monitoring.md
+    - DNS: 2-Imaginary-Use-Case/2.6-DNS.md
+    - Remote Access: 2-Imaginary-Use-Case/2.7-Remote-Access.md
+    - Captive Portal: 2-Imaginary-Use-Case/2.8-Captive-Portal.md
+    - User Management: 2-Imaginary-Use-Case/2.9-User-Management.md
+    - Security: 2-Imaginary-Use-Case/2.10-Security.md
+    # Act 3 — Adding Value
+    - Local Services: 2-Imaginary-Use-Case/2.11-Local-Services.md
+    - Virtualization: 2-Imaginary-Use-Case/2.12-Virtualization.md
+    - Storage: 2-Imaginary-Use-Case/2.13-Storage.md
+    - Clustering: 2-Imaginary-Use-Case/2.14-Clustering.md
+    # Act 4 — Protecting What You Built
+    - Power: 2-Imaginary-Use-Case/2.15-Power.md
+    - Backups: 2-Imaginary-Use-Case/2.16-Backups.md
+    - High Availability: 2-Imaginary-Use-Case/2.17-High-Availability.md
+    - Updates: 2-Imaginary-Use-Case/2.18-Updates.md
+    # Act 5 — Telling the World
+    - Domain: 2-Imaginary-Use-Case/2.19-Domain.md
+    - Website: 2-Imaginary-Use-Case/2.20-Website.md
+    # Act 6 — The Long Run
+    - Sustainability: 2-Imaginary-Use-Case/2.21-Sustainability.md
+  - 3. Guide:
+    - 3-Guide/index.md
+    - Flash OpenWrt:
+      - 3-Guide/3.1-Flash-OpenWrt/index.md
+      - Huawei X: 3-Guide/3.1-Flash-OpenWrt/Huawei-X.md
+      - Router Y: 3-Guide/3.1-Flash-OpenWrt/Router-Y.md
+    - IP Addressing: 3-Guide/3.2-IP-Addressing.md
+    - Mesh and Switches: 3-Guide/3.3-Mesh-and-Switches.md
+    - Antennas: 3-Guide/3.4-Antennas.md
+    - OpenWISP: 3-Guide/3.5-OpenWISP.md
+    - Zabbix: 3-Guide/3.6-Zabbix.md
+    - DNS: 3-Guide/3.7-DNS.md
+    - VPN: 3-Guide/3.8-VPN.md
+    - Captive Portal: 3-Guide/3.9-Captive-Portal.md
+    - RADIUS: 3-Guide/3.10-RADIUS.md
+    - Security: 3-Guide/3.11-Security.md
+    - Nextcloud: 3-Guide/3.12-Nextcloud.md
+    - Proxmox: 3-Guide/3.13-Proxmox.md
+    - Storage: 3-Guide/3.14-Storage.md
+    - Clustering: 3-Guide/3.15-Clustering.md
+    - Power and UPS: 3-Guide/3.16-Power-and-UPS.md
+    - Proxmox Backup Server: 3-Guide/3.17-Proxmox-Backup-Server.md
+    - High Availability: 3-Guide/3.18-High-Availability.md
+    - Updates and Maintenance: 3-Guide/3.19-Updates-and-Maintenance.md
+    - Domain: 3-Guide/3.20-Domain.md
+    - Website: 3-Guide/3.21-Website.md
+  - 4. Real Use Cases:
+    - 4-Real-Use-Cases/index.md
+    - Namibia:
+      - 4-Real-Use-Cases/4.1-Namibia/index.md
+  - Contributing: contributing.md
 
 theme:
   name: material

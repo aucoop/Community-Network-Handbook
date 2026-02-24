@@ -1,26 +1,43 @@
-# A Community Networks Handbook
+# Community Network Handbook
 
-This project is an attempt for guiding someone who has heard the community networks concept and wants to learn how to build one from scratch.
+A practical, opinionated guide to building community networks from scratch — even with limited resources.
 
-<!-- TODO I'd like to have the living book ordered just by the folder structure. -->
+---
 
-This project is a guide based on our experience on https://hahatay.network. We explain everything we did, the good and the bad and how the project still runs since 2021. The guide is written basically by people who have been volunteering in the project since the beginning.
+## What is this?
 
-So it's some sort of lessons learned, but we believe that many lessons are general enough to be useful for other people wanting to start their own community networks.
+This handbook walks you through **everything** needed to build and run a community network: from flashing your first router to monitoring a multi-site deployment with dozens of devices and services.
 
-The principles behind this handbook are:
+It's based on real-world experience from projects like the [Hahatay Network](https://hahatay.network) in Senegal, built by volunteers since 2021. The lessons here are specific enough to follow, but general enough to adapt to your own situation.
 
-* Be practical: we want to focus on the "how to" more than the "why". There are many resources explaining the why, but not so many explaining how to do it step by step.
-* On a budget: we want to show how to build community networks with low cost, using affordable equipment and free and open source software when possible.
-* This is an opinioned guide: there are many ways to build community networks, and this is just one way based on our experience. We don't claim this is the best way, just one that worked for us :).
+### Our principles
 
-This is a, and is intended to be a living book, meaning that is designed in a way that is easy toe extend (just adding text files in the `docs` folder is enough.)
+- **Be practical** — focus on *how*, not just *why*
+- **On a budget** — affordable hardware, free and open-source software
+- **Opinionated** — one proven path, not every possible option
 
-The idea is that the text resides on github, meaning that anyone can contribute with improvements, corrections, new chapters, etc. Even if you don't have technical knowledge you can just edit directly on Github.
+---
 
-## A note on community networks
+## How to read this book
 
-We title this handbook "A Community Networks Handbook", but in reality this works for any small-medium network setup, not necessarily community networks. However, since the nature of the project that inspired this is intended to be a community network, we use that terminology throughout the book.
+The handbook has four chapters:
 
+| Chapter | What it covers |
+|---|---|
+| [**1. Introduction**](1-Introduction/index.md) | Why this handbook exists and who it's for |
+| [**2. Imaginary Use Case**](2-Imaginary-Use-Case/index.md) | A fictional story that walks you through building a community network step by step — from *"there's no internet here"* to *"let's show the world what we built"* |
+| [**3. Guide**](3-Guide/index.md) | Detailed, step-by-step technical instructions for every technology in the story. Includes a **decision tree** to help you pick what's relevant |
+| [**4. Real Use Cases**](4-Real-Use-Cases/index.md) | Field deployments where these ideas have been applied in the real world |
 
+!!! tip "Recommended reading order"
+    Start with **Chapter 2** (the story) to understand the big picture, then jump into **Chapter 3** (the guide) for the specific technologies you need.
+
+---
+
+## A living book
+
+This handbook is open source and designed to grow. The text lives on GitHub — anyone can contribute improvements, corrections, or new chapters. See [Contributing](contributing.md) for details.
+
+!!! note "Not just for community networks"
+    Despite the name, this guide works for **any small-to-medium network** setup. We use "community network" terminology because that's the context it was born in, but the techniques apply broadly.
 
