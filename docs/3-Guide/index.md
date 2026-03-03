@@ -69,24 +69,24 @@ flowchart TD
 
 | # | Topic | What you'll learn |
 |---|---|---|
+| [3.4](3.4-Antennas.md) | Antennas | Point-to-point radio links |
+| [3.9](3.9-Captive-Portal.md) | Captive Portal | Welcome page for WiFi users |
+| [3.15](3.15-Clustering.md) | Clustering | Multi-server setup |
+| [3.7](3.7-DNS.md) | DNS | Local domain name resolution |
+| [3.20](3.20-Domain.md) | Domain | Register and configure a domain |
 | [3.1](3.1-Flash-OpenWrt/index.md) | Flash OpenWrt | Install OpenWrt on specific router models |
+| [3.18](3.18-High-Availability.md) | High Availability | Redundancy and failover |
 | [3.2](3.2-IP-Addressing.md) | IP Addressing | Subnet planning and IP assignment |
 | [3.3](3.3-Mesh-and-Switches.md) | Mesh & Switches | Wired and wireless backhaul |
-| [3.4](3.4-Antennas.md) | Antennas | Point-to-point radio links |
+| [3.12](3.12-Nextcloud.md) | Nextcloud | File sharing and collaboration |
 | [3.5](3.5-OpenWISP.md) | OpenWISP | Centralized router management |
-| [3.6](3.6-Zabbix.md) | Zabbix | Network monitoring and alerts |
-| [3.7](3.7-DNS.md) | DNS | Local domain name resolution |
-| [3.8](3.8-VPN.md) | VPN | Remote access to your network |
-| [3.9](3.9-Captive-Portal.md) | Captive Portal | Welcome page for WiFi users |
+| [3.16](3.16-Power-and-UPS.md) | Power & UPS | Uninterruptible power and solar |
+| [3.13](3.13-Proxmox.md) | Proxmox | Server virtualization |
+| [3.17](3.17-Proxmox-Backup-Server.md) | Proxmox Backup Server | Proxmox Backup Server |
 | [3.10](3.10-RADIUS.md) | RADIUS | User authentication and management |
 | [3.11](3.11-Security.md) | Security | Firewall, encryption, hardening |
-| [3.12](3.12-Nextcloud.md) | Nextcloud | File sharing and collaboration |
-| [3.13](3.13-Proxmox.md) | Proxmox | Server virtualization |
 | [3.14](3.14-Storage.md) | Storage | External drives and NAS |
-| [3.15](3.15-Clustering.md) | Clustering | Multi-server setup |
-| [3.16](3.16-Power-and-UPS.md) | Power & UPS | Uninterruptible power and solar |
-| [3.17](3.17-Proxmox-Backup-Server.md) | Backups | Proxmox Backup Server |
-| [3.18](3.18-High-Availability.md) | High Availability | Redundancy and failover |
-| [3.19](3.19-Updates-and-Maintenance.md) | Maintenance | Update routines and upkeep |
-| [3.20](3.20-Domain.md) | Domain | Register and configure a domain |
+| [3.19](3.19-Updates-and-Maintenance.md) | Updates and Maintenance | Update routines and upkeep |
+| [3.8](3.8-VPN.md) | VPN | Remote access to your network |
 | [3.21](3.21-Website.md) | Website | Build a public-facing site |
+| [3.6](3.6-Zabbix.md) | Zabbix | Network monitoring and alerts |
