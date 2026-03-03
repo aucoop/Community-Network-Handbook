@@ -9,6 +9,7 @@ This section contains step-by-step instructions for installing OpenWrt on specif
 
 The following guides are available:
 
+- [Debrick a Router](Debrick.md)
 - [Huawei X](Huawei-X.md)
 - [Router Y](Router-Y.md)
 

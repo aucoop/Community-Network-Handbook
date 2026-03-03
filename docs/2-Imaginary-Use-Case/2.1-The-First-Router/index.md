@@ -17,3 +17,4 @@ You need **your own router** — one you control.
 
 - [What router should I even buy?](2.1.1-Choosing-Hardware.md)
 - [What is OpenWrt and why should I care?](2.1.2-Installing-OpenWrt.md)
+- [I think I bricked my router. What now?](2.1.3-Debrick.md)

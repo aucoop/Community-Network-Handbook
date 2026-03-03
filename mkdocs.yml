@@ -16,6 +16,7 @@ nav:
       - 2-Imaginary-Use-Case/2.1-The-First-Router/index.md
       - Choosing Hardware: 2-Imaginary-Use-Case/2.1-The-First-Router/2.1.1-Choosing-Hardware.md
       - Installing OpenWrt: 2-Imaginary-Use-Case/2.1-The-First-Router/2.1.2-Installing-OpenWrt.md
+      - Debrick a Router: 2-Imaginary-Use-Case/2.1-The-First-Router/2.1.3-Debrick.md
     - Expanding Coverage:
       - 2-Imaginary-Use-Case/2.2-Expanding-Coverage/index.md
       - Planning: 2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.1-Planning.md
@@ -56,6 +57,7 @@ nav:
     - Domain: 3-Guide/3.20-Domain.md
     - Flash OpenWrt:
       - 3-Guide/3.1-Flash-OpenWrt/index.md
+      - Debrick a Router: 3-Guide/3.1-Flash-OpenWrt/Debrick.md
       - Huawei X: 3-Guide/3.1-Flash-OpenWrt/Huawei-X.md
       - Router Y: 3-Guide/3.1-Flash-OpenWrt/Router-Y.md
     - High Availability: 3-Guide/3.18-High-Availability.md
