@@ -1,7 +1,7 @@
 # Community-Network-Handbook
 A field guide to build community networks from scratch
 
-This directory contains the source documentation for the project. The documentation is built using [MkDocs](https://www.mkdocs.org/) and the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme.
+This directory contains the source documentation for the project. The documentation is built using [Zensical](https://zensical.org/), a modern static site generator by the creators of Material for MkDocs.
 
 ## Prerequisites
 
@@ -31,13 +31,13 @@ To preview the documentation as you write, serve it locally. The site will autom
 
 ```bash
 # From the project root
-.venv/bin/mkdocs serve
+.venv/bin/zensical serve
 ```
 
 On Windows PowerShell:
 
 ```powershell
-.\.venv\Scripts\mkdocs.exe serve
+.\.venv\Scripts\zensical.exe serve
 ```
 
 Open your browser to `http://127.0.0.1:8000/`.
@@ -48,11 +48,11 @@ To build the static site (output to `public/`):
 
 ```bash
 # From the project root
-.venv/bin/mkdocs build
+.venv/bin/zensical build
 ```
 
 On Windows PowerShell:
 
 ```powershell
-.\.venv\Scripts\mkdocs.exe build
+.\.venv\Scripts\zensical.exe build
 ```
