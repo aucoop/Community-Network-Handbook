@@ -1,4 +1,4 @@
-name: Deploy MkDocs to GitHub Pages
+name: Deploy Zensical to GitHub Pages
 
 on:
   push:
@@ -32,9 +32,9 @@ jobs:
         run: |
           pip install -r docs/requirements.txt
 
-      - name: Build MkDocs site
+      - name: Build Zensical site
         run: |
-          mkdocs build --verbose
+          zensical build --verbose
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

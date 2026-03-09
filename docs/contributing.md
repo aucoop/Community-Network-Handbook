@@ -39,7 +39,7 @@ python -m venv .venv
 pip install -r docs/requirements.txt
 
 # Serve locally
-mkdocs serve
+zensical serve
 ```
 
 Then open `http://127.0.0.1:8000` in your browser.
