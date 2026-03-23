@@ -58,6 +58,9 @@ Go to the [Cudy OpenWrt download page](https://www.cudy.com/en-us/blogs/faq/open
 
 Connect your computer to a LAN port on the router using an Ethernet cable. Power on the router and open a browser, then navigate to `http://192.168.10.1`.
 
+!!! tip "Can't reach 192.168.10.1?"
+    Disable Wi-Fi on your computer, check your cable, and make sure your computer got an IP in the `192.168.10.x` range. See the [general troubleshooting section](index.md#cant-reach-the-routers-default-ip) for more steps.
+
 The Cudy setup wizard will start. Complete it with the following settings:
 
 - Create an admin password when prompted (i.e. admin123)
