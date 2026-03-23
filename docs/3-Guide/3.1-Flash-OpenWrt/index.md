@@ -9,11 +9,8 @@ This section contains step-by-step instructions for installing OpenWrt on specif
 
 The following guides are available:
 
+- [Cudy WR3000E](Cudy-WR3000E.md)
 - [Debrick a Router](Debrick.md)
-- [Huawei X](Huawei-X.md)
-- [Router Y](Router-Y.md)
 
 !!! info "Work in Progress"
     More router guides will be added as we test and document additional models.
-
-<!-- TODO: Add general flashing concepts (TFTP, serial console, web UI method), common pitfalls -->
