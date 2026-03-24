@@ -57,9 +57,8 @@ nav:
     - Domain: 3-Guide/3.20-Domain.md
     - Flash OpenWrt:
       - 3-Guide/3.1-Flash-OpenWrt/index.md
+      - Cudy WR3000E: 3-Guide/3.1-Flash-OpenWrt/Cudy-WR3000E.md
       - Debrick a Router: 3-Guide/3.1-Flash-OpenWrt/Debrick.md
-      - Huawei X: 3-Guide/3.1-Flash-OpenWrt/Huawei-X.md
-      - Router Y: 3-Guide/3.1-Flash-OpenWrt/Router-Y.md
     - High Availability: 3-Guide/3.18-High-Availability.md
     - IP Addressing: 3-Guide/3.2-IP-Addressing.md
     - Mesh and Switches: 3-Guide/3.3-Mesh-and-Switches.md
