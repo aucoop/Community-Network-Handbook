@@ -17,6 +17,6 @@ Each one is independent. If Nextcloud crashes, your DNS server keeps running.
     This section will introduce virtualization concepts and explain why Proxmox is a good fit for community networks.
 
 !!! tip "Guide reference"
-    For step-by-step Proxmox setup, see [Guide — Proxmox](../3-Guide/Proxmox/index.md).
+    For step-by-step Proxmox setup, see [Guide — Proxmox](../../3-Guide/Proxmox/index.md).
 
 <!-- TODO: Containers vs VMs, Proxmox overview, minimum hardware requirements -->

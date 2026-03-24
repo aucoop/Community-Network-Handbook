@@ -12,6 +12,6 @@ Time for a **cluster** — multiple physical machines working together as one. W
     This section will introduce clustering concepts and when it makes sense to scale from one server to multiple.
 
 !!! tip "Guide reference"
-    For step-by-step clustering instructions, see [Guide — Clustering](../3-Guide/Clustering/index.md).
+    For step-by-step clustering instructions, see [Guide — Clustering](../../3-Guide/Clustering/index.md).
 
 <!-- TODO: When to cluster (and when not to), Proxmox cluster requirements, networking between nodes -->

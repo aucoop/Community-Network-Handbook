@@ -14,6 +14,6 @@ With a Proxmox cluster and HA configured:
     This section will explain high availability concepts and when they become necessary for a community network.
 
 !!! tip "Guide reference"
-    For HA setup instructions, see [Guide — High Availability](../3-Guide/High-Availability/index.md).
+    For HA setup instructions, see [Guide — High Availability](../../3-Guide/High-Availability/index.md).
 
 <!-- TODO: HA concepts, quorum, fencing, which services to make HA first -->

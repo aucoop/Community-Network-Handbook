@@ -15,6 +15,6 @@ It's the difference between an open door and a front desk.
     This section will explain user management concepts and why RADIUS becomes necessary as the community grows.
 
 !!! tip "Guide reference"
-    For step-by-step RADIUS setup, see [Guide — RADIUS](../3-Guide/RADIUS/index.md).
+    For step-by-step RADIUS setup, see [Guide — RADIUS](../../3-Guide/RADIUS/index.md).
 
 <!-- TODO: FreeRADIUS intro, WPA2-Enterprise basics, user database options -->

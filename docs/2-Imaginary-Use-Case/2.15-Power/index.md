@@ -13,6 +13,6 @@ In places where power is unreliable, you need:
     This section will cover power planning for community networks in areas with unreliable electricity.
 
 !!! tip "Guide reference"
-    For UPS and power setup, see [Guide — Power and UPS](../3-Guide/Power-and-UPS/index.md).
+    For UPS and power setup, see [Guide — Power and UPS](../../3-Guide/Power-and-UPS/index.md).
 
 <!-- TODO: UPS sizing, NUT (Network UPS Tools), solar basics, power budget calculation -->

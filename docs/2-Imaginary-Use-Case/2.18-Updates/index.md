@@ -13,6 +13,6 @@ Everything is running smoothly. So smoothly, in fact, that you haven't touched t
     This section will cover maintenance routines, update strategies, and how to keep a community network healthy long-term.
 
 !!! tip "Guide reference"
-    For a maintenance checklist, see [Guide — Updates and Maintenance](../3-Guide/Updates-and-Maintenance/index.md).
+    For a maintenance checklist, see [Guide — Updates and Maintenance](../../3-Guide/Updates-and-Maintenance/index.md).
 
 <!-- TODO: Update schedule template, rollback strategies, change log practices -->

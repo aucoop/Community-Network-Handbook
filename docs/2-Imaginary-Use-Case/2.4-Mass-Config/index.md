@@ -10,6 +10,6 @@ Think of it as a remote control for your entire network.
     This section will introduce centralized network management and explain why it becomes essential as your network grows.
 
 !!! tip "Guide reference"
-    For step-by-step OpenWISP setup, see [Guide — OpenWISP](../3-Guide/OpenWISP/index.md).
+    For step-by-step OpenWISP setup, see [Guide — OpenWISP](../../3-Guide/OpenWISP/index.md).
 
 <!-- TODO: What problems OpenWISP solves, high-level architecture, screenshots -->

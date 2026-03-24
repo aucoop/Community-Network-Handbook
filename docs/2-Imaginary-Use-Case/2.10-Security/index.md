@@ -16,6 +16,6 @@ Time to lock the doors:
     This section will cover security fundamentals for community networks — not enterprise-grade paranoia, but practical steps that dramatically reduce risk.
 
 !!! tip "Guide reference"
-    For a detailed security checklist, see [Guide — Security](../3-Guide/Security/index.md).
+    For a detailed security checklist, see [Guide — Security](../../3-Guide/Security/index.md).
 
 <!-- TODO: Security checklist, common mistakes, minimum viable security posture -->
