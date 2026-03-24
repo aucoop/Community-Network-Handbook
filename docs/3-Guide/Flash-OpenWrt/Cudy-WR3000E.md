@@ -37,7 +37,7 @@ This guide implements the concept introduced in
 
 Open the official [OpenWrt Website](https://openwrt.org/) and search for `Cudy WR3000E`. Read very carefully the information on the device page to confirm that your hardware revision is supported and to understand the flashing process for this specific model. This website is the authoritative source for OpenWrt compatibility and installation instructions so we recommend reading it thoroughly before proceeding.
 
-![OpenWrt website showing Cudy WR3000E search results](images/3.1-cudy-wr3000e-openwrt-device-page.webp){ width="600" }
+![OpenWrt website showing Cudy WR3000E search results](images/cudy-wr3000e-openwrt-device-page.webp){ width="600" }
 
 This first step is only to validate that your router is supported, once you confirm that, you can proceed to the next steps. No need to do anything else on the OpenWrt website for this guide.
 
@@ -50,7 +50,7 @@ Go to the [Cudy OpenWrt download page](https://www.cudy.com/en-us/blogs/faq/open
 !!! tip
     If your unit was manufactured after November 2025, make sure you download the updated intermediate firmware that supports the new F50L1G41LC flash chip (version 24.10.5 or newer). The Cudy download page notes this compatibility update.
 
-![Cudy firmware download page showing the OpenWrt intermediate image for WR3000E](images/3.1-cudy-wr3000e-firmware-download.webp){ width="600" }
+![Cudy firmware download page showing the OpenWrt intermediate image for WR3000E](images/cudy-wr3000e-firmware-download.webp){ width="600" }
 
 ### 3. Connect to the router and complete the setup wizard
 
@@ -66,11 +66,11 @@ The Cudy setup wizard will start. Complete it with the following settings:
 - Timezone: select your local timezone
 - WAN: **DHCP**
 
-![Cudy setup wizard password creation screen](images/3.1-cudy-wr3000e-password-setup.webp){ width="600" }
+![Cudy setup wizard password creation screen](images/cudy-wr3000e-password-setup.webp){ width="600" }
 
 After the wizard completes, you will land on the Cudy dashboard.
 
-![Cudy router dashboard after completing the setup wizard](images/3.1-cudy-wr3000e-cudy-ui.webp){ width="600" }
+![Cudy router dashboard after completing the setup wizard](images/cudy-wr3000e-cudy-ui.webp){ width="600" }
 
 ### 4. Flash the intermediate OpenWrt firmware
 
@@ -78,11 +78,11 @@ In the Cudy web UI, navigate to **Advanced Settings → System → Firmware**.
 
 Upload the Cudy-signed intermediate firmware `.bin` file you downloaded in step 2 and start the upgrade.
 
-![Cudy firmware update page showing the intermediate OpenWrt image ready to upload](images/3.1-cudy-wr3000e-firmware-update.webp){ width="600" }
+![Cudy firmware update page showing the intermediate OpenWrt image ready to upload](images/cudy-wr3000e-firmware-update.webp){ width="600" }
 
 Wait for the process to complete. The router will display a completion message before rebooting.
 
-![Cudy firmware update completion message](images/3.1-cudy-wr3000e-firmware-complete.webp){ width="600" }
+![Cudy firmware update completion message](images/cudy-wr3000e-firmware-complete.webp){ width="600" }
 
 !!! warning
     Do not power off the router during the flash process. Wait for the completion message before doing anything else.
@@ -98,7 +98,7 @@ Log in with:
 - **Username:** `root`
 - **Password:** *(leave blank — no password set by default)*
 
-![OpenWrt LuCI login page](images/3.1-cudy-wr3000e-openwrt-login.webp){ width="600" }
+![OpenWrt LuCI login page](images/cudy-wr3000e-openwrt-login.webp){ width="600" }
 
 !!! tip "Set a root password immediately"
     OpenWrt has no root password by default. Go to **System → Administration** and set a strong password before connecting the router to any network.
@@ -118,7 +118,7 @@ Wait 2–3 minutes for the router to reboot. When done, log in again at `http://
 
 After installing this new version, you will probably be prompted to enable automatic updates. You can choose to enable them or not. We recommend not enabling automatic updates to avoid unexpected changes in the router's behavior.
 
-![Auto Update Prompt](images/3.1-cudy-wr3000e-auto-update-prompt.webp){ width="600" }
+![Auto Update Prompt](images/cudy-wr3000e-auto-update-prompt.webp){ width="600" }
 
 ## References
 

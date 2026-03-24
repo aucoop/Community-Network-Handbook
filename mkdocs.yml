@@ -50,30 +50,50 @@ nav:
     - Sustainability: 2-Imaginary-Use-Case/2.21-Sustainability.md
   - 3. Guide:
     - 3-Guide/index.md
-    - Antennas: 3-Guide/3.4-Antennas.md
-    - Captive Portal: 3-Guide/3.9-Captive-Portal.md
-    - Clustering: 3-Guide/3.15-Clustering.md
-    - DNS: 3-Guide/3.7-DNS.md
-    - Domain: 3-Guide/3.20-Domain.md
+    - Antennas:
+      - 3-Guide/Antennas/index.md
+    - Captive Portal:
+      - 3-Guide/Captive-Portal/index.md
+    - Clustering:
+      - 3-Guide/Clustering/index.md
+    - DNS:
+      - 3-Guide/DNS/index.md
+    - Domain:
+      - 3-Guide/Domain/index.md
     - Flash OpenWrt:
-      - 3-Guide/3.1-Flash-OpenWrt/index.md
-      - Cudy WR3000E: 3-Guide/3.1-Flash-OpenWrt/Cudy-WR3000E.md
-      - Debrick a Router: 3-Guide/3.1-Flash-OpenWrt/Debrick.md
-    - High Availability: 3-Guide/3.18-High-Availability.md
-    - IP Addressing: 3-Guide/3.2-IP-Addressing.md
-    - Mesh and Switches: 3-Guide/3.3-Mesh-and-Switches.md
-    - Nextcloud: 3-Guide/3.12-Nextcloud.md
-    - OpenWISP: 3-Guide/3.5-OpenWISP.md
-    - Power and UPS: 3-Guide/3.16-Power-and-UPS.md
-    - Proxmox: 3-Guide/3.13-Proxmox.md
-    - Proxmox Backup Server: 3-Guide/3.17-Proxmox-Backup-Server.md
-    - RADIUS: 3-Guide/3.10-RADIUS.md
-    - Security: 3-Guide/3.11-Security.md
-    - Storage: 3-Guide/3.14-Storage.md
-    - Updates and Maintenance: 3-Guide/3.19-Updates-and-Maintenance.md
-    - VPN: 3-Guide/3.8-VPN.md
-    - Website: 3-Guide/3.21-Website.md
-    - Zabbix: 3-Guide/3.6-Zabbix.md
+      - 3-Guide/Flash-OpenWrt/index.md
+      - Cudy WR3000E: 3-Guide/Flash-OpenWrt/Cudy-WR3000E.md
+      - Debrick a Router: 3-Guide/Flash-OpenWrt/Debrick.md
+    - High Availability:
+      - 3-Guide/High-Availability/index.md
+    - IP Addressing:
+      - 3-Guide/IP-Addressing/index.md
+    - Mesh and Switches:
+      - 3-Guide/Mesh-and-Switches/index.md
+    - Nextcloud:
+      - 3-Guide/Nextcloud/index.md
+    - OpenWISP:
+      - 3-Guide/OpenWISP/index.md
+    - Power and UPS:
+      - 3-Guide/Power-and-UPS/index.md
+    - Proxmox:
+      - 3-Guide/Proxmox/index.md
+    - Proxmox Backup Server:
+      - 3-Guide/Proxmox-Backup-Server/index.md
+    - RADIUS:
+      - 3-Guide/RADIUS/index.md
+    - Security:
+      - 3-Guide/Security/index.md
+    - Storage:
+      - 3-Guide/Storage/index.md
+    - Updates and Maintenance:
+      - 3-Guide/Updates-and-Maintenance/index.md
+    - VPN:
+      - 3-Guide/VPN/index.md
+    - Website:
+      - 3-Guide/Website/index.md
+    - Zabbix:
+      - 3-Guide/Zabbix/index.md
   - 4. Real Use Cases:
     - 4-Real-Use-Cases/index.md
     - Namibia:
