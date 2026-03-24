@@ -10,6 +10,6 @@ A VPN creates a secure tunnel between you and the community network, no matter w
     This section will explain why remote access is critical for community networks and introduce VPN as the solution.
 
 !!! tip "Guide reference"
-    For step-by-step VPN setup, see [Guide — VPN](../3-Guide/VPN/index.md).
+    For step-by-step VPN setup, see [Guide — VPN](../../3-Guide/VPN/index.md).
 
 <!-- TODO: VPN concepts, WireGuard vs OpenVPN, server placement -->

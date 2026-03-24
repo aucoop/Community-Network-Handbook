@@ -26,28 +26,46 @@ nav:
       - 2-Imaginary-Use-Case/2.3-The-Other-Building/index.md
       - Antennas: 2-Imaginary-Use-Case/2.3-The-Other-Building/2.3.1-Antennas.md
     # Act 2 — Growing Pains
-    - Mass Config: 2-Imaginary-Use-Case/2.4-Mass-Config.md
-    - Monitoring: 2-Imaginary-Use-Case/2.5-Monitoring.md
-    - DNS: 2-Imaginary-Use-Case/2.6-DNS.md
-    - Remote Access: 2-Imaginary-Use-Case/2.7-Remote-Access.md
-    - Captive Portal: 2-Imaginary-Use-Case/2.8-Captive-Portal.md
-    - User Management: 2-Imaginary-Use-Case/2.9-User-Management.md
-    - Security: 2-Imaginary-Use-Case/2.10-Security.md
+    - Mass Config:
+      - 2-Imaginary-Use-Case/2.4-Mass-Config/index.md
+    - Monitoring:
+      - 2-Imaginary-Use-Case/2.5-Monitoring/index.md
+    - DNS:
+      - 2-Imaginary-Use-Case/2.6-DNS/index.md
+    - Remote Access:
+      - 2-Imaginary-Use-Case/2.7-Remote-Access/index.md
+    - Captive Portal:
+      - 2-Imaginary-Use-Case/2.8-Captive-Portal/index.md
+    - User Management:
+      - 2-Imaginary-Use-Case/2.9-User-Management/index.md
+    - Security:
+      - 2-Imaginary-Use-Case/2.10-Security/index.md
     # Act 3 — Adding Value
-    - Local Services: 2-Imaginary-Use-Case/2.11-Local-Services.md
-    - Virtualization: 2-Imaginary-Use-Case/2.12-Virtualization.md
-    - Storage: 2-Imaginary-Use-Case/2.13-Storage.md
-    - Clustering: 2-Imaginary-Use-Case/2.14-Clustering.md
+    - Local Services:
+      - 2-Imaginary-Use-Case/2.11-Local-Services/index.md
+    - Virtualization:
+      - 2-Imaginary-Use-Case/2.12-Virtualization/index.md
+    - Storage:
+      - 2-Imaginary-Use-Case/2.13-Storage/index.md
+    - Clustering:
+      - 2-Imaginary-Use-Case/2.14-Clustering/index.md
     # Act 4 — Protecting What You Built
-    - Power: 2-Imaginary-Use-Case/2.15-Power.md
-    - Backups: 2-Imaginary-Use-Case/2.16-Backups.md
-    - High Availability: 2-Imaginary-Use-Case/2.17-High-Availability.md
-    - Updates: 2-Imaginary-Use-Case/2.18-Updates.md
+    - Power:
+      - 2-Imaginary-Use-Case/2.15-Power/index.md
+    - Backups:
+      - 2-Imaginary-Use-Case/2.16-Backups/index.md
+    - High Availability:
+      - 2-Imaginary-Use-Case/2.17-High-Availability/index.md
+    - Updates:
+      - 2-Imaginary-Use-Case/2.18-Updates/index.md
     # Act 5 — Telling the World
-    - Domain: 2-Imaginary-Use-Case/2.19-Domain.md
-    - Website: 2-Imaginary-Use-Case/2.20-Website.md
+    - Domain:
+      - 2-Imaginary-Use-Case/2.19-Domain/index.md
+    - Website:
+      - 2-Imaginary-Use-Case/2.20-Website/index.md
     # Act 6 — The Long Run
-    - Sustainability: 2-Imaginary-Use-Case/2.21-Sustainability.md
+    - Sustainability:
+      - 2-Imaginary-Use-Case/2.21-Sustainability/index.md
   - 3. Guide:
     - 3-Guide/index.md
     - Antennas:

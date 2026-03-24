@@ -15,6 +15,6 @@ Domains are cheap — often under $15/year — and they're the first step to hav
     This section will explain how to choose and register a domain name and point it to your network's public IP.
 
 !!! tip "Guide reference"
-    For domain setup instructions, see [Guide — Domain](../3-Guide/Domain/index.md).
+    For domain setup instructions, see [Guide — Domain](../../3-Guide/Domain/index.md).
 
 <!-- TODO: Domain registrars, DNS records (A, CNAME, MX), dynamic DNS for changing IPs -->

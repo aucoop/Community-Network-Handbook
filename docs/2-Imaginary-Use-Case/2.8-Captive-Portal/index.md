@@ -13,6 +13,6 @@ A **captive portal** is the splash page that appears when someone connects to a 
     This section will introduce captive portals and why they're valuable for community networks beyond just authentication.
 
 !!! tip "Guide reference"
-    For step-by-step captive portal setup, see [Guide — Captive Portal](../3-Guide/Captive-Portal/index.md).
+    For step-by-step captive portal setup, see [Guide — Captive Portal](../../3-Guide/Captive-Portal/index.md).
 
 <!-- TODO: Nodogsplash vs OpenNDS, design tips, legal considerations -->
