@@ -32,9 +32,13 @@ jobs:
         run: |
           pip install -r docs/requirements.txt
 
+      - name: Install Zensical
+        run: |
+          pip install zensical
+
       - name: Build Zensical site
         run: |
-          zensical build --verbose
+          zensical build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
