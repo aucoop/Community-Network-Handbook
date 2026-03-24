@@ -1,0 +1,17 @@
+# *"One machine isn't enough anymore"*
+
+Your Proxmox server is running seven containers and two VMs. The CPU is at 90%, RAM is nearly full, and adding more services means degrading the ones already running.
+
+Time for a **cluster** — multiple physical machines working together as one. With Proxmox clustering you can:
+
+- **Spread the load** across multiple servers
+- **Migrate services** from one machine to another (even live, without downtime)
+- **Add capacity** gradually — buy a second machine when you need it, a third later
+
+!!! info "Work in Progress"
+    This section will introduce clustering concepts and when it makes sense to scale from one server to multiple.
+
+!!! tip "Guide reference"
+    For step-by-step clustering instructions, see [Guide — Clustering](../../3-Guide/Clustering/index.md).
+
+<!-- TODO: When to cluster (and when not to), Proxmox cluster requirements, networking between nodes -->

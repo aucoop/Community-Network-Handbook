@@ -1,0 +1,15 @@
+# *"Was it .1.34 or .1.43?"*
+
+Your network now has routers, servers, printers, and access points. Each one has an IP address. You've been keeping track on a sticky note, but the note is full and you just typed the wrong IP for the third time today.
+
+**DNS** (Domain Name System) lets you give human-readable names to your devices. Instead of `192.168.1.34`, you type `printer.local` or `server.mynetwork`. Your brain thanks you.
+
+Setting up a local DNS server is one of those small investments that pays off enormously as your network grows.
+
+!!! info "Work in Progress"
+    This section will introduce DNS concepts and explain why a local DNS server is essential for a growing network.
+
+!!! tip "Guide reference"
+    For step-by-step DNS setup, see [Guide — DNS](../../3-Guide/DNS/index.md).
+
+<!-- TODO: DNS basics, dnsmasq vs Pi-hole vs Bind, local domain naming conventions -->

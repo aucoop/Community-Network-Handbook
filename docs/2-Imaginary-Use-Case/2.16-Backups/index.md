@@ -1,0 +1,20 @@
+# *"What if the server catches fire?"*
+
+It sounds dramatic, but hardware fails. Hard drives die. Someone accidentally deletes a database. A botched update corrupts the system.
+
+If you don't have backups, **everything you built is one bad day away from being gone**.
+
+**Proxmox Backup Server (PBS)** is designed specifically to back up Proxmox VMs and containers. It supports:
+
+- **Incremental backups** — only back up what changed, saving space and time
+- **Scheduled backups** — automatic, no human intervention needed
+- **Off-site replication** — copy backups to a different location (another building, a cloud server)
+- **Easy restore** — bring back a VM or container to any point in time
+
+!!! info "Work in Progress"
+    This section will explain backup strategy for community networks and introduce Proxmox Backup Server.
+
+!!! tip "Guide reference"
+    For step-by-step PBS setup, see [Guide — Proxmox Backup Server](../../3-Guide/Proxmox-Backup-Server/index.md).
+
+<!-- TODO: 3-2-1 backup rule, PBS setup, scheduling, restore testing -->

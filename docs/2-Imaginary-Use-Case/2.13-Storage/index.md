@@ -1,0 +1,17 @@
+# *"Where do I put all these files?!"*
+
+Nextcloud is running, people are uploading documents and photos, the Kiwix library is growing — and your server's 128 GB SSD is almost full.
+
+You need more storage. Options:
+
+- **External HDD** — cheap, plug-and-play, good for a quick fix
+- **NAS (Network Attached Storage)** — a dedicated storage device accessible from any machine on the network
+- **Multiple drives** — RAID configurations for redundancy (so one disk dying doesn't mean losing everything)
+
+!!! info "Work in Progress"
+    This section will discuss storage options for community networks, from simple USB drives to proper NAS setups.
+
+!!! tip "Guide reference"
+    For storage setup instructions, see [Guide — Storage](../../3-Guide/Storage/index.md).
+
+<!-- TODO: HDD vs SSD, RAID basics, NAS software options (OpenMediaVault, TrueNAS) -->

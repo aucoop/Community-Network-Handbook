@@ -3,8 +3,120 @@ site_description: A field guide to build community networks from scratch
 site_dir: public
 copyright: Copyright 2025-present, AUCOOP (https://aucoop.upc.edu)
 
-# nav:
-#   - Federation Manager: index.md
+nav:
+  - Home: index.md
+  - 1. Introduction:
+    - 1-Introduction/index.md
+    - Motivation: 1-Introduction/1.1-Motivation.md
+    - Target Reader: 1-Introduction/1.2-Target-Reader.md
+  - 2. Imaginary Use Case:
+    - 2-Imaginary-Use-Case/index.md
+    # Act 1 — Getting Connected
+    - The First Router:
+      - 2-Imaginary-Use-Case/2.1-The-First-Router/index.md
+      - Choosing Hardware: 2-Imaginary-Use-Case/2.1-The-First-Router/2.1.1-Choosing-Hardware.md
+      - Installing OpenWrt: 2-Imaginary-Use-Case/2.1-The-First-Router/2.1.2-Installing-OpenWrt.md
+      - Debrick a Router: 2-Imaginary-Use-Case/2.1-The-First-Router/2.1.3-Debrick.md
+    - Expanding Coverage:
+      - 2-Imaginary-Use-Case/2.2-Expanding-Coverage/index.md
+      - Planning: 2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.1-Planning.md
+      - IP Addressing: 2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.2-IP-Addressing.md
+      - Wired vs Wireless: 2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.3-Wired-vs-Wireless.md
+    - The Other Building:
+      - 2-Imaginary-Use-Case/2.3-The-Other-Building/index.md
+      - Antennas: 2-Imaginary-Use-Case/2.3-The-Other-Building/2.3.1-Antennas.md
+    # Act 2 — Growing Pains
+    - Mass Config:
+      - 2-Imaginary-Use-Case/2.4-Mass-Config/index.md
+    - Monitoring:
+      - 2-Imaginary-Use-Case/2.5-Monitoring/index.md
+    - DNS:
+      - 2-Imaginary-Use-Case/2.6-DNS/index.md
+    - Remote Access:
+      - 2-Imaginary-Use-Case/2.7-Remote-Access/index.md
+    - Captive Portal:
+      - 2-Imaginary-Use-Case/2.8-Captive-Portal/index.md
+    - User Management:
+      - 2-Imaginary-Use-Case/2.9-User-Management/index.md
+    - Security:
+      - 2-Imaginary-Use-Case/2.10-Security/index.md
+    # Act 3 — Adding Value
+    - Local Services:
+      - 2-Imaginary-Use-Case/2.11-Local-Services/index.md
+    - Virtualization:
+      - 2-Imaginary-Use-Case/2.12-Virtualization/index.md
+    - Storage:
+      - 2-Imaginary-Use-Case/2.13-Storage/index.md
+    - Clustering:
+      - 2-Imaginary-Use-Case/2.14-Clustering/index.md
+    # Act 4 — Protecting What You Built
+    - Power:
+      - 2-Imaginary-Use-Case/2.15-Power/index.md
+    - Backups:
+      - 2-Imaginary-Use-Case/2.16-Backups/index.md
+    - High Availability:
+      - 2-Imaginary-Use-Case/2.17-High-Availability/index.md
+    - Updates:
+      - 2-Imaginary-Use-Case/2.18-Updates/index.md
+    # Act 5 — Telling the World
+    - Domain:
+      - 2-Imaginary-Use-Case/2.19-Domain/index.md
+    - Website:
+      - 2-Imaginary-Use-Case/2.20-Website/index.md
+    # Act 6 — The Long Run
+    - Sustainability:
+      - 2-Imaginary-Use-Case/2.21-Sustainability/index.md
+  - 3. Guide:
+    - 3-Guide/index.md
+    - Antennas:
+      - 3-Guide/Antennas/index.md
+    - Captive Portal:
+      - 3-Guide/Captive-Portal/index.md
+    - Clustering:
+      - 3-Guide/Clustering/index.md
+    - DNS:
+      - 3-Guide/DNS/index.md
+    - Domain:
+      - 3-Guide/Domain/index.md
+    - Flash OpenWrt:
+      - 3-Guide/Flash-OpenWrt/index.md
+      - Cudy WR3000E: 3-Guide/Flash-OpenWrt/Cudy-WR3000E.md
+      - Debrick a Router: 3-Guide/Flash-OpenWrt/Debrick.md
+    - High Availability:
+      - 3-Guide/High-Availability/index.md
+    - IP Addressing:
+      - 3-Guide/IP-Addressing/index.md
+    - Mesh and Switches:
+      - 3-Guide/Mesh-and-Switches/index.md
+    - Nextcloud:
+      - 3-Guide/Nextcloud/index.md
+    - OpenWISP:
+      - 3-Guide/OpenWISP/index.md
+    - Power and UPS:
+      - 3-Guide/Power-and-UPS/index.md
+    - Proxmox:
+      - 3-Guide/Proxmox/index.md
+    - Proxmox Backup Server:
+      - 3-Guide/Proxmox-Backup-Server/index.md
+    - RADIUS:
+      - 3-Guide/RADIUS/index.md
+    - Security:
+      - 3-Guide/Security/index.md
+    - Storage:
+      - 3-Guide/Storage/index.md
+    - Updates and Maintenance:
+      - 3-Guide/Updates-and-Maintenance/index.md
+    - VPN:
+      - 3-Guide/VPN/index.md
+    - Website:
+      - 3-Guide/Website/index.md
+    - Zabbix:
+      - 3-Guide/Zabbix/index.md
+  - 4. Real Use Cases:
+    - 4-Real-Use-Cases/index.md
+    - Namibia:
+      - 4-Real-Use-Cases/4.1-Namibia/index.md
+  - Contributing: contributing.md
 
 theme:
   name: material

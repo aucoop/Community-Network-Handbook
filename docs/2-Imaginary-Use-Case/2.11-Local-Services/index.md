@@ -1,0 +1,19 @@
+# *"Can this network do more than just internet?"*
+
+The teachers ask: *"Can we share files between classrooms?"* The clinic asks: *"Can we have a shared calendar?"* Someone suggests hosting a local Wikipedia mirror for when the internet goes down.
+
+Your network is more than pipes for internet traffic — it's a **platform**. You can host local services that work even when the internet connection is slow or completely down:
+
+- **Nextcloud** — file sharing, calendars, collaborative editing
+- **Kiwix** — offline Wikipedia and educational content
+- **LibreSpeed** — local speed test for your network
+- **Local AI** — run language models for translation or education
+- **Jellyfin** — media server for educational videos
+
+!!! info "Work in Progress"
+    This section will explore what local services can add value to a community network and how to decide which ones to deploy.
+
+!!! tip "Guide reference"
+    For Nextcloud setup, see [Guide — Nextcloud](../../3-Guide/Nextcloud/index.md).
+
+<!-- TODO: Service catalog, decision matrix, resource requirements per service -->

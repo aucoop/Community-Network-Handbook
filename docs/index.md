@@ -1,26 +1,28 @@
-# A Community Networks Handbook
+# Community Network Handbook
 
-This project is an attempt for guiding someone who has heard the community networks concept and wants to learn how to build one from scratch.
+A practical, opinionated guide to building community networks from scratch — even with limited resources.
 
-<!-- TODO I'd like to have the living book ordered just by the folder structure. -->
+---
 
-This project is a guide based on our experience on https://hahatay.network. We explain everything we did, the good and the bad and how the project still runs since 2021. The guide is written basically by people who have been volunteering in the project since the beginning.
+This project is an attempt to guide someone who has heard the community networks concept and wants to learn how to build one from scratch.
 
-So it's some sort of lessons learned, but we believe that many lessons are general enough to be useful for other people wanting to start their own community networks.
+This guide is based on our experience at [Hahatay Network](https://hahatay.network). We explain everything we did — the good and the bad — and how the project still runs since 2021. The guide is written mainly by people who have been volunteering in the project since the beginning.
 
-The principles behind this handbook are:
+So this is a collection of lessons learned, but we believe many of those lessons are general enough to be useful for other people who want to start their own community networks.
 
-* Be practical: we want to focus on the "how to" more than the "why". There are many resources explaining the why, but not so many explaining how to do it step by step.
-* On a budget: we want to show how to build community networks with low cost, using affordable equipment and free and open source software when possible.
-* This is an opinioned guide: there are many ways to build community networks, and this is just one way based on our experience. We don't claim this is the best way, just one that worked for us :).
+## The principles behind this handbook
 
-This is a, and is intended to be a living book, meaning that is designed in a way that is easy toe extend (just adding text files in the `docs` folder is enough.)
+- **Be practical:** we focus on the *how-to* more than the *why*. There are many resources explaining the why, but not so many that explain how to do it step by step.
+- **On a budget:** we show how to build community networks at low cost, using affordable equipment and free and open-source software whenever possible.
+- **This is an opinioned guide:** there are many ways to build community networks, and this is just one way based on our experience. We don't claim it is the best way, just one that worked for us.
+- **This is a living book:** it is designed to be easy to extend (adding text files in the `docs/` folder is enough).
 
-The idea is that the text resides on github, meaning that anyone can contribute with improvements, corrections, new chapters, etc. Even if you don't have technical knowledge you can just edit directly on Github.
+!!! note "Not just for community networks"
+    Despite the name, this guide works for **any small-to-medium network** setup. We use "community network" terminology because that's the context it was born in, but the techniques apply broadly.
 
-## A note on community networks
+## Contributing
 
-We title this handbook "A Community Networks Handbook", but in reality this works for any small-medium network setup, not necessarily community networks. However, since the nature of the project that inspired this is intended to be a community network, we use that terminology throughout the book.
+The text lives on GitHub, which means anyone can contribute improvements, corrections, and new chapters. Even without technical knowledge, you can edit directly on GitHub.
 
-
+See [Contributing](contributing.md) for details.
 

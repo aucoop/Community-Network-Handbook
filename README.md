@@ -1,12 +1,12 @@
 # Community-Network-Handbook
 A field guide to build community networks from scratch
 
-This directory contains the source documentation for the project. The documentation is built using [MkDocs](https://www.mkdocs.org/) and the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme.
+This directory contains the source documentation for the project. The documentation is built using [Zensical](https://zensical.org/), a modern static site generator by the creators of Material for MkDocs.
 
 ## Prerequisites
 
 - Python 3
-- The virtual environment located at `docs/.venv` (created automatically if you followed the setup).
+- A virtual environment located at `.venv`
 
 ## Setup
 
@@ -14,8 +14,15 @@ If you haven't set up the environment yet, you can create the virtual environmen
 
 ```bash
 # From the project root
-python3 -m venv docs/.venv
-docs/.venv/bin/pip install -r docs/requirements.txt
+python3 -m venv .venv
+.venv/bin/pip install -r docs/requirements.txt
+```
+
+On Windows PowerShell:
+
+```powershell
+py -m venv .venv
+.\.venv\Scripts\pip install -r docs\requirements.txt
 ```
 
 ## Serving Locally
@@ -24,7 +31,13 @@ To preview the documentation as you write, serve it locally. The site will autom
 
 ```bash
 # From the project root
-docs/.venv/bin/mkdocs serve
+.venv/bin/zensical serve
+```
+
+On Windows PowerShell:
+
+```powershell
+.\.venv\Scripts\zensical.exe serve
 ```
 
 Open your browser to `http://127.0.0.1:8000/`.
@@ -35,5 +48,11 @@ To build the static site (output to `public/`):
 
 ```bash
 # From the project root
-docs/.venv/bin/mkdocs build
+.venv/bin/zensical build
+```
+
+On Windows PowerShell:
+
+```powershell
+.\.venv\Scripts\zensical.exe build
 ```
