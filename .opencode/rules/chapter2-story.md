@@ -23,6 +23,13 @@ Applies to: `docs/2-Imaginary-Use-Case/**`
 
 - WIP marker and TODO when incomplete.
 
+## Images
+- Images in Ch2 are **narrative and conceptual**: photos of sites, network topology overviews, scenario illustrations.
+- Place images in the section's `images/` subfolder (see general rules for full convention).
+- Use descriptive alt text that fits the story context.
+- Captions (`<figure>`) are encouraged for photos that set the scene.
+- Always use the placeholder workflow: copy `docs/assets/placeholder.webp` with the final filename, add a `<!-- TODO: Replace placeholder image — ... -->` comment.
+
 ## Do Not
 - Do not write detailed implementation steps here.
 - Do not create a Ch2 topic without a matching Ch3 guide.
