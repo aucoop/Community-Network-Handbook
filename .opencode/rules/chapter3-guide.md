@@ -63,7 +63,7 @@ Example:
 
 ```
 This guide implements the concept introduced in
-[Chapter 2 – Why Request Validation Matters](../2-Story/request-validation.md).
+[Chapter 2 – Why Request Validation Matters](../2-Imaginary-Use-Case/request-validation.md).
 ```
 
 Rules:
@@ -142,6 +142,45 @@ Guidelines:
 
 ---
 
+# User-Provided Steps Input
+
+When the user provides steps they already executed (field notes, terminal history, checklist), treat them as the primary input for guide drafting.
+
+Rules:
+
+* Preserve the real execution order unless there is a clear correctness issue.
+* Normalize wording into clear instructional steps without changing technical meaning.
+* Keep original commands/paths/values whenever possible.
+* If information is missing, first infer from repository context and user-provided environment details.
+* Use web research to resolve missing technical details before deciding to leave TODO markers.
+* Leave TODO markers only for details that are truly unknowable after context and web validation.
+* If a provided step is risky or outdated, keep it documented but add a warning and safer alternative.
+
+Recommended section block near the start of the guide:
+
+```markdown
+## Implementation Notes from Real Execution
+
+This guide is based on steps executed in a real deployment and then normalized for reuse.
+```
+
+---
+
+# Planning Gate (Required)
+
+Before writing or editing a Chapter 3 guide, the agent must first present a plan and ask the user for confirmation.
+
+Required pre-write output:
+
+* Target files (create/update)
+* Normalized implementation step outline
+* Risks, warnings, and outdated commands detected
+* Missing information and assumptions
+
+The agent must wait for explicit user approval before modifying files.
+
+---
+
 # Internet Research Requirement
 
 Before generating a guide, the agent **must search for up-to-date technical information**.
@@ -152,6 +191,7 @@ Rules:
 * Avoid outdated APIs or deprecated libraries
 * Ensure examples match **current tool versions**
 * Validate syntax and best practices against reliable sources
+* Use research results to complete missing values whenever possible, not just to add references
 
 Preferred sources:
 
