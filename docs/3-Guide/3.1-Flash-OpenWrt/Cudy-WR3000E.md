@@ -131,6 +131,6 @@ After installing this new version, you will probably be prompted to enable autom
 
 ## Revision History
 
-| Date | Version | Changes |
-|------|---------|---------|
-| 2026-03-23 | 1.0 | Initial guide creation |
+| Date       | Version | Changes                | Author           | Contributors                |
+|------------|---------|------------------------|------------------|-----------------------------|
+| 2026-03-23 | 1.0     | Initial guide creation | Maria Jover      | Jaime Motjé, Sergio Giménez |
