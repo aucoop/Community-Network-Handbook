@@ -163,7 +163,7 @@ Go to **Network > Wireless**, find the **2.4 GHz radio**, and click **Add** (or 
 
 | Setting    | Value                                                                     |
 |------------|---------------------------------------------------------------------------|
-| Encryption | **WPA3-PSK** (best compatibility with older student devices)              |
+| Encryption | **WPA2-PSK** (best compatibility with older student devices)              |
 | Key        | The shared password for students                                          |
 
 ![LuCI 2.4 GHz wireless security settings](images/Wireless-Mesh-2ghz-ap-security.webp){ width="600" }
