@@ -31,7 +31,6 @@ This guide implements the concepts introduced in
 | Software       | Version          |
 |----------------|------------------|
 | OpenWrt        | 25.12.1          |
-| LuCI           | 24.x             |
 | wpad-mesh-wolfssl | 2025.08.26~ca266cc2-r1	    |
 | Router model   | Cudy WR3000E v1  |
 
