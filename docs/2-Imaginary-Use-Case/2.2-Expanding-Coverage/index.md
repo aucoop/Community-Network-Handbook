@@ -1,12 +1,20 @@
 # *"The WiFi doesn't reach the kitchen!"*
 
-Your first router is working. The office has internet. But walk fifty meters to the classroom and the signal is gone. The courtyard? Forget it.
+<!-- TODO: Diagram of hybrid wired+mesh deployment, mention Dumb AP mode, mesh configuration -->
 
-One router is never enough. You need to **expand your coverage** — but before you start buying more hardware, you need to think about a few things:
+Your first router is humming along nicely in the office. Laptops connect, pages load, everyone is happy — **in that one room**.
 
-- **Where** should you place the routers?
-- **How** will they connect to each other — cables or wireless?
-- **What about IP addresses** — how do you stop everything from conflicting?
+Then the complaints start. The teacher in the classroom down the hall says she can't load her lesson plans. The students in the courtyard wave their phones in the air like they're trying to catch a signal from space. Someone from the kitchen pokes their head in and asks, "Is the internet broken? I can't get anything back there."
+
+It isn't broken. It's just that **a single router was never meant to cover an entire community center**. WiFi signals don't bend around corners gracefully. They don't punch through thick concrete walls. And they definitely don't reach across a courtyard and into another building.
+
+So the obvious answer is: **buy more routers**. Simple, right? You wish. The moment you start thinking about a second router, a cascade of questions hits you:
+
+- **Where** do you put it? Not all spots are equal — walls, ceilings, and power outlets all matter
+- **IP conflicts** — plug it in with factory settings and both routers think they're `192.168.1.1`. Now nothing works
+- **How do they connect?** — should you run Ethernet cables between them, or can they just talk wirelessly?
+
+You're realizing that expanding a network isn't like extending a power strip — you can't just daisy-chain things and hope for the best. There are decisions to make, and making the wrong ones now means tearing everything apart later.
 
 !!! info "Work in Progress"
     This section introduces the challenges of expanding from a single router to a multi-router deployment.
