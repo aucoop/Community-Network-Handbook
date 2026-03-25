@@ -145,12 +145,15 @@ Go to **Network > Wireless**, find the **2.4 GHz radio**, and click **Add** (or 
 
 | Setting    | Value                                                                     |
 |------------|---------------------------------------------------------------------------|
-| Encryption | **WPA2-PSK** (best compatibility with older student devices)              |
+| Encryption | **WPA3-SAE**                                                              |
 | Key        | The shared password for students                                          |
 
 ![LuCI 2.4 GHz wireless security settings](images/wifi_2_security.png){ width="600" }
 
 Click **Save & Apply**.
+
+!!! tip "Need wider device compatibility?"
+    Start with **WPA3-SAE** if your client devices support it. If you run into connection problems with older phones, laptops, or IoT devices, switch the 2.4 GHz access point to **WPA2-PSK** while keeping the same **ESSID** and **Key** on both routers.
 
 !!! note "Seamless roaming between access points"
     For students to walk between classrooms without re-entering the password, the **ESSID**, **Encryption**, and **Key** must be identical on the 2.4 GHz AP of both routers. The devices will automatically switch to the stronger signal.
