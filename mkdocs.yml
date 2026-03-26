@@ -86,8 +86,8 @@ nav:
       - 3-Guide/High-Availability/index.md
     - IP Addressing:
       - 3-Guide/IP-Addressing/index.md
-    - Mesh and Switches:
-      - 3-Guide/Mesh-and-Switches/index.md
+    - Wireless Mesh:
+      - 3-Guide/Wireless-Mesh/index.md
     - Nextcloud:
       - 3-Guide/Nextcloud/index.md
     - OpenWISP:
