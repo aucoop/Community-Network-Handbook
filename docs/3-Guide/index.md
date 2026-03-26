@@ -17,7 +17,7 @@ flowchart TD
     OneRoom -->|One room| AP["<a href='Flash-OpenWrt/'>Flash OpenWrt</a>"]
     OneRoom -->|Bigger space| MultiAP{Multiple<br>buildings?}
 
-    MultiAP -->|No, one building| Coverage["<a href='IP-Addressing/'>IP Addressing</a><br><a href='Mesh-and-Switches/'>Mesh & Switches</a>"]
+    MultiAP -->|No, one building| Coverage["<a href='IP-Addressing/'>IP Addressing</a><br><a href='Wireless-Mesh/'>Wireless Mesh</a>"]
     MultiAP -->|Yes, multiple| Antennas["<a href='Antennas/'>Antennas</a>"]
 
     AP --> ManyRouters{More than<br>5 routers?}
@@ -77,7 +77,7 @@ flowchart TD
 | [Flash OpenWrt](Flash-OpenWrt/index.md) | Install OpenWrt on specific router models |
 | [High Availability](High-Availability/index.md) | Redundancy and failover |
 | [IP Addressing](IP-Addressing/index.md) | Subnet planning and IP assignment |
-| [Mesh & Switches](Mesh-and-Switches/index.md) | Wired and wireless backhaul |
+| [Wireless Mesh](Wireless-Mesh/index.md) | Wireless mesh backhaul |
 | [Nextcloud](Nextcloud/index.md) | File sharing and collaboration |
 | [OpenWISP](OpenWISP/index.md) | Centralized router management |
 | [Power & UPS](Power-and-UPS/index.md) | Uninterruptible power and solar |
