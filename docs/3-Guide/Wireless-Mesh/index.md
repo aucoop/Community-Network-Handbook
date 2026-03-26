@@ -171,7 +171,7 @@ Click **Save & Apply**.
 
 !!! note "Seamless roaming between access points"
     For users to move between coverage areas without re-entering the password, the **ESSID**, **Encryption**, and **Key** must be identical on the 2.4 GHz AP of all routers. Devices will automatically switch to the strongest available signal.
-TODO
+
 ## References
 
 - OpenWrt Documentation -- Mesh / 802.11s: <https://openwrt.org/docs/guide-user/network/wifi/mesh/80211s>
