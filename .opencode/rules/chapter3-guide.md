@@ -1,25 +1,22 @@
 # Chapter 3 Guide Rules
 
-**Applies to:** `docs/3-Guide/**`
+Applies to: `docs/3-Guide/**`
 
-## Purpose
-
-Chapter 3 contains **step-by-step technical implementation guides** that translate the concepts introduced in Chapter 2 into **practical instructions that can be executed in a real environment**.
-
-Each guide should enable the reader to **implement the solution described in the corresponding Chapter 2 story**.
+Chapter 3 contains step-by-step technical implementation guides. Each guide enables the reader to implement the solution described in the corresponding Chapter 2 story.
 
 ---
 
-# Required Structure
+## Required Structure
 
-Every Chapter 3 guide must follow this structure in the same order:
+Every guide must follow this order:
 
 ```
-H1 Title
-Scope statement
+# Title (descriptive, instructional — never a question)
+Scope statement (one sentence)
 Chapter 2 cross-link
 ## What You'll Learn
 ## Prerequisites (optional)
+## Used Versions (optional)
 ## Step-by-Step Implementation
 ## References
 ## Revision History
@@ -27,298 +24,105 @@ Chapter 2 cross-link
 
 ---
 
-# Title (H1)
+## Title
 
-Rules:
+- Descriptive and instructional.
+- Not phrased as a question.
+- Example: `# Flash OpenWrt on a Cudy WR3000E`
 
-* Must be **descriptive and instructional**
-* Must **not be phrased as a question**
-* Must clearly describe the implementation task
+## Scope Statement
 
-Example:
+One concise sentence immediately after the title explaining what the guide covers.
 
-```
-# Implement Request Validation Middleware in Express
-```
+## Chapter 2 Cross-Link
 
----
-
-# Scope Statement
-
-Immediately after the title include **one concise sentence** explaining what the guide covers.
-
-Example:
-
-```
-This guide shows how to implement reusable request validation middleware in an Express API.
-```
-
----
-
-# Chapter 2 Cross-Link
-
-Every Chapter 3 guide must reference the **corresponding Chapter 2 story**.
-
-Example:
-
-```
+Reference the corresponding Ch2 story near the beginning:
+```markdown
 This guide implements the concept introduced in
-[Chapter 2 – Why Request Validation Matters](../2-Imaginary-Use-Case/request-validation.md).
+[Chapter 2 — The First Router](../../2-Imaginary-Use-Case/2.1-The-First-Router/index.md).
 ```
 
-Rules:
-
-* The link must appear near the beginning of the document
-* A Chapter 3 guide **must not exist without a matching Chapter 2 story**
-
----
-
-# What You'll Learn
-
-Required section.
-
-```
 ## What You'll Learn
-```
 
-Rules:
+- 3-5 bullet points.
+- Focus on practical skills or outcomes.
+- Do not repeat concepts already covered in Chapter 2.
 
-* 3–5 bullet points
-* Focus on **practical skills or outcomes**
-* Avoid conceptual explanations already covered in Chapter 2
+## Prerequisites (Optional)
 
-Example:
+Include when prior setup or knowledge is required.
 
-* How middleware integrates into the Express request lifecycle
-* How to validate incoming request payloads
-* How to return structured validation errors
+## Used Versions (Optional)
 
----
+Include when specific software versions are critical for the guide.
 
-# Prerequisites (Optional)
-
-Include this section when prior setup or knowledge is required.
-
-```
-## Prerequisites
-```
-
-Examples:
-
-* Node.js installed
-* A running Express project
-* Basic knowledge of JavaScript modules
-
----
-
-# Step-by-Step Implementation
-
-Required section.
-
-```
 ## Step-by-Step Implementation
-```
 
-Rules:
-
-* Steps must be **numbered**
-* Each step must include:
-
-  * A short heading
-  * Explanation of **why the step exists**
-  * Code examples when applicable
-
-Example:
-
-```
-### 1. Install the Validation Library
-```
-
-Guidelines:
-
-* Keep explanations concise
-* Prefer **clear instructions and code examples**
-* Ensure examples are **realistically runnable**
+- Steps must be **numbered** with short headings: `### 1. Install the firmware`
+- Each step: explain **why**, then show **how** with code/commands.
+- Keep explanations concise. Prefer code + explanation.
+- Examples must be realistically runnable.
 
 ---
 
-# User-Provided Steps Input
+## User-Provided Steps
 
-When the user provides steps they already executed (field notes, terminal history, checklist), treat them as the primary input for guide drafting.
+When the user provides steps they already executed (field notes, terminal history):
 
-Rules:
+- Treat them as primary input. Preserve real execution order if it makes sense.
+- Normalize wording into instructional steps without changing technical meaning.
+- Keep original commands, paths, and values as much as possible. Only adjust if you consider them wrong or outdated.
+- Infer missing details from context or web research first. Leave TODO only for truly unknowable values.
 
-* Preserve the real execution order unless there is a clear correctness issue.
-* Normalize wording into clear instructional steps without changing technical meaning.
-* Keep original commands/paths/values whenever possible.
-* If information is missing, first infer from repository context and user-provided environment details.
-* Use web research to resolve missing technical details before deciding to leave TODO markers.
-* Leave TODO markers only for details that are truly unknowable after context and web validation.
-* If a provided step is risky or outdated, keep it documented but add a warning and safer alternative.
+---
 
-Recommended section block near the start of the guide:
+## Internet Research
+
+Before writing a guide, search for up-to-date technical information:
+
+- Prefer official documentation, GitHub repos, and technical RFCs.
+- Ensure commands and examples match current tool versions.
+- Use research to complete missing values — not just for references.
+
+---
+
+## Images
+
+- Ch3 images are **technical**: screenshots, terminal output, UI dialogs, configuration panels.
+- Add `{ width="600" }` for screenshots.
+- Captions are optional — use when the image needs extra context.
+- Follow the placeholder workflow and naming convention in `general.md`.
+
+---
+
+## References (Required)
 
 ```markdown
-## Implementation Notes from Real Execution
+## References
 
-This guide is based on steps executed in a real deployment and then normalized for reuse.
+- OpenWrt Documentation — https://openwrt.org/docs/start
+- Zabbix Manual — https://www.zabbix.com/documentation
 ```
 
----
-
-# Planning Gate (Required)
-
-Before writing or editing a Chapter 3 guide, the agent must first present a plan and ask the user for confirmation.
-
-Required pre-write output:
-
-* Target files (create/update)
-* Normalized implementation step outline
-* Risks, warnings, and outdated commands detected
-* Missing information and assumptions
-
-The agent must wait for explicit user approval before modifying files.
+- Bullet points with resource name and link.
+- Prefer official documentation.
 
 ---
 
-# Internet Research Requirement
-
-Before generating a guide, the agent **must search for up-to-date technical information**.
-
-Rules:
-
-* Prefer **official documentation**
-* Avoid outdated APIs or deprecated libraries
-* Ensure examples match **current tool versions**
-* Validate syntax and best practices against reliable sources
-* Use research results to complete missing values whenever possible, not just to add references
-
-Preferred sources:
-
-* Official documentation
-* GitHub repositories
-* Technical RFCs
-* Well-known technical blogs
-
----
-
-# Images
-
-Guides should include images where they help the reader follow along.
-
-Rules:
-
-* Images in Ch3 are **technical**: screenshots, terminal output, UI dialogs, configuration panels.
-* Place images in the section's `images/` subfolder (see `general.md` for full convention).
-* Use `{ width="600" }` for screenshots to prevent oversized rendering.
-* Use descriptive alt text that describes what the screenshot shows.
-* Always use the placeholder workflow: copy `docs/assets/placeholder.webp` with the final filename, add a `<!-- TODO: Replace placeholder image — ... -->` comment above the image.
-* Captions (`<figure>`) are optional — use when the image needs extra context.
-
-Example:
+## Revision History (Required)
 
 ```markdown
-<!-- TODO: Replace placeholder image — OpenWrt LuCI System > Backup page -->
-![LuCI backup page showing Generate Archive button](images/3.17-luci-backup-page.webp){ width="600" }
-```
-
----
-
-# References (Required)
-
-Every guide must include a references section listing the sources used during research.
-
-```
-## References
-```
-
-Rules:
-
-* Use bullet points
-* Include the resource name and link
-* Prefer official documentation
-
-Example:
-
-```
-## References
-
-- Express Documentation — https://expressjs.com
-- Zod Documentation — https://zod.dev
-- Node.js HTTP API — https://nodejs.org/api/http.html
-```
-
-Purpose:
-
-* Allow readers to verify information
-* Provide additional learning resources
-* Ensure technical accuracy
-
----
-
-# Revision History (Required)
-
-Every guide must include a revision history section.
-
-```
 ## Revision History
-```
 
-Rules:
-
-* Use a table format
-* Record meaningful documentation updates
-
-Example:
-
-```
-| Date | Version | Changes |
-|-----|-----|-----|
-| 2026-03-11 | 1.0 | Initial guide creation |
-| 2026-03-15 | 1.1 | Updated examples to match latest library version |
+| Date       | Version | Changes                | Author           | Contributors                |
+|------------|---------|------------------------|------------------|-----------------------------|
+| 2026-03-23 | 1.0     | Initial guide creation | John Doe         | Alice Muller, Bob Paski     |
 ```
 
 ---
 
-# Writing Style
+## Writing Style
 
-Guidelines:
-
-* Direct
-* Instructional
-* Practical
-* Concise
-
-Rules:
-
-* Avoid storytelling
-* Use short paragraphs
-* Explain **why each step exists**
-* Prefer **code + explanation**
-
----
-
-# Prohibited Content
-
-Do not include:
-
-* Long narrative storytelling
-* Concept explanations already covered in Chapter 2
-* Philosophical discussions
-* New topics without a corresponding Chapter 2 story
-
----
-
-# Content Integrity Rule
-
-A Chapter 3 guide **must not be created unless a matching Chapter 2 story exists**.
-
-Relationship model:
-
-```
-Chapter 2 → Concept / Story
-Chapter 3 → Practical Implementation
-```
-
-If the Chapter 2 story does not exist, the agent must **create the story first or stop generation**.
-
+- Direct, instructional, concise.
+- Short paragraphs. Explain why each step exists.
+- No narrative storytelling or concept explanations already in Ch2.
