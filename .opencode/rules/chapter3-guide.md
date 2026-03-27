@@ -162,6 +162,28 @@ Preferred sources:
 
 ---
 
+# Images
+
+Guides should include images where they help the reader follow along.
+
+Rules:
+
+* Images in Ch3 are **technical**: screenshots, terminal output, UI dialogs, configuration panels.
+* Place images in the section's `images/` subfolder (see `general.md` for full convention).
+* Use `{ width="600" }` for screenshots to prevent oversized rendering.
+* Use descriptive alt text that describes what the screenshot shows.
+* Always use the placeholder workflow: copy `docs/assets/placeholder.webp` with the final filename, add a `<!-- TODO: Replace placeholder image — ... -->` comment above the image.
+* Captions (`<figure>`) are optional — use when the image needs extra context.
+
+Example:
+
+```markdown
+<!-- TODO: Replace placeholder image — OpenWrt LuCI System > Backup page -->
+![LuCI backup page showing Generate Archive button](images/3.17-luci-backup-page.webp){ width="600" }
+```
+
+---
+
 # References (Required)
 
 Every guide must include a references section listing the sources used during research.

@@ -30,6 +30,7 @@ Do not use `mkdocs serve` or `mkdocs build` directly for this project.
 - Tone is practical, direct, and second-person.
 - Use admonitions: `!!! tip`, `!!! warning`, `!!! info "Work in Progress"`.
 - Use Mermaid code fences for diagrams.
+- Images use co-located `images/` subfolders inside each section folder with `.webp` format and placeholder workflow (see `.opencode/rules/general.md`).
 - Always update `mkdocs.yml` nav when adding/moving/removing docs files.
 
 ## OpenCode Agent Workflow
