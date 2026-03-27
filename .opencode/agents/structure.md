@@ -17,4 +17,4 @@ Responsibilities:
 Execution policy:
 - Plan file operations before changing content
 - After moves, search for stale links and fix them
-- Run `zensical build` to validate structure when requested
+- Run `zensical build` to validate structure always after nav/structure edits

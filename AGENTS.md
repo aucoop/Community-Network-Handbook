@@ -47,6 +47,7 @@ Use these custom commands:
 - `/review-chapter`
 - `/add-diagram`
 - `/audit`
+- `/guide-from-steps`
 
 ## External Rule Files (Load on demand)
 
