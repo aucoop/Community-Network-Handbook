@@ -37,6 +37,10 @@ python -m venv .venv
 .venv/Scripts/activate  # Windows
 # source .venv/bin/activate  # Linux/macOS
 pip install -r docs/requirements.txt
+pip install pre-commit
+
+# Install the commit hook
+pre-commit install
 
 # Serve locally
 zensical serve
@@ -44,6 +48,25 @@ zensical serve
 
 Then open `http://127.0.0.1:8000` in your browser.
 
+Installing `pre-commit` is strongly recommended because it runs the repository checks before each commit.
+
 ## Questions?
 
 [Open an issue on GitHub](https://github.com/aucoop/Community-Network-Handbook/issues/new) — we're happy to help.
+
+## Images
+
+Store documentation images in `.webp` format only.
+
+Why this matters:
+
+- WebP keeps the docs repository lighter
+- WebP reduces page weight for readers loading the published handbook
+- Using one image format keeps contributions consistent
+
+How this is enforced:
+
+- The local `pre-commit` hook blocks commits that add non-WebP images under `docs/`
+- GitHub Actions runs the same policy in CI for pull requests and pushes
+
+Practical rule: if you add a screenshot or illustration to `docs/`, convert it to `.webp` and reference the `.webp` file in Markdown.

@@ -25,6 +25,15 @@ py -m venv .venv
 .\.venv\Scripts\pip install -r docs\requirements.txt
 ```
 
+Recommended for anyone contributing changes:
+
+```bash
+.venv/bin/pip install pre-commit
+.venv/bin/pre-commit install
+```
+
+This installs the local commit hook that blocks non-WebP images inside `docs/`.
+
 ## Serving Locally
 
 To preview the documentation as you write, serve it locally. The site will automatically refresh when you save changes.
@@ -56,3 +65,14 @@ On Windows PowerShell:
 ```powershell
 .\.venv\Scripts\zensical.exe build
 ```
+
+## Image Policy
+
+Images committed under `docs/` must use the `.webp` format.
+
+This rule is enforced in two places:
+
+- Locally, through `pre-commit`, so contributors get feedback before creating a commit
+- In GitHub Actions, so pull requests and pushes fail if non-WebP docs images slip through
+
+If you add screenshots or illustrations to the handbook, convert them to `.webp` before committing them.

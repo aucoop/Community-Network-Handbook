@@ -1,0 +1,24 @@
+name: Check Docs Images
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - develop
+      - feat/**
+
+jobs:
+  webp-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Enforce WebP docs images
+        run: python scripts/check_webp_images.py

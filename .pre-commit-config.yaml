@@ -1,0 +1,9 @@
+repos:
+  - repo: local
+    hooks:
+      - id: docs-images-must-be-webp
+        name: docs images must be webp
+        entry: python scripts/check_webp_images.py --staged
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]
