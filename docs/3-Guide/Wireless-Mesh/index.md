@@ -38,7 +38,7 @@ This guide implements the concepts introduced in
 !!! note "Your versions may work as well"
     This guide was tested with the above versions, but other recent versions of OpenWrt and the wpad-mesh package should work similarly.
 
-    **You can open an issue** if you encounter any problems with your versions.
+    [**You can open an issue**](https://github.com/aucoop/Community-Network-Handbook/issues/new) if you encounter any problems with your versions.
 
 
 ## Step-by-Step Implementation
