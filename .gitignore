@@ -3,3 +3,4 @@ public/
 .vscode
 public/
 venv
+.claude/
