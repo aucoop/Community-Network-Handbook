@@ -130,7 +130,9 @@ Configure the new interface with these settings:
 
 ![LuCI wireless security configuration for the mesh interface](images/Wireless-Mesh-mesh-security.webp){ width="600" }
 
-Click **Save & Apply** on both routers. Then check the **Network > Wireless** page -- a **Tx/Rx rate** appearing on the mesh interface confirms the link is up.
+Click **Save & Apply** on both routers. Then check the **Network > Wireless** page -- a **Tx/Rx rate** appearing on the mesh interface and an entry under **Associated Stations** confirm the link is up.
+
+![LuCI Wireless page showing the mesh peer listed under Associated Stations](images/Wireless-Mesh-associated-stations.webp){ width="600" }
 
 !!! tip "No link forming?"
     Double-check that the channel, mesh ID, encryption type, and key are identical on both routers. Also ensure both devices are within radio range and that no DFS channels are causing radar detection delays.
