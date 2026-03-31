@@ -91,6 +91,7 @@ nav:
       - 3-Guide/IP-Addressing/index.md
     - Laptop Deployment:
       - 3-Guide/Laptop-Deployment/index.md
+      - AUCOOP Image: 3-Guide/Laptop-Deployment/AUCOOP-image.md
     - Wireless Mesh:
       - 3-Guide/Wireless-Mesh/index.md
     - Nextcloud:
