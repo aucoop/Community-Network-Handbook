@@ -42,7 +42,7 @@ The network works, but managing it is getting painful.
 The community wants more than just internet.
 
 - [2.11 — *"Can this network do more than just internet?"*](2.11-Local-Services/index.md)
-- [2.12 — *"I can't keep running everything on this tiny router!"*](2.12-Virtualization/index.md)
+- [2.12 — *"One bad update took down Nextcloud, DNS, and Zabbix all at once!"*](2.12-Virtualization/index.md)
 - [2.13 — *"Where do I put all these files?!"*](2.13-Storage/index.md)
 - [2.14 — *"One machine isn't enough anymore"*](2.14-Clustering/index.md)
 
