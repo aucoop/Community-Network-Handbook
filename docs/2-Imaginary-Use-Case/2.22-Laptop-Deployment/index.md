@@ -12,14 +12,11 @@ This is the same approach used by IT departments to deploy hundreds of machines 
 
 ### Customizing Your Image
 
-To ensure the laptops are ready for their end users, one option is to create your own customized Linux image. By doing so, the system can be tailored to meet specific needs. Some key principles to consider when creating your image include:
+The day the computers reached the community center, the excitement was palpable. New tools, new horizons! But with each laptop powered on, reality stepped in: how do we prepare them for the people waiting outside of the computer lab?
 
-- **Less is more:** Focus on simplicity and eliminate unnecessary software to facilitate adoption.
-- **Optimized for older hardware:** A lightweight system ensures good performance across all laptops.
-- **Familiar interface:** Use an intuitive, user-friendly desktop environment to minimize the learning curve.
-- **Pre-installed Applications:** Include only essential tools like office suites and web browsers that align with the users' needs.
+Not just any system would do. The team decides to sit down and mapp out what the community truly needed and different ideas came up: Clutter-free so as not to overwhelm new users. Intuitive tools echoing what people already know. No surprises; no installations gone rogue. Web browsers to connect worlds... 
 
-By following these principles, you can create a solution that is both functional and accessible, enabling the devices to serve the community effectively.
+By focusing on **simplicity, optimization**, and **usability**, what started as intimidating blank slates became the promise of transformation now that the community knows what will suit its purpuse we can replicate it for all the new aquired computers!
 
 !!! tip "Guide reference"
     For step-by-step setup of the networking deployment process and image creation methodology, continue to [Guide -- Laptop Deployment](../../3-Guide/Laptop-Deployment/index.md).
