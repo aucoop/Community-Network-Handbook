@@ -2,7 +2,8 @@
 
 This guide covers how to deploy an OpenWrt router inside a lightweight LXC container on Proxmox VE, giving you a fully functional virtual router for your community network infrastructure.
 
-<!-- TODO: Add Ch2 cross-link once the corresponding Chapter 2 story for Virtualization is written -->
+This guide implements the concept introduced in
+[Chapter 2.12 --- Virtualization](../../2-Imaginary-Use-Case/2.12-Virtualization/index.md).
 
 ## What You'll Learn
 
