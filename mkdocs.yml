@@ -108,6 +108,7 @@ nav:
       - 3-Guide/Updates-and-Maintenance/index.md
     - VPN:
       - 3-Guide/VPN/index.md
+      - Netmaker on VPS: 3-Guide/VPN/Netmaker-VPS.md
     - Website:
       - 3-Guide/Website/index.md
     - Zabbix:

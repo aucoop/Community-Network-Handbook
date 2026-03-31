@@ -1,17 +1,10 @@
 # VPN — Remote Access
 
-Reach your network from anywhere in the world.
+Reach your network from anywhere in the world using encrypted VPN tunnels.
 
 !!! info "Work in Progress"
-    This guide will cover setting up a VPN server and connecting clients for remote network management.
+    This section will grow to cover multiple VPN approaches including WireGuard manual configuration, split tunneling, and OpenWrt client integration. The first available guide covers Netmaker, a WireGuard management platform.
 
-## What You'll Learn
+## Available Guides
 
-- VPN concepts and why WireGuard is a great choice
-- Installing WireGuard on a server (Proxmox container or VPS)
-- Configuring OpenWrt routers as VPN clients
-- Setting up client devices (laptop, phone)
-- Split tunneling vs full tunnel
-- Key management and peer configuration
-
-<!-- TODO: WireGuard server setup, client configs, OpenWrt integration, firewall rules -->
+- **[Install Netmaker on a VPS](Netmaker-VPS.md)** -- Deploy a Netmaker server to create and manage WireGuard-based virtual networks from a central dashboard.
