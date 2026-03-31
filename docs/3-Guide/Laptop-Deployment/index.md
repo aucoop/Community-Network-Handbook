@@ -23,7 +23,7 @@ This guide implements the concept introduced in
 - Basic familiarity with the Linux command line
 
 !!! note "Hardware compatibility"
-    All target machines should have similar hardware (same architecture, similar disk sizes). The golden master image must fit on the smallest disk in the batch. For example, if one machine has a 238 GB SSD while the rest have 466 GB HDDs, the master image must use less than 238 GB.
+    All target machines should have similar hardware (same architecture). Disk sizes can vary, but the source **partition layout** in the Clonezilla image must fit on the smallest target disk. If the golden master was captured from a 466 GB disk, you must shrink the filesystem and partition before capturing the image -- even if the actual data is only 12 GB. See [Step 5a](#5a-shrink-the-partition-for-smaller-target-disks) for details.
 
 ## Used Versions
 
@@ -39,15 +39,16 @@ This guide implements the concept introduced in
 
 ### Overview
 
-The deployment has three phases:
+The deployment has four phases:
 
 ```mermaid
 flowchart LR
     A["1. Prepare\ngolden master"] --> B["2. Capture\nimage"]
-    B --> C["3. PXE deploy\nto all machines"]
+    B --> B2["3. Resize for\nsmaller disks"]
+    B2 --> C["4. PXE deploy\nto all machines"]
 ```
 
-**Phase 1** happens on the master laptop. **Phase 2** uses Clonezilla to capture the disk image. **Phase 3** sets up a PXE server and deploys the image over the network.
+**Phase 1** happens on the master laptop. **Phase 2** uses Clonezilla to capture the disk image. **Phase 3** shrinks the image's partition layout so it fits on all target disks (skip this if all disks are the same size). **Phase 4** sets up a PXE server and deploys the image over the network.
 
 ---
 
@@ -142,11 +143,94 @@ Verify the image files are complete:
 ls /home/partimag/aucoop-mint22.3-2026-03/
 ```
 
-You should see files like `sda1.vfat-ptcl-img.gz.aa`, `sda2.ext4-ptcl-img.gz.aa`, `sda-pt.parted`, `parts`, `disk`, etc.
+You should see files like `sda1.vfat-ptcl-img.gz`, `sda2.ext4-ptcl-img.gz`, `sda-pt.parted`, `parts`, `disk`, etc. (Clonezilla may split large files with `.aa`, `.ab` suffixes.)
 
 ---
 
-### Phase 3 -- Set Up the PXE Server
+### Phase 3 -- Resize the Image for Smaller Target Disks
+
+!!! info "Skip this phase if all target disks are the same size as the master"
+    This phase is only needed when some target disks are smaller than the disk the image was captured from. If all machines have the same disk size, proceed directly to [Phase 4](#phase-4----set-up-the-pxe-server).
+
+#### 5a. Why resizing is necessary
+
+Clonezilla stores the source partition layout in the image. When restoring, `partclone` writes data blocks at the same offsets as the original filesystem. The ext4 filesystem scatters metadata (block group descriptors, inode tables, bitmaps) across the **entire** partition, not just the first N gigabytes.
+
+This means that even if the actual data is only 12 GB, a partition captured from a 466 GB disk will have blocks scattered up to position ~466 GB. When restoring to a 238 GB disk, `partclone` will try to seek beyond the target partition and fail with:
+
+```
+target seek ERROR: Invalid argument
+```
+
+The `-k1` flag (proportional partitions) and `-icds` flag (ignore disk size check) are **not sufficient** to fix this. The partition layout itself must be physically smaller than the smallest target disk.
+
+#### 5b. Shrink the filesystem and partition
+
+You need a copy of the master disk as a raw or qcow2 image. If you saved the Clonezilla image to an external drive, you can restore it to a qcow2 file first:
+
+```bash
+# Create a qcow2 from the Clonezilla image (on your workstation, not on a target machine)
+qemu-img create -f qcow2 master-disk.qcow2 500G
+sudo modprobe nbd max_part=8
+sudo qemu-nbd --connect=/dev/nbd0 master-disk.qcow2
+# Then use ocs-sr or partclone to restore the image to /dev/nbd0
+```
+
+If you already have a qcow2 or raw copy of the master disk, connect it directly:
+
+```bash
+sudo modprobe nbd max_part=8
+sudo qemu-nbd --connect=/dev/nbd0 master-disk.qcow2
+sudo partprobe /dev/nbd0
+lsblk /dev/nbd0    # Verify partitions appear
+```
+
+Now shrink the ext4 filesystem and partition. Choose a size that is larger than the actual data usage but smaller than the smallest target disk. For example, if the data is 12 GB, shrinking to 20 GB gives plenty of room:
+
+```bash
+# 1. Check the filesystem (required before resize)
+sudo e2fsck -fy /dev/nbd0p2
+
+# 2. Shrink the filesystem to 20 GB
+sudo resize2fs /dev/nbd0p2 20G
+
+# 3. Shrink the partition to slightly larger than the filesystem
+#    The filesystem is 20 GB = 20 * 1024^3 = 21,474,836,480 bytes
+#    Add the partition start offset (~538 MB) plus margin
+sudo parted /dev/nbd0 resizepart 2 22100MB
+
+# 4. Verify the filesystem is still clean
+sudo e2fsck -fy /dev/nbd0p2
+```
+
+!!! warning "Order matters"
+    Always shrink the **filesystem first**, then the **partition**. If you shrink the partition first, you will truncate the filesystem and lose data.
+
+#### 5c. Recapture the Clonezilla image
+
+With the partition resized, capture a new Clonezilla image using `partclone` directly:
+
+```bash
+# Capture the EFI partition
+sudo partclone.vfat -c -s /dev/nbd0p1 | gzip -c > new-image/sda1.vfat-ptcl-img.gz
+
+# Capture the root partition (this takes a few minutes)
+sudo partclone.ext4 -c -s /dev/nbd0p2 | gzip -c > new-image/sda2.ext4-ptcl-img.gz
+```
+
+You also need to regenerate the metadata files (`sda-pt.parted`, `sda-gpt.sgdisk`, `sda-pt.sf`, `disk`, `parts`, `dev-fs.list`, etc.) with the new partition layout. Use `parted`, `sgdisk`, `sfdisk`, and `blkid` to dump the current state of `/dev/nbd0` and save the output to the corresponding files, replacing `nbd0` with `sda` in the content.
+
+Finally, disconnect the disk:
+
+```bash
+sudo qemu-nbd --disconnect /dev/nbd0
+```
+
+Transfer the new image directory to the PXE server's `/home/partimag/`.
+
+---
+
+### Phase 4 -- Set Up the PXE Server
 
 The PXE server provides three services:
 
@@ -329,7 +413,7 @@ set timeout=10
 
 menuentry "Restore -- Deploy image to disk" --id restore {
   echo "Loading Clonezilla Live for image restore..."
-  linux /clonezilla/live/vmlinuz boot=live union=overlay username=user config components quiet hostname=deploy noswap edd=on nomodeset enforcing=0 locales= keyboard-layouts= ocs_live_batch="no" vga=788 net.ifnames=0 nosplash netboot=nfs nfsroot=10.0.0.1:/tftpboot/clonezilla ocs_prerun1="mount -t nfs 10.0.0.1:/home/partimag /home/partimag" ocs_live_run="/usr/sbin/ocs-sr -g auto -e1 auto -e2 -r -j2 -scr -p reboot restoredisk aucoop-mint22.3-2026-03 sda"
+  linux /clonezilla/live/vmlinuz boot=live union=overlay username=user config components quiet hostname=deploy noswap edd=on nomodeset enforcing=0 locales= keyboard-layouts= ocs_live_batch="no" vga=788 net.ifnames=0 nosplash netboot=nfs nfsroot=10.0.0.1:/tftpboot/clonezilla ocs_prerun1="mount -t nfs 10.0.0.1:/home/partimag /home/partimag" ocs_live_run="/home/partimag/auto-restore.sh"
   initrd /clonezilla/live/initrd.img
 }
 
@@ -345,6 +429,32 @@ menuentry "Boot from local disk" --id local {
 }
 ```
 
+The first entry calls an auto-restore script instead of running `ocs-sr` inline. Create `/home/partimag/auto-restore.sh` on the PXE server:
+
+```bash
+#!/bin/bash
+# Auto-detect target disk and restore
+IMAGE_NAME="aucoop-mint22.3-small"   # Change to your image directory name
+
+if [ -b /dev/nvme0n1 ]; then
+  DISK=nvme0n1
+elif [ -b /dev/sda ]; then
+  DISK=sda
+elif [ -b /dev/vda ]; then
+  DISK=vda
+else
+  echo "ERROR: No suitable disk found!"
+  lsblk
+  read -p "Press Enter to continue..."
+  exit 1
+fi
+
+echo "Detected target disk: /dev/$DISK"
+/usr/sbin/ocs-sr -g auto -e1 auto -e2 -r -j2 -icds -k1 -scr -p reboot restoredisk "$IMAGE_NAME" "$DISK"
+```
+
+Make it executable: `chmod +x /home/partimag/auto-restore.sh`
+
 Key kernel parameters explained:
 
 | Parameter | Purpose |
@@ -353,11 +463,19 @@ Key kernel parameters explained:
 | `netboot=nfs` | Fetch the root filesystem via NFS |
 | `nfsroot=10.0.0.1:/tftpboot/clonezilla` | NFS path to Clonezilla Live root |
 | `ocs_prerun1="mount -t nfs ..."` | Mount the image repository before Clonezilla starts |
-| `ocs_live_run="/usr/sbin/ocs-sr ..."` | Run Clonezilla restore automatically |
-| `restoredisk aucoop-mint22.3-2026-03 sda` | Restore image `aucoop-mint22.3-2026-03` to `/dev/sda` |
+| `ocs_live_run="/home/partimag/auto-restore.sh"` | Run the auto-detect restore script |
 
-!!! tip "Customize the image name and target disk"
-    Replace `aucoop-mint22.3-2026-03` with your image directory name (as it appears in `/home/partimag/`). Replace `sda` with the target disk device on your laptops. You can check by booting Clonezilla interactively first.
+Key `ocs-sr` flags:
+
+| Flag | Purpose |
+|------|---------|
+| `-k1` | Proportionally resize partitions to fill the target disk |
+| `-icds` | Skip the "destination disk too small" check |
+| `-scr` | Skip checking if the image is restorable |
+| `-p reboot` | Reboot after restore completes |
+
+!!! tip "Why use a script instead of inline ocs-sr?"
+    Using an external script lets you auto-detect the target disk (`nvme0n1` vs `sda`) and keeps the GRUB config clean. This is essential when deploying to machines with mixed storage types (NVMe SSD vs SATA HDD).
 
 #### 14. Disable Secure Boot on target machines
 
@@ -430,8 +548,12 @@ This also means Secure Boot is enabled. GRUB (loaded via shim) is trying to veri
 
 ### Clonezilla cannot find the image
 
-- Check that the image directory name in `grub.cfg` matches exactly the directory name in `/home/partimag/`
+- Check that the image directory name in `grub.cfg` (or `auto-restore.sh`) matches exactly the directory name in `/home/partimag/`
 - Verify NFS export of `/home/partimag`: `showmount -e 10.0.0.1`
+
+### Restore fails with "target seek ERROR" at ~77%
+
+The source image was captured from a larger disk than the target. Even with `-k1` (proportional partitions) and `-icds` (skip size check), `partclone` fails because ext4 scatters data blocks across the entire original partition. You need to shrink the source filesystem and partition, then recapture the image. See [Phase 3](#phase-3----resize-the-image-for-smaller-target-disks).
 
 ## File Layout Reference
 
@@ -459,12 +581,13 @@ After completing all steps, the PXE server should have this directory structure:
         └── filesystem.squashfs       # Clonezilla root filesystem (NFS)
 
 /home/partimag/                       # NFS-exported
-└── aucoop-mint22.3-2026-03/          # Clonezilla disk image
-    ├── sda-pt.parted
-    ├── sda-gpt.sgdisk
-    ├── sda1.vfat-ptcl-img.gz.aa
-    ├── sda2.ext4-ptcl-img.gz.aa
-    └── ...
+├── aucoop-mint22.3-small/            # Clonezilla disk image
+│   ├── sda-pt.parted
+│   ├── sda-gpt.sgdisk
+│   ├── sda1.vfat-ptcl-img.gz
+│   ├── sda2.ext4-ptcl-img.gz
+│   └── ...
+└── auto-restore.sh                   # Auto-detect disk script
 ```
 
 ## References
@@ -482,3 +605,4 @@ After completing all steps, the PXE server should have this directory structure:
 | Date       | Version | Changes                | Author           | Contributors |
 |------------|---------|------------------------|------------------|--------------|
 | 2026-03-31 | 1.0     | Initial guide creation | Sergio Gimenez   |              |
+| 2026-03-31 | 1.1     | Add partition resizing for mixed disk sizes, auto-detect disk script, improved ocs-sr flags | Sergio Gimenez   |              |
