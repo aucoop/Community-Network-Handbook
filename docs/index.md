@@ -2,6 +2,8 @@
 
 A practical, opinionated guide to building community networks from scratch — even with limited resources.
 
+[Download as PDF :material-download:](https://github.com/aucoop/Community-Network-Handbook/releases/latest/download/Community-Network-Handbook.pdf){ .md-button }
+
 ---
 
 This project is an attempt to guide someone who has heard the community networks concept and wants to learn how to build one from scratch.
