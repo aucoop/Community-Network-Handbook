@@ -111,6 +111,7 @@ nav:
     - VPN:
       - 3-Guide/VPN/index.md
       - Netmaker on VPS: 3-Guide/VPN/Netmaker-VPS.md
+      - Netclient on OpenWrt: 3-Guide/VPN/Netclient-OpenWrt.md
     - Website:
       - 3-Guide/Website/index.md
     - Zabbix:

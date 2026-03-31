@@ -152,7 +152,8 @@ At this point your Netmaker server is running and ready to accept client connect
 
 Now you can proceed to the next guide on enrolling client nodes to start building your VPN network!
 
-<!-- TODO: Add link to the enrolling clients guide -->
+!!! tip "Next step"
+    Ready to connect your first node? Follow the [Install Netclient on OpenWrt](Netclient-OpenWrt.md) guide to enroll an OpenWrt router into your Netmaker network.
 
 ## References
 
