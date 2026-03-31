@@ -96,6 +96,7 @@ nav:
       - 3-Guide/Power-and-UPS/index.md
     - Proxmox:
       - 3-Guide/Proxmox/index.md
+      - OpenWrt LXC: 3-Guide/Proxmox/OpenWrt-LXC.md
     - Proxmox Backup Server:
       - 3-Guide/Proxmox-Backup-Server/index.md
     - RADIUS:

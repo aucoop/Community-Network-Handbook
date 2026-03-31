@@ -3,15 +3,10 @@
 Run multiple services on a single physical machine using containers and virtual machines.
 
 !!! info "Work in Progress"
-    This guide will cover installing and configuring Proxmox VE for community network infrastructure.
+    Guides for installing Proxmox VE on bare metal, creating virtual machines, and advanced networking are planned for future updates.
 
-## What You'll Learn
+<!-- TODO: Installation walkthrough, VM creation guide, networking setup, storage configuration -->
 
-- Installing Proxmox VE on bare metal
-- Creating LXC containers (lightweight, ideal for services)
-- Creating virtual machines (for workloads that need full isolation)
-- Networking in Proxmox (bridges, VLANs, firewall)
-- Resource allocation and monitoring
-- Templates and cloning for fast deployment
+## Guides in This Section
 
-<!-- TODO: Installation walkthrough, first container, networking setup, storage configuration -->
+- [Run OpenWrt as an LXC Container in Proxmox](OpenWrt-LXC.md) -- Deploy a lightweight virtual router inside Proxmox using an LXC container.
