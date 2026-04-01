@@ -10,8 +10,10 @@ A community network usually sits behind NAT, which means you cannot SSH into a r
 
 The setup has two parts:
 
-1. **Server** -- A Netmaker instance running on a VPS with a public IP. It coordinates key exchange and configuration distribution but does not relay traffic.
-2. **Clients** -- The Netclient agent installed on each OpenWrt router (and optionally on your laptop). It keeps WireGuard tunnels up and auto-updates when the network changes.
+1. [**Server**](Netmaker-VPS.md) -- A Netmaker instance running on a VPS with a public IP. It coordinates key exchange and configuration distribution but does not relay traffic.
+2. **Clients** -- Devices that join the network. There are two methods:
+    - [**Netclient agent**](Netclient-OpenWrt.md) -- installed on OpenWrt routers and Linux servers. It auto-updates tunnels when the network changes.
+    - [**WireGuard config file**](WireGuard-Config.md) -- generated from the Netmaker dashboard and imported on any device (laptop, phone, server). Simpler, but static -- you re-download the config if the network changes.
 
 Once both parts are in place, you can manage the entire network remotely, route traffic between VPN nodes and local LANs via egress, and grant temporary access to volunteers through Netmaker's dashboard.
 
@@ -19,8 +21,5 @@ Once both parts are in place, you can manage the entire network remotely, route 
 
 - [Install Netmaker on a VPS](Netmaker-VPS.md) -- Deploy the Netmaker server that coordinates your WireGuard VPN network.
 - [Install Netclient on OpenWrt](Netclient-OpenWrt.md) -- Enroll an OpenWrt router into the VPN and configure firewall zones, interface registration, and egress routing.
+- [Add a Device via WireGuard Config File](WireGuard-Config.md) -- Connect any device (laptop, phone, server) using a config file generated from the Netmaker dashboard.
 
-!!! info "Work in Progress"
-    Future guides will cover manual WireGuard configuration (without Netmaker), split tunneling, and enrolling non-OpenWrt clients (laptops, phones, standard Linux servers).
-
-<!-- TODO: Manual WireGuard guide, split tunneling, non-OpenWrt client enrollment -->

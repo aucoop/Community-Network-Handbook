@@ -38,5 +38,5 @@ This is the piece that turns a collection of isolated sites into a **single, man
 
     - [Install Netmaker on a VPS](../../3-Guide/VPN/Netmaker-VPS.md) --- deploy the Netmaker server that will coordinate your VPN network.
     - [Install Netclient on OpenWrt](../../3-Guide/VPN/Netclient-OpenWrt.md) --- enroll an OpenWrt router into the VPN and configure LAN-to-VPN routing.
+    - [Add a Device via WireGuard Config File](../../3-Guide/VPN/WireGuard-Config.md) --- connect any device (laptop, phone, server) using a config file generated from the Netmaker dashboard.
 
-<!-- TODO: Add diagram showing egress routing concept, expand on Remote Access Gateway use cases -->
