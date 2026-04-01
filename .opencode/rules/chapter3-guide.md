@@ -58,9 +58,34 @@ Include when specific software versions are critical for the guide.
 
 ## Step-by-Step Implementation
 
-- Steps must be **numbered** with short headings: `### 1. Install the firmware`
-- Each step: explain **why**, then show **how** with code/commands.
-- Keep explanations concise. Prefer code + explanation.
+- Steps must be **numbered** with short imperative headings: `### 1. Install the firmware`
+- **The main body text IS the actionable path.** A reader must be able to follow just the non-admonition text and know exactly what to do.
+- Inside each step, write actions as **numbered sub-steps**, not prose paragraphs. Each line is one thing the reader does:
+  ```markdown
+  ### 3. Configure the firewall
+
+  1. Open a shell on the server.
+  2. Install `ufw`:
+
+      ```bash
+      sudo apt install ufw
+      ```
+
+  3. Allow the required ports:
+
+      ```bash
+      sudo ufw allow 80/tcp
+      sudo ufw allow 443
+      ```
+  ```
+- Use **bullet points** for field values or options within a sub-step (e.g., form fields to fill in).
+- Use `→` only for **UI navigation paths** (e.g., **Datacenter → Node → System → Network**), never as action markers.
+- **Context and explanations go in `!!! info` admonitions**, keeping them visually separate from actions. The reader can skip them and still complete the guide:
+  ```markdown
+  !!! info "Why wildcard records?"
+      Netmaker runs several services that each need a hostname. A wildcard record covers all of them with a single DNS entry.
+  ```
+- Warnings (`!!! warning`) and tips (`!!! tip`) stay as admonitions too.
 - Examples must be realistically runnable.
 
 ---
