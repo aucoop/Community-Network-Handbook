@@ -66,7 +66,7 @@ Time to go public.
 
 The network is ready — now get machines into people's hands.
 
-- [2.22 — *"We have 20 laptops and no time to set them up one by one"*](2.22-Laptop-Deployment/index.md)
+- [2.22 — *"We have 20 laptops and no time to set them up one by one"*](2.22-Equipping the community/index.md)
 
 ### :material-infinity: Act 7 — The Long Run
 
