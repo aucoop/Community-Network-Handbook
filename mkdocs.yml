@@ -63,12 +63,12 @@ nav:
       - 2-Imaginary-Use-Case/2.19-Domain/index.md
     - Website:
       - 2-Imaginary-Use-Case/2.20-Website/index.md
-    # Act 6 — Equipping the Community
-    - Laptop Deployment:
-      - 2-Imaginary-Use-Case/2.22-Laptop-Deployment/index.md
-    # Act 7 — The Long Run
+    # Act 6 — The Long Run
     - Sustainability:
       - 2-Imaginary-Use-Case/2.21-Sustainability/index.md
+    # Act 7 — Equipping the Community
+    - Equipping the Community:
+      - 2-Imaginary-Use-Case/2.22-Equipping-the-Community/index.md
   - 3. Guide:
     - 3-Guide/index.md
     - Antennas:

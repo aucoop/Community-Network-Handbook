@@ -8,13 +8,20 @@ This guide implements the concept introduced in [Chapter 2.22 -- Laptop Deployme
 
 ### Phase 1 -- Prepare the Golden Master
 
-During this step, you will customize your reference laptop to serve as the "golden master" for this deployment. The AUCOOP project demonstrates the importance of creating a tailored Linux Mint image. For a detailed walkthrough of how the AUCOOP image was configured, see the [AUCOOP Linux Image](AUCOOP-image.md) subchapter. Key customization principles include:
+The "golden master" is the reference laptop configured exactly as you want all deployed machines to be. This includes the operating system, user accounts, software packages, desktop settings, and any customizations.
 
-- **Streamlined Applications:** Include productivity tools like the OnlyOffice suite, which mimics Microsoft Office.
-- **Intuitive Launcher Icons:** Use visually familiar icons to ease the transition for users.
-- **System Cleanup:** Remove unnecessary apps and keep the system lightweight.
+**For a detailed walkthrough of design principles and the AUCOOP customization example**, see the [AUCOOP Linux Image](AUCOOP-image.md) page.
 
-By following these principles, you can ensure a high-performing and user-centric setup.
+**Key steps for preparing your golden master:**
+
+- Install the base OS (e.g., Linux Mint 22.3)
+- Create standard user accounts
+- Install and configure required software
+- Remove unnecessary applications
+- Set a generic hostname
+- Clean up temporary files (see [Step 1](#1-set-up-the-reference-machine) below)
+
+Once your golden master is ready, proceed to Phase 2 to capture its disk image.
 
 ## What You'll Learn
 
