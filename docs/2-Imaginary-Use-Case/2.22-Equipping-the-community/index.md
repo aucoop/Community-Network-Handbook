@@ -12,10 +12,10 @@ But how do you equip an entire community with computers when budgets are tight a
 
 In this chapter, you'll follow the complete process of bringing computers to your community — from sourcing refurbished hardware to deploying a fleet of ready-to-use machines:
 
-1. **[The Refurbished Advantage](2.22.1-The-Refurbished-Advantage.md)** — Why second-hand hardware makes sense economically and environmentally, and how to acquire it
-2. **[Cataloging Your Hardware](2.22.2-Cataloging-Your-Hardware.md)** — Building an inventory and tracking your devices with professional tools
-3. **[Adding the Operating System](2.22.3-Adding-Operating-System.md)** — Using the AUCOOP base image and customizing it for your community's needs
-4. **[Scaling the Deployment](2.22.4-Scaling-the-Deployment.md)** — Deploying your golden master to all machines efficiently using PXE network boot
+1. **[Where do we get computers?](2.22.1-The-Refurbished-Advantage.md)** — Why second-hand hardware makes sense economically and environmentally, and how to acquire it
+2. **[What do we actually have?](2.22.2-Cataloging-Your-Hardware.md)** — Building an inventory and tracking your devices with professional tools
+3. **[What software do they need?](2.22.3-Adding-Operating-System.md)** — Using the AUCOOP base image and customizing it for your community's needs
+4. **[How do we set up 20 machines?](2.22.4-Scaling-the-Deployment.md)** — Deploying your golden master to all machines efficiently using PXE network boot
 
 By the end of this journey, you'll have transformed a pile of dusty donated laptops into a fleet of identical, tracked, community-ready machines.
 
@@ -23,4 +23,4 @@ By the end of this journey, you'll have transformed a pile of dusty donated lapt
 
 **Ready to begin?**
 
-- [Start with The Refurbished Advantage →](2.22.1-The-Refurbished-Advantage.md)
+- [Where do we get computers? →](2.22.1-The-Refurbished-Advantage.md)

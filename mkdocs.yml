@@ -64,8 +64,12 @@ nav:
     - Website:
       - 2-Imaginary-Use-Case/2.20-Website/index.md
     # Act 6 — Equipping the Community
-    - Laptop Deployment:
-      - 2-Imaginary-Use-Case/2.22-Laptop-Deployment/index.md
+    - Equipping the Community:
+      - 2-Imaginary-Use-Case/2.22-Equipping-the-community/index.md
+      - "Where do we get computers?": 2-Imaginary-Use-Case/2.22-Equipping-the-community/2.22.1-The-Refurbished-Advantage.md
+      - "What do we actually have?": 2-Imaginary-Use-Case/2.22-Equipping-the-community/2.22.2-Cataloging-Your-Hardware.md
+      - "What software do they need?": 2-Imaginary-Use-Case/2.22-Equipping-the-community/2.22.3-Adding-Operating-System.md
+      - "How do we set up 20 machines?": 2-Imaginary-Use-Case/2.22-Equipping-the-community/2.22.4-Scaling-the-Deployment.md
     # Act 7 — The Long Run
     - Sustainability:
       - 2-Imaginary-Use-Case/2.21-Sustainability/index.md
