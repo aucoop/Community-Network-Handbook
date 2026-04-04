@@ -75,8 +75,6 @@ nav:
       - 3-Guide/Captive-Portal/index.md
     - Clustering:
       - 3-Guide/Clustering/index.md
-    - DHCP:
-      - 3-Guide/DHCP/index.md
     - DNS:
       - 3-Guide/DNS/index.md
     - Domain:
@@ -91,6 +89,8 @@ nav:
       - 3-Guide/IP-Addressing/index.md
     - Wireless Mesh:
       - 3-Guide/Wireless-Mesh/index.md
+      - Static IP Mesh: 3-Guide/Wireless-Mesh/1-Static-IP-Mesh/index.md
+      - DHCP-Based Mesh: 3-Guide/Wireless-Mesh/2-DHCP-Mesh/index.md
     - Nextcloud:
       - 3-Guide/Nextcloud/index.md
     - OpenWISP:

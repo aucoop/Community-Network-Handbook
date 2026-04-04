@@ -2,10 +2,10 @@
 
 This guide covers how to configure a satellite (secondary) router in your mesh network to receive its IP address via DHCP from the main router, turning it into a "dumb AP" that only bridges traffic.
 
-This guide implements the concept introduced in [Chapter 2 — One Router to Rule Them All](../../2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.4-DHCP-Satellite.md).
+This guide implements the concept introduced in [Chapter 2 — One Router to Rule Them All](../../../2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.4-DHCP-Satellite.md).
 
-!!! warning "This guide supersedes the static IP step in the Wireless Mesh guide"
-    The [Wireless Mesh setup guide](../Wireless-Mesh/index.md) has you assign a **static LAN IP** to the secondary router and disable its DHCP server manually. This guide replaces that approach: instead of a hard-coded static IP, the satellite will request its address via DHCP from the main router, and you will then pin that address with a static lease on the main router. If you followed the Wireless Mesh guide first, continue here to switch from the static management IP to the DHCP-based approach.
+!!! info "This guide builds on the Static IP Mesh guide"
+    The [Static IP Mesh guide](../1-Static-IP-Mesh/index.md) has you assign a **static LAN IP** to the secondary router and disable its DHCP server manually. This guide offers an alternative approach: instead of a hard-coded static IP, the satellite requests its address via DHCP from the main router, and you then pin that address with a static lease. You can follow this guide to set up new satellites, or to convert existing satellites from static IP to DHCP.
 
 ## What You'll Learn
 
@@ -17,7 +17,7 @@ This guide implements the concept introduced in [Chapter 2 — One Router to Rul
 ## Prerequisites
 
 - Main router configured and reachable on the network
-- Satellite router with OpenWrt and mesh interface already connected (see [Wireless Mesh guide](../Wireless-Mesh/index.md))
+- Satellite router with OpenWrt and mesh interface already connected (see [Static IP Mesh guide](../1-Static-IP-Mesh/index.md))
 - Access to LuCI web interface on both routers
 
 !!! warning "Configure one at a time"
