@@ -56,6 +56,15 @@ Go to **Network > Interfaces** and edit the **LAN** interface. Change the **IPv4
 
 Click **Save & Apply**. You will need to reconnect to the router using the new IP address.
 
+On the **secondary router only**, also configure the gateway and DNS so the device itself can reach the internet for management tasks (package updates, NTP sync, etc.):
+
+1. In the same **LAN** interface edit screen, set the **IPv4 gateway** to the main router's IP (e.g., `192.168.70.1`).
+2. Switch to the **Advanced Settings** tab and add the main router's IP (e.g., `192.168.70.1`) as a **custom DNS server**.
+
+    ![LuCI LAN interface showing custom DNS server fields](images/Wireless-Mesh-set-dns.webp){ width="600" }
+
+Click **Save & Apply**. You will need to reconnect to the router using the new IP address.
+
 ### 2. Remove the default Wi-Fi package
 
 OpenWrt ships with `wpad-basic-mbedtls` (or a similar variant), which does not support 802.11s mesh. You must replace it with the mesh-capable version.
