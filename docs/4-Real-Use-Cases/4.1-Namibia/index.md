@@ -1,16 +1,19 @@
 # Namibia — N Mutschuana Primary School
 
-This case study documents a real community network deployment at N Mutschuana Primary School in Gochas, Namibia, carried out in March 2026 by a team from AUCOOP (UPC).
+This case study documents a real community network deployment at N Mutschuana Primary School in Gochas, Namibia, carried out in March 2026 by a team from AUCOOP (UPC): Jaume, Maria and Sergio.
+
+!!! note "Offtopic"
+    If you want to learn about our experience in Namibia from a more human and not so nerdy way, you can check our travel blog here :) (translations in english area automatic, expect typos. Still we think you will enjoy it :D https://aucoop.upc.edu/gochas-namibia/)
 
 ## Context
 
 ### Location
 
-Gochas is a small town in the Hardap Region of Namibia, in the Kalahari Desert. The town has fewer than 2,000 inhabitants split between two areas: the central town with more established housing, and "the Location" — a poorer area with more humble dwellings, separated by more than 500 meters (a distance not coincidental: it exceeds the flight range of most local mosquitoes).
+Gochas is a small town in the Hardap Region of Namibia, in the Kalahari Desert. The town has fewer than 2,000 inhabitants split between two areas: the central town with more established housing, and "the Location" — a poorer area with more humble dwellings, separated by more than 500 meters (a distance not coincidental: it exceeds the flight range of most local mosquitoes). There is were more black people live still legacy from the apartheid system that established in the region before 1990.
 
 ### The Community
 
-N Mutschuana Primary School serves over 300 students from the local community. Many children come from families in the Location who struggle to provide for their education. The Namaqua Kalahari Children's Home, run by TheoPauline, provides housing for 60 children whose parents cannot care for them — giving these kids a chance at education and a better future.
+N Mutschuana Primary School serves over 300 students from the local community. Many children come from families in the Location who struggle to provide for their education. The Namaqua Kalahari Children's Home, run by Theo Pauline, provides housing for 60 children whose parents cannot care for them — giving these kids a chance at education and a better future.
 
 ### Initial Situation
 
@@ -137,4 +140,9 @@ Within 30 minutes of deployment on Day 6, all teachers in the staff room had the
 
 **Local partners:** Gerda (School Director), TheoPauline (Children's Home Director), Mr. Isaak and staff at N Mutschuana Primary School.
 
-**Supporting organizations:** UPC CCD (Centre de Cooperacio per al Desenvolupament), AUCOOP, Labdoo, NexTReT.
+**Supporting organizations:**
+
+- UPC: CCD (Centre de Cooperacio per al Desenvolupament) with a grant of 5600€
+- AUCOOP: Project coordinator and executor
+- Labdoo: Provided 9 laptops.
+- NexTReT: Provided 3 laptops and 2 miniPCs servers.
