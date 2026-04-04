@@ -124,7 +124,7 @@ Within 30 minutes of deployment on Day 6, all teachers in the staff room had the
 
 - AUCOOP Project Diary — https://aucoop.upc.edu/gochas-namibia/
 - Community Network Handbook — https://aucoop.github.io/Community-Network-Handbook/
-- Fowndawtion (local partner) — https://foundawtion.org/en/home-english
+- Foundawtion (local partner) — https://foundawtion.org/en/home-english
 - Chapter 2 — IP Addressing — [Link](../../2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.2-IP-Addressing.md)
 - Chapter 3 — IP Addressing Guide — [Link](../../3-Guide/IP-Addressing/index.md)
 
