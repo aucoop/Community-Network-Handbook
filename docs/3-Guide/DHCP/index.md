@@ -4,6 +4,9 @@ This guide covers how to configure a satellite (secondary) router in your mesh n
 
 This guide implements the concept introduced in [Chapter 2 — One Router to Rule Them All](../../2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.4-DHCP-Satellite.md).
 
+!!! warning "This guide supersedes the static IP step in the Wireless Mesh guide"
+    The [Wireless Mesh setup guide](../Wireless-Mesh/index.md) has you assign a **static LAN IP** to the secondary router and disable its DHCP server manually. This guide replaces that approach: instead of a hard-coded static IP, the satellite will request its address via DHCP from the main router, and you will then pin that address with a static lease on the main router. If you followed the Wireless Mesh guide first, continue here to switch from the static management IP to the DHCP-based approach.
+
 ## What You'll Learn
 
 - How to convert a satellite router from static IP to DHCP client
@@ -14,7 +17,7 @@ This guide implements the concept introduced in [Chapter 2 — One Router to Rul
 ## Prerequisites
 
 - Main router configured and reachable on the network
-- Satellite router with OpenWrt and mesh interface already connected
+- Satellite router with OpenWrt and mesh interface already connected (see [Wireless Mesh guide](../Wireless-Mesh/index.md))
 - Access to LuCI web interface on both routers
 
 !!! warning "Configure one at a time"
