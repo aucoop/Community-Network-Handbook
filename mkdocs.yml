@@ -22,6 +22,7 @@ nav:
       - Planning: 2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.1-Planning.md
       - IP Addressing: 2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.2-IP-Addressing.md
       - Wired vs Wireless: 2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.3-Wired-vs-Wireless.md
+      - DHCP Satellite: 2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.4-DHCP-Satellite.md
     - The Other Building:
       - 2-Imaginary-Use-Case/2.3-The-Other-Building/index.md
       - Antennas: 2-Imaginary-Use-Case/2.3-The-Other-Building/2.3.1-Antennas.md
@@ -88,6 +89,8 @@ nav:
       - 3-Guide/IP-Addressing/index.md
     - Wireless Mesh:
       - 3-Guide/Wireless-Mesh/index.md
+      - Static IP Mesh: 3-Guide/Wireless-Mesh/1-Static-IP-Mesh/index.md
+      - DHCP-Based Mesh: 3-Guide/Wireless-Mesh/2-DHCP-Mesh/index.md
     - Nextcloud:
       - 3-Guide/Nextcloud/index.md
     - OpenWISP:

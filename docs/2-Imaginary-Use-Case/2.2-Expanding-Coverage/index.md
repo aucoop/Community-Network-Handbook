@@ -26,3 +26,4 @@ You're realizing that expanding a network isn't like extending a power strip —
 - [Where should I place the routers?](2.2.1-Planning.md)
 - [Everything has the same IP?!](2.2.2-IP-Addressing.md)
 - [Should I use cables or go wireless?](2.2.3-Wired-vs-Wireless.md)
+- [One router to rule them all](2.2.4-DHCP-Satellite.md)
