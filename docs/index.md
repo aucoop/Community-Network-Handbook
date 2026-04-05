@@ -25,4 +25,3 @@ So this is a collection of lessons learned, but we believe many of those lessons
 The text lives on GitHub, which means anyone can contribute improvements, corrections, and new chapters. Even without technical knowledge, you can edit directly on GitHub.
 
 See [Contributing](contributing.md) for details.
-
