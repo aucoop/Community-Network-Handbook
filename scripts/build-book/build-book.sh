@@ -49,13 +49,27 @@ check_tool() {
     command -v "$1" &>/dev/null || die "'$1' is required but not found in PATH"
 }
 
+detect_imagemagick() {
+    if command -v magick &>/dev/null; then
+        echo "magick"
+        return
+    fi
+
+    if command -v convert &>/dev/null; then
+        echo "convert"
+        return
+    fi
+
+    die "ImageMagick is required but neither 'magick' nor 'convert' was found in PATH"
+}
+
 # ---------------------------------------------------------------------------
 # Pre-flight checks
 # ---------------------------------------------------------------------------
 info "Checking required tools..."
 check_tool python3
 check_tool pandoc
-check_tool magick
+IMAGEMAGICK_CMD="$(detect_imagemagick)"
 
 if [[ "$TARGET" == "all" || "$TARGET" == "pdf" ]]; then
     check_tool xelatex
@@ -98,7 +112,7 @@ while IFS= read -r -d '' webp_file; do
         continue
     fi
 
-    magick "$webp_file" "$png_path"
+    "$IMAGEMAGICK_CMD" "$webp_file" "$png_path"
     webp_count=$((webp_count + 1))
 done < <(find "$DOCS_DIR" -name '*.webp' -print0)
 
@@ -155,6 +169,23 @@ if [[ "$HAS_MMDC" == true ]]; then
     fi
 else
     info "  Skipping Mermaid rendering (mmdc not available)"
+fi
+
+# Remove Mermaid image references that were not rendered successfully so Pandoc
+# does not fail on missing SVG files in CI environments.
+if [[ -f "$COMBINED_MD" ]]; then
+    tmp_combined="${COMBINED_MD}.tmp"
+    while IFS= read -r line; do
+        if [[ "$line" =~ ^!\[Diagram\]\((.*\.svg)\)$ ]]; then
+            svg_path="${BASH_REMATCH[1]}"
+            if [[ ! -f "$svg_path" ]]; then
+                warn "Removing unresolved Mermaid reference: $svg_path"
+                continue
+            fi
+        fi
+        printf '%s\n' "$line" >> "$tmp_combined"
+    done < "$COMBINED_MD"
+    mv "$tmp_combined" "$COMBINED_MD"
 fi
 
 # ---------------------------------------------------------------------------
