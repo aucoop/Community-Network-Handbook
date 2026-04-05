@@ -1,6 +1,9 @@
 name: Build Book (PDF & EPUB)
 
 on:
+  push:
+    branches:
+      - main
   release:
     types: [published]
   workflow_dispatch:
@@ -56,12 +59,43 @@ jobs:
             build/book/Community-Network-Handbook.pdf
             build/book/Community-Network-Handbook.epub
 
-      - name: Attach to GitHub Release
-        if: github.event_name == 'release'
+      - name: Prepare release metadata
+        if: github.event_name == 'push'
+        id: release_meta
+        run: |
+          echo "tag=book-${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+          echo "title=Book build for ${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+          {
+            echo 'notes<<EOF'
+            echo "Automated PDF and EPUB build for commit ${GITHUB_SHA}."
+            echo
+            echo "Source commit: https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release for main commit
+        if: github.event_name == 'push'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release upload "${{ github.event.release.tag_name }}" \
+          if ! gh release view "${{ steps.release_meta.outputs.tag }}" >/dev/null 2>&1; then
+            gh release create "${{ steps.release_meta.outputs.tag }}" \
+              --title "${{ steps.release_meta.outputs.title }}" \
+              --notes "${{ steps.release_meta.outputs.notes }}"
+          fi
+
+      - name: Attach to GitHub Release
+        if: github.event_name == 'release' || github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "${{ github.event_name }}" = "release" ]; then
+            TAG="${{ github.event.release.tag_name }}"
+          else
+            TAG="${{ steps.release_meta.outputs.tag }}"
+          fi
+
+          gh release upload "$TAG" \
             build/book/Community-Network-Handbook.pdf \
             build/book/Community-Network-Handbook.epub \
             --clobber
