@@ -17,8 +17,6 @@ This section implements the concepts introduced in
 !!! info "Work in Progress"
     Alert trigger configuration and dashboard setup guides are not yet written.
 
-<!-- TODO: Alert trigger configuration, dashboard creation guide -->
-
 ## Guides
 
 - [Install Zabbix Server on Proxmox](Install-Zabbix.md) — deploy a Zabbix server container using the community helper scripts

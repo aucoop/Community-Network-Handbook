@@ -3,7 +3,7 @@
 This guide covers how to register network devices and servers in your Zabbix monitoring system, including OpenWrt routers (Zabbix Agent), antennas (SNMP), and Linux servers running Docker (Zabbix Agent 2).
 
 This guide implements the concept introduced in
-[Chapter 2 -- Monitoring](../../2-Imaginary-Use-Case/2.5-Monitoring/index.md).
+[Chapter 2 — Monitoring](../../2-Imaginary-Use-Case/2.5-Monitoring/index.md).
 
 ## What You'll Learn
 
@@ -38,7 +38,7 @@ This guide implements the concept introduced in
 Before adding individual hosts, create a host group to organize them.
 
 1. Log in to the Zabbix web interface.
-2. Navigate to **Data collection --> Host groups**.
+2. Navigate to **Data collection → Host groups**.
 3. Click **Create host group**.
 4. Enter a name (e.g., `Routers`, `Antennas`, or `Servers`).
 5. Click **Add**.
@@ -90,22 +90,26 @@ Before adding individual hosts, create a host group to organize them.
 
 #### 2b. Register the router in the Zabbix web interface
 
-1. In the Zabbix web interface, navigate to **Data collection --> Hosts**.
-2. Click **Create host** (top-right corner). In case you have used the discovery method, the host will already be created. Just click on it to edit and go on with the next steps.
+1. In the Zabbix web interface, navigate to **Data collection → Hosts**.
+2. Click **Create host** (top-right corner).
+
+    !!! info "Already discovered?"
+        If you used the automatic discovery method (Step 5), the host may already exist. In that case, click on it to edit and continue with the next sub-steps.
+
 3. Fill in the host configuration:
     - **Host name**: a descriptive name (e.g., `router-library`)
     - **Host groups**: select the group you created (e.g., `Routers`)
     - **Interfaces**: click **Add** and select **Agent**
         - **IP address**: the router's IP (e.g., `192.168.10.2`)
         - **Port**: `10050` (default)
-4. Go to **Templates --> Select --> Select --> Templates** and select **Linux by Zabbix agent** 
+4. Go to the **Templates** tab, click **Select**, and link the **Linux by Zabbix agent** template.
 5. Click **Add** to save the host.
 
 ![Zabbix Data collection Hosts page](images/Add-Hosts-data-collection-hosts.webp){ width="600" }
 
 
 !!! tip "Verify the connection"
-    After adding the host, wait a few minutes and check the **Availability** column on the **Data collection --> Hosts** page. A green **ZBX** icon means the Zabbix server can reach the agent. A red icon indicates a connectivity or configuration problem.
+    After adding the host, wait a few minutes and check the **Availability** column on the **Data collection → Hosts** page. A green **ZBX** icon means the Zabbix server can reach the agent. A red icon indicates a connectivity or configuration problem.
 
 ---
 
@@ -113,7 +117,7 @@ Before adding individual hosts, create a host group to organize them.
 
 Most wireless antennas and managed switches support SNMP for monitoring. The process is similar to adding an agent-based host, but you select the SNMP interface instead.
 
-1. In the Zabbix web interface, navigate to **Data collection --> Hosts**.
+1. In the Zabbix web interface, navigate to **Data collection → Hosts**.
 2. Click **Create host**.
 3. Fill in the host configuration:
     - **Host name**: a descriptive name (e.g., `antenna-rooftop-north`)
@@ -127,7 +131,7 @@ Most wireless antennas and managed switches support SNMP for monitoring. The pro
 5. Click **Add** to save the host.
 
 !!! info "Finding the right SNMP template"
-    Zabbix ships with many built-in SNMP templates for common vendors (Ubiquiti, MikroTik, Cisco, etc.). Browse **Data collection --> Templates** and search for your device brand. If no specific template exists, the generic `Network Generic Device by SNMP` template covers basic metrics like uptime, interface traffic, and ICMP availability.
+    Zabbix ships with many built-in SNMP templates for common vendors (Ubiquiti, MikroTik, Cisco, etc.). Browse **Data collection → Templates** and search for your device brand. If no specific template exists, the generic `Network Generic Device by SNMP` template covers basic metrics like uptime, interface traffic, and ICMP availability.
 
 !!! warning "SNMP community string security"
     The default `public` community string provides read-only access, which is sufficient for monitoring. If your device uses a custom community string, enter it here. Avoid using `private` as a community string in production, as it typically grants write access.
@@ -223,7 +227,7 @@ Zabbix Agent 2 is required for Docker monitoring because it includes a built-in 
 
 #### 4c. Register the server in the Zabbix web interface
 
-1. In the Zabbix web interface, navigate to **Data collection --> Hosts**.
+1. In the Zabbix web interface, navigate to **Data collection → Hosts**.
 2. Click **Create host**.
 3. Fill in the host configuration:
     - **Host name**: must match the `Hostname` set in `zabbix_agent2.conf` (e.g., `docker-server-01`)
@@ -232,13 +236,13 @@ Zabbix Agent 2 is required for Docker monitoring because it includes a built-in 
         - **IP address**: the server's IP (e.g., `192.168.10.4`)
         - **Port**: `10050`
 4. Go to the **Templates** tab and link:
-    - `Linux by Zabbix agent active` -- for general OS monitoring
-    - `Docker by Zabbix agent 2` -- for container monitoring
+    - `Linux by Zabbix agent active` — for general OS monitoring
+    - `Docker by Zabbix agent 2` — for container monitoring
 5. Click **Add** to save the host.
 
 
 !!! tip "Verify Docker monitoring"
-    After a few minutes, navigate to **Monitoring --> Hosts**, click on your Docker server, and check the **Latest data** tab. You should see items like `docker.containers.running`, `docker.images`, and individual container metrics.
+    After a few minutes, navigate to **Monitoring → Hosts**, click on your Docker server, and check the **Latest data** tab. You should see items like `docker.containers.running`, `docker.images`, and individual container metrics.
 
 ---
 
@@ -248,7 +252,7 @@ Instead of creating every host manually, you can let Zabbix scan your network an
 
 #### 5a. Enable the built-in discovery rule
 
-1. In the Zabbix web interface, navigate to **Data collection --> Discovery**.
+1. In the Zabbix web interface, navigate to **Data collection → Discovery**.
 2. You will see a pre-configured rule called **Local network**. Click on it to edit.
 
     !!! info "Default scan range"
@@ -267,9 +271,9 @@ Instead of creating every host manually, you can let Zabbix scan your network an
 
 #### 5b. Create a discovery action
 
-A discovery rule alone only scans -- you need an action to tell Zabbix what to do with the results.
+A discovery rule alone only scans — you need an action to tell Zabbix what to do with the results.
 
-1. Navigate to **Alerts --> Actions --> Discovery actions**.
+1. Navigate to **Alerts → Actions → Discovery actions**.
 2. Click **Create action**.
 3. On the **Action** tab, give it a name (e.g., `Auto-add discovered hosts`).
 4. Under **Conditions**, click **Add**:
@@ -291,7 +295,7 @@ A discovery rule alone only scans -- you need an action to tell Zabbix what to d
 
 #### 5c. Verify discovered hosts
 
-1. Navigate to **Monitoring --> Discovery**.
+1. Navigate to **Monitoring → Discovery**.
 2. Wait several minutes for the scan to complete. If no results appear after a few minutes, restart the Zabbix server:
 
     ```bash
@@ -304,17 +308,18 @@ A discovery rule alone only scans -- you need an action to tell Zabbix what to d
     Depending on the size of your subnet and the configured interval, the initial scan may take several minutes. Hosts appear gradually as they are discovered.
 
 !!! info "Next steps after discovery"
-    Automatically discovered hosts will not have templates assigned unless you configure that in the action's operations. After the initial discovery, review the host list under **Data collection --> Hosts** and manually assign the appropriate templates (Zabbix Agent, SNMP, etc.) to each device as described in the steps above.
+    Automatically discovered hosts will not have templates assigned unless you configure that in the action's operations. After the initial discovery, review the host list under **Data collection → Hosts** and manually assign the appropriate templates (Zabbix Agent, SNMP, etc.) to each device as described in the steps above.
 
 ---
 
 ## References
-- Youtube: "Add Zabbix - Monitoring and Alerting with @AwesomeOpenSource " -- <https://www.youtube.com/watch?v=DFdDEf5iib4&t=67s>
-- Zabbix 7.0 Documentation -- Configuring a host -- <https://www.zabbix.com/documentation/7.0/en/manual/config/hosts/host>
-- Zabbix 7.0 Documentation -- SNMP agent monitoring -- <https://www.zabbix.com/documentation/7.0/en/manual/config/items/itemtypes/snmp>
-- Zabbix 7.0 Documentation -- Docker plugin (Agent 2) -- <https://www.zabbix.com/documentation/7.0/en/manual/appendix/config/zabbix_agent2_plugins/d_plugin>
-- Zabbix Agent configuration parameters -- <https://www.zabbix.com/documentation/7.0/en/manual/appendix/config/zabbix_agentd>
-- Zabbix 7.0 Documentation -- Network discovery -- <https://www.zabbix.com/documentation/7.0/en/manual/discovery/network_discovery>
+
+- YouTube: "Add Zabbix - Monitoring and Alerting with @AwesomeOpenSource" — <https://www.youtube.com/watch?v=DFdDEf5iib4&t=67s>
+- Zabbix 7.0 Documentation — Configuring a host — <https://www.zabbix.com/documentation/7.0/en/manual/config/hosts/host>
+- Zabbix 7.0 Documentation — SNMP agent monitoring — <https://www.zabbix.com/documentation/7.0/en/manual/config/items/itemtypes/snmp>
+- Zabbix 7.0 Documentation — Docker plugin (Agent 2) — <https://www.zabbix.com/documentation/7.0/en/manual/appendix/config/zabbix_agent2_plugins/d_plugin>
+- Zabbix Agent configuration parameters — <https://www.zabbix.com/documentation/7.0/en/manual/appendix/config/zabbix_agentd>
+- Zabbix 7.0 Documentation — Network discovery — <https://www.zabbix.com/documentation/7.0/en/manual/discovery/network_discovery>
 
 ## Revision History
 

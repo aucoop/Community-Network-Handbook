@@ -3,7 +3,7 @@
 This guide covers how to deploy a Zabbix monitoring server as a Proxmox LXC container using the community helper scripts, and complete the initial web setup wizard.
 
 This guide implements the concept introduced in
-[Chapter 2 -- Monitoring](../../2-Imaginary-Use-Case/2.5-Monitoring/index.md).
+[Chapter 2 — Monitoring](../../2-Imaginary-Use-Case/2.5-Monitoring/index.md).
 
 ## What You'll Learn
 
@@ -29,7 +29,7 @@ This guide implements the concept introduced in
 
 ### 1. Run the Proxmox helper script
 
-1. Open an SSH session to your Proxmox host or use the web shell (**Datacenter -> your node -> Shell**):
+1. Open an SSH session to your Proxmox host or use the web shell (**Datacenter → your node → Shell**):
 
     ```bash
     ssh root@<proxmox-ip>
@@ -66,7 +66,7 @@ This guide implements the concept introduced in
 
 ### 3. Configure the database connection
 
-1. Go to the Proxmox web interface and open the console of the Zabbix container (**Datacenter -> your node -> the Zabbix CT -> Console**).
+1. Go to the Proxmox web interface and open the console of the Zabbix container (**Datacenter → your node → the Zabbix CT → Console**).
 
 2. Retrieve the auto-generated database credentials:
 
@@ -101,13 +101,12 @@ This guide implements the concept introduced in
 ![Zabbix installation complete](images/Install-Zabbix-complete.webp){ width="600" }
 
 !!! tip "Default login credentials"
-    After completing the setup wizard, log in to Zabbix with the default credentials: username `Admin` (capital A) and password `zabbix`. Change the default password immediately under **Users Settings -> Profile -> Change password**.
+    After completing the setup wizard, log in to Zabbix with the default credentials: username `Admin` (capital A) and password `zabbix`. Change the default password immediately under **Users Settings → Profile → Change password**.
 
 ## References
 
-- Proxmox VE Helper Scripts -- Zabbix -- <https://community-scripts.github.io/ProxmoxVE/scripts?id=zabbix>
-- YouTube: "Use Proxmox to monitor network devices with Zabbix
-" -- <https://www.youtube.com/watch?v=lFtqJx5vpgc>
+- Proxmox VE Helper Scripts — Zabbix — <https://community-scripts.github.io/ProxmoxVE/scripts?id=zabbix>
+- YouTube: "Use Proxmox to monitor network devices with Zabbix" — <https://www.youtube.com/watch?v=lFtqJx5vpgc>
 
 ## Revision History
 
