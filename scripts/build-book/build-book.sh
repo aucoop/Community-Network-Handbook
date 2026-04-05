@@ -49,13 +49,27 @@ check_tool() {
     command -v "$1" &>/dev/null || die "'$1' is required but not found in PATH"
 }
 
+detect_imagemagick() {
+    if command -v magick &>/dev/null; then
+        echo "magick"
+        return
+    fi
+
+    if command -v convert &>/dev/null; then
+        echo "convert"
+        return
+    fi
+
+    die "ImageMagick is required but neither 'magick' nor 'convert' was found in PATH"
+}
+
 # ---------------------------------------------------------------------------
 # Pre-flight checks
 # ---------------------------------------------------------------------------
 info "Checking required tools..."
 check_tool python3
 check_tool pandoc
-check_tool magick
+IMAGEMAGICK_CMD="$(detect_imagemagick)"
 
 if [[ "$TARGET" == "all" || "$TARGET" == "pdf" ]]; then
     check_tool xelatex
@@ -98,7 +112,7 @@ while IFS= read -r -d '' webp_file; do
         continue
     fi
 
-    magick "$webp_file" "$png_path"
+    "$IMAGEMAGICK_CMD" "$webp_file" "$png_path"
     webp_count=$((webp_count + 1))
 done < <(find "$DOCS_DIR" -name '*.webp' -print0)
 
