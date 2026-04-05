@@ -14,11 +14,12 @@ This section implements the concepts introduced in
 - Creating useful dashboards
 
 !!! info "Work in Progress"
-    The Zabbix server installation guide, alert trigger configuration, and dashboard setup are not yet written.
+    Alert trigger configuration and dashboard setup guides are not yet written.
 
-<!-- TODO: Installation steps, alert trigger configuration, dashboard creation guide -->
+<!-- TODO: Alert trigger configuration, dashboard creation guide -->
 
 ## Guides
 
+- [Install Zabbix Server on Proxmox](Install-Zabbix.md) -- deploy a Zabbix server container using the community helper scripts
 - [Add Hosts to Zabbix](Add-Hosts.md) -- register OpenWrt routers, antennas, and Docker servers as monitored hosts
 - [Set Up Telegram Notifications](Telegram-Notifications.md) -- receive instant Telegram alerts when something goes wrong

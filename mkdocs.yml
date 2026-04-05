@@ -120,6 +120,7 @@ nav:
       - 3-Guide/Website/index.md
     - Zabbix:
       - 3-Guide/Zabbix/index.md
+      - Install Zabbix Server: 3-Guide/Zabbix/Install-Zabbix.md
       - Add Hosts: 3-Guide/Zabbix/Add-Hosts.md
       - Telegram Notifications: 3-Guide/Zabbix/Telegram-Notifications.md
   - 4. Real Use Cases:
