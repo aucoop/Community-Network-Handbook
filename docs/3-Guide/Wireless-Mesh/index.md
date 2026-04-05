@@ -42,7 +42,7 @@ In this approach, satellites request their IP address from the main router via D
 | Troubleshooting | IP always known | Must check DHCP leases |
 | Best for | Small, stable networks | Growing, dynamic networks |
 
-!!! tip "Start with Static, migrate to DHCP later"
+!!! tip "Start with Static; migrate to DHCP later"
     If you're new to mesh networking, start with the **Static IP Mesh** guide to get your network running quickly. Once you're comfortable, you can migrate satellites to the **DHCP-Based** approach for easier long-term management — the [DHCP guide](2-DHCP-Mesh/index.md) explains how to convert existing satellites.
 
 ## Common to Both Approaches
