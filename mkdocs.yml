@@ -120,6 +120,7 @@ nav:
 
 theme:
   name: material
+  custom_dir: overrides
   features:
     # - navigation.tabs
     - navigation.sections
@@ -192,3 +193,6 @@ plugins:
       output_folder: "out"
       input_folder: "../../src"
       input_extensions: ""
+
+extra:
+  book_download_url: https://github.com/aucoop/Community-Network-Handbook/releases/latest/download/Community-Network-Handbook.pdf
