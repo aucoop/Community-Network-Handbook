@@ -1,0 +1,44 @@
+ISP Budget Comparison Template
+Instructions: Fill in Column B with your expected usage profile. Then complete the ISP columns with each provider's offering and calculate the weighted scores.
+
+SECTION 1: DEFINE YOUR USAGE PROFILE
+Parameter,Your Requirements,Weight (1-5),Notes
+Expected simultaneous users,,,"Number of devices connected at the same time"
+Primary use case,,,"e.g., Web browsing, Video calls, File sharing, Streaming"
+Peak usage hours,,,"e.g., 9:00-17:00 weekdays"
+Minimum acceptable download speed (Mbps),,,"Based on use case requirements"
+Minimum acceptable upload speed (Mbps),,,"Important for video calls and file uploads"
+Maximum acceptable latency (ms),,,"Critical for real-time applications"
+Monthly data requirement (GB),,,"Estimate based on usage patterns"
+Budget limit (monthly),,,"Maximum monthly cost acceptable"
+
+SECTION 2: ISP COMPARISON
+Parameter,Weight,ISP Option 1,ISP Option 2,ISP Option 3,ISP Option 4
+Provider name,,-,-,-,-
+Technology type,,"(ADSL/Cable/4G/5G/Satellite)","(ADSL/Cable/4G/5G/Satellite)","(ADSL/Cable/4G/5G/Satellite)","(ADSL/Cable/4G/5G/Satellite)"
+Monthly cost,,,,,,
+Installation/setup cost,,,,,,
+Download speed (Mbps),,,,,,
+Upload speed (Mbps),,,,,,
+Typical latency (ms),,,,,,
+Data cap (GB/month),,,"(or Unlimited)","(or Unlimited)","(or Unlimited)","(or Unlimited)"
+Contract length (months),,,,,,
+Availability at site,,,"(Yes/No/Check required)","(Yes/No/Check required)","(Yes/No/Check required)","(Yes/No/Check required)"
+
+SECTION 3: WEIGHTED SCORING
+Criterion,Weight,ISP 1 Score (1-5),ISP 1 Weighted,ISP 2 Score (1-5),ISP 2 Weighted,ISP 3 Score (1-5),ISP 3 Weighted,ISP 4 Score (1-5),ISP 4 Weighted
+Meets download speed needs,5,,"=B*C","","=E*F","","=H*I","","=K*L"
+Meets upload speed needs,3,,,,,,,,,
+Acceptable latency,3,,,,,,,,,
+Within budget,5,,,,,,,,,
+No restrictive data cap,4,,,,,,,,,
+No long-term contract,2,,,,,,,,,
+Reliability reputation,4,,,,,,,,,
+Local support available,3,,,,,,,,,
+TOTAL WEIGHTED SCORE,,"","=SUM","","=SUM","","=SUM","","=SUM"
+
+SECTION 4: DECISION
+Selected ISP:,
+Reason:,
+Fallback option:,
+Notes:,
