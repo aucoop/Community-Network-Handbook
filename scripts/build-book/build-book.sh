@@ -171,6 +171,23 @@ else
     info "  Skipping Mermaid rendering (mmdc not available)"
 fi
 
+# Remove Mermaid image references that were not rendered successfully so Pandoc
+# does not fail on missing SVG files in CI environments.
+if [[ -f "$COMBINED_MD" ]]; then
+    tmp_combined="${COMBINED_MD}.tmp"
+    while IFS= read -r line; do
+        if [[ "$line" =~ ^!\[Diagram\]\((.*\.svg)\)$ ]]; then
+            svg_path="${BASH_REMATCH[1]}"
+            if [[ ! -f "$svg_path" ]]; then
+                warn "Removing unresolved Mermaid reference: $svg_path"
+                continue
+            fi
+        fi
+        printf '%s\n' "$line" >> "$tmp_combined"
+    done < "$COMBINED_MD"
+    mv "$tmp_combined" "$COMBINED_MD"
+fi
+
 # ---------------------------------------------------------------------------
 # Step 5: Build PDF
 # ---------------------------------------------------------------------------
