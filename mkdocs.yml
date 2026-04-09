@@ -75,6 +75,7 @@ nav:
       - 3-Guide/Captive-Portal/index.md
     - Clustering:
       - 3-Guide/Clustering/index.md
+      - Migrate VMs and Containers: 3-Guide/Clustering/Migrate-Containers.md
     - DNS:
       - 3-Guide/DNS/index.md
     - Domain:
