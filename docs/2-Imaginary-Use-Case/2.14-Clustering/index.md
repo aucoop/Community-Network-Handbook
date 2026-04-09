@@ -1,17 +1,10 @@
 # *"One machine isn't enough anymore"*
 
-Your Proxmox server is running seven containers and two VMs. The CPU is at 90%, RAM is nearly full, and adding more services means degrading the ones already running.
+Your single Proxmox server has been the workhorse of the community network for months. It runs Nextcloud, Zabbix, the DNS server, a RADIUS container, and a couple of VMs for testing. But now the CPU sits at 90% most of the day, RAM is nearly full, and every time someone suggests adding a new service the answer is the same: "There's no room." You could buy a bigger machine, but that means migrating everything, and you still end up with a single point of failure. There has to be a better way.
 
-Time for a **cluster** — multiple physical machines working together as one. With Proxmox clustering you can:
+The better way is **clustering**. Proxmox VE lets you join multiple physical machines into a single cluster so they appear as one system in the web interface. You can spread containers and VMs across nodes, migrate workloads from one machine to another -- even live, without downtime -- and add capacity gradually. When you get a second server, you join it to the cluster. Six months later when someone donates a third, you add that too. Each node contributes its own CPU, RAM, and storage to the shared pool.
 
-- **Spread the load** across multiple servers
-- **Migrate services** from one machine to another (even live, without downtime)
-- **Add capacity** gradually — buy a second machine when you need it, a third later
-
-!!! info "Work in Progress"
-    This section will introduce clustering concepts and when it makes sense to scale from one server to multiple.
+There is one catch you need to know about early: **quorum**. A Proxmox cluster uses a voting system to decide which nodes are "in charge." Each node gets one vote, and the cluster needs a majority to keep operating. With three nodes, losing one still leaves two votes out of three -- a majority. But with only two nodes, losing one means one vote out of two, which is not a majority. The cluster locks up. The practical solution is a **QDevice** -- a lightweight third voter running on something as small as a Raspberry Pi. It does not host any VMs; it only provides that tie-breaking vote so a two-node cluster can survive a single failure. You also need to make sure your network bridges (`vmbr0`, `vmbr1`, etc.) have identical names on every node, or live migration will fail because Proxmox cannot map a VM's network interfaces to bridges that do not exist on the target.
 
 !!! tip "Guide reference"
-    For step-by-step clustering instructions, see [Guide — Clustering](../../3-Guide/Clustering/index.md).
-
-<!-- TODO: When to cluster (and when not to), Proxmox cluster requirements, networking between nodes -->
+    For step-by-step clustering instructions, see [Guide -- Clustering](../../3-Guide/Clustering/index.md).
