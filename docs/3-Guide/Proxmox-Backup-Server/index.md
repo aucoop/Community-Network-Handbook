@@ -25,8 +25,8 @@ This guide implements the concept introduced in
 
 | Software               | Version        |
 |------------------------|----------------|
-| Proxmox Backup Server  | 3.x            |
-| Proxmox VE             | 8.x            |
+| Proxmox Backup Server  | 4.0.18         |
+| Proxmox VE             | 9.1.12         |
 
 ## Step-by-Step Implementation
 
@@ -76,6 +76,10 @@ If you prefer not to dedicate a physical machine, you can run PBS inside an LXC 
     ```
 3. Follow the prompts to configure the container (CPU, RAM, storage, network).
 4. The script will create and start the container with PBS pre-installed.
+5. Run the post-install script to optimize and configure the PBS container:
+    ```bash
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/tools/pve/post-pbs-install.sh)"
+    ```
 
 !!! warning "Backup disk separation"
     Even when running PBS as a container, mount a **separate physical disk** as the datastore. Backing up to the same disk that hosts your VMs provides no protection against disk failure.
@@ -96,6 +100,9 @@ If you prefer not to dedicate a physical machine, you can run PBS inside an LXC 
 
 ### 5. Configure package repositories
 
+!!! tip "Skip if using the LXC post-install script"
+    If you deployed PBS as an LXC container and ran the `post-pbs-install.sh` script in the previous step, your repositories are likely already configured. In that case, you can safely skip ahead to **Step 6**.
+
 By default, PBS is configured to use the enterprise repository, which requires a paid subscription. For community use, switch to the no-subscription repository.
 
 1. In the PBS web UI, navigate to **Administration → Repositories**.
@@ -106,6 +113,12 @@ By default, PBS is configured to use the enterprise repository, which requires a
     ```bash
     apt update && apt dist-upgrade -y
     ```
+
+    !!! warning "Fixing missing GPG keys"
+        If you get a key error such as `Failed to parse keyring "/usr/share/keyrings/proxmox-archive-keyring.gpg"` during the update step, explicitly download the Proxmox key first:
+        ```bash
+        wget https://enterprise.proxmox.com/debian/proxmox-release-trixie.gpg -O /usr/share/keyrings/proxmox-archive-keyring.gpg
+        ```
 
 <!-- TODO: Replace placeholder image — screenshot of PBS repository configuration -->
 ![PBS repository configuration](images/PBS-repository-config.webp){ width="600" }
@@ -145,7 +158,7 @@ Avoid using the root account for automated backups. Create a dedicated user and 
 1. Navigate to **Configuration → Access Control → User Management**.
 2. Click **Add**.
 3. Set:
-    - **User ID:** `backup@pbs`
+    - **User ID:** `backup`
     - **Password:** a strong password
 4. Click **Add**.
 
@@ -165,13 +178,9 @@ Avoid using the root account for automated backups. Create a dedicated user and 
 10. Click **Add**.
 11. Set:
     - **User:** `backup@pbs`
-    - **Token ID:** e.g., `pve-auto`
-    - Uncheck **Privilege Separation** if you want the token to inherit the user's permissions
+    - **Token Name:** e.g., `pve-auto`
 12. Click **Add**.
 13. **Copy the token secret immediately** — it is shown only once.
-
-<!-- TODO: Replace placeholder image — screenshot of PBS API token creation -->
-![PBS API token creation](images/PBS-api-token.webp){ width="600" }
 
 ### 8. Connect Proxmox VE to PBS
 
