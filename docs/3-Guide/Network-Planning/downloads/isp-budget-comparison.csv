@@ -35,7 +35,7 @@ No restrictive data cap,4,,,,,,,,,
 No long-term contract,2,,,,,,,,,
 Reliability reputation,4,,,,,,,,,
 Local support available,3,,,,,,,,,
-TOTAL WEIGHTED SCORE,,"","=SUM","","=SUM","","=SUM","","=SUM"
+TOTAL WEIGHTED SCORE,,"","=SUM(D30:D37)","","=SUM(F30:F37)","","=SUM(H30:H37)","","=SUM(J30:J37)"
 
 SECTION 4: DECISION
 Selected ISP:,
