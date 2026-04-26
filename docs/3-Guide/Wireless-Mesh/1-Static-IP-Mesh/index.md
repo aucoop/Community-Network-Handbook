@@ -1,12 +1,12 @@
-# OpenWrt 802.11s Wireless Mesh Setup
+# OpenWrt 802.11s Wireless Mesh Setup (Iteration 1 — Static IP)
 
-This guide walks you through configuring an 802.11s wireless mesh backhaul between two OpenWrt routers using the LuCI web interface, plus a shared 2.4 GHz access point for end users.
+This guide walks you through the **first iteration** of a wireless mesh deployment: configuring an 802.11s wireless mesh backhaul between two OpenWrt routers using the LuCI web interface, plus a shared 2.4 GHz access point for end users. Each satellite is assigned a unique static LAN IP by hand.
 
 This guide implements the concepts introduced in
-[Chapter 2.2 — Expanding Coverage](../../../2-Imaginary-Use-Case/2.2-Expanding-Coverage/index.md).
+[Chapter 2.2 — Expanding Coverage](../../../2-Imaginary-Use-Case/2.2-Expanding-Coverage/index.md), in particular [Wired vs Wireless](../../../2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.3-Wired-vs-Wireless.md).
 
-!!! tip "Alternative: DHCP-based approach"
-    This guide uses static IP addresses for satellite routers. For an alternative approach using DHCP, see the [DHCP-Based Mesh guide](../2-DHCP-Mesh/index.md).
+!!! tip "Next iteration: DHCP-based mesh"
+    Once this static-IP mesh is up and running, the recommended next step is to follow the [DHCP-based Mesh guide](../2-DHCP-Mesh/index.md) to centralize IP management on the main router. The two guides are designed to be done in sequence — see the [Wireless Mesh overview](../index.md) for the full path.
 
 !!! note "Other mesh setups possible"
     This is not the only way to set up a wireless mesh with OpenWrt. This guide focuses on a simple, beginner-friendly setup using LuCI that is suitable for most community network use cases. It uses the 5 GHz band for the mesh backhaul and 2.4 GHz for the access point, but other configurations are possible depending on your hardware capabilities and coverage needs.
@@ -48,103 +48,100 @@ This guide implements the concepts introduced in
 
 ### 1. Set the LAN IP address
 
-Before anything else, each router needs a unique IP on your subnet so they do not conflict.
+Each router needs a unique IP on your subnet so they do not conflict.
 
-Go to **Network > Interfaces** and edit the **LAN** interface. Change the **IPv4 address** to fit your main subnet. For example, if the main router is `192.168.70.1`, set the secondary router to `192.168.70.3`.
+1. Go to **Network → Interfaces** and click **Edit** on the **LAN** interface.
+2. Change the **IPv4 address** to fit your main subnet. For example, if the main router is `192.168.70.1`, set the secondary router to `192.168.70.3`.
 
-![LuCI LAN interface showing the IPv4 address field set to a new IP](images/Wireless-Mesh-set-lan-ip.webp){ width="600" }
+    ![LuCI LAN interface showing the IPv4 address field set to a new IP](images/Wireless-Mesh-set-lan-ip.webp){ width="600" }
 
-Click **Save & Apply**. You will need to reconnect to the router using the new IP address.
+3. Click **Save & Apply**. You will need to reconnect to the router using the new IP address.
+4. On the **secondary router only**, set the **IPv4 gateway** to the main router's IP (e.g., `192.168.70.1`) in the same **LAN** interface edit screen.
+5. On the **secondary router only**, switch to the **Advanced Settings** tab and add the main router's IP (e.g., `192.168.70.1`) as a **custom DNS server**.
+6. Click **Save & Apply**. Reconnect to the router using the new IP address.
 
-On the **secondary router only**, also configure the gateway and DNS so the device itself can reach the internet for management tasks (package updates, NTP sync, etc.):
-
-1. In the same **LAN** interface edit screen, set the **IPv4 gateway** to the main router's IP (e.g., `192.168.70.1`).
-2. Switch to the **Advanced Settings** tab and add the main router's IP (e.g., `192.168.70.1`) as a **custom DNS server**.
-
-    ![LuCI LAN interface showing custom DNS server fields](images/Wireless-Mesh-set-dns.webp){ width="600" }
-
-Click **Save & Apply**. You will need to reconnect to the router using the new IP address.
+!!! info "Why configure gateway and DNS on the secondary router?"
+    The secondary router itself needs internet access for management tasks like package updates and NTP sync. Pointing its gateway and DNS to the main router gives it that connectivity.
 
 ### 2. Remove the default Wi-Fi package
 
 OpenWrt ships with `wpad-basic-mbedtls` (or a similar variant), which does not support 802.11s mesh. You must replace it with the mesh-capable version.
 
-Navigate to **System > Software** and click **Update lists** to refresh the package index.
+1. Navigate to **System → Software**.
+2. Click **Update lists** to refresh the package index.
+3. Filter for `wpad-basic`.
+4. Find your installed version (e.g., `wpad-basic-mbedtls`) and click **Remove**.
 
-Filter for `wpad-basic`. Find your installed version (e.g., `wpad-basic-mbedtls`) and click **Remove**.
-
-![LuCI Software page showing wpad-basic-mbedtls selected for removal](images/Wireless-Mesh-remove-wpad-basic.webp){ width="600" }
+    ![LuCI Software page showing wpad-basic-mbedtls selected for removal](images/Wireless-Mesh-remove-wpad-basic.webp){ width="600" }
 
 !!! warning "Wait for the removal to finish"
     Do not proceed until the removal completes. Installing the new package while the old one is still present can cause LuCI errors or a broken Wi-Fi stack.
 
 ### 3. Install the mesh-capable Wi-Fi package
 
-Still in **System > Software**, filter for `wpad-mesh`. Find the matching variant (e.g., `wpad-mesh-wolfssl`) and click **Install**.
+1. Still in **System → Software**, filter for `wpad-mesh`.
+2. Find the matching variant (e.g., `wpad-mesh-wolfssl`) and click **Install**.
 
-![LuCI Software page showing wpad-mesh-wolfssl ready to install](images/Wireless-Mesh-install-wpad-mesh.webp){ width="600" }
+    ![LuCI Software page showing wpad-mesh-wolfssl ready to install](images/Wireless-Mesh-install-wpad-mesh.webp){ width="600" }
 
-After installation completes, navigate to **System > Reboot** and restart the router. Repeat steps 1 through 3 on the second router before continuing.
+3. Navigate to **System → Reboot** and restart the router.
+4. Repeat steps 1 through 3 on the second router before continuing.
 
 !!! tip "Verify the package is active"
-    After rebooting, go back to **System > Software** and confirm that `wpad-mesh-wolfssl` (or your chosen variant) appears in the installed list and that `wpad-basic-*` is gone.
+    After rebooting, go back to **System → Software** and confirm that `wpad-mesh-wolfssl` (or your chosen variant) appears in the installed list and that `wpad-basic-*` is gone.
 
 ### 4. Disable DHCP on the secondary router
 
 The secondary router must act as a "dumb AP" so it does not hand out its own IP addresses or compete with the main router's DHCP server.
 
-On the **secondary router only**, go to **Network > Interfaces**, edit the **LAN** interface, and scroll down to the **DHCP Server** section. Check the box **Ignore interface** to disable DHCP on this device.
+1. On the **secondary router only**, go to **Network → Interfaces** and click **Edit** on the **LAN** interface.
+2. Scroll down to the **DHCP Server** section.
+3. Check the box **Ignore interface** to disable DHCP on this device.
 
-![LuCI DHCP Server section with the Ignore interface checkbox enabled](images/Wireless-Mesh-disable-dhcp.webp){ width="600" }
+    ![LuCI DHCP Server section with the Ignore interface checkbox enabled](images/Wireless-Mesh-disable-dhcp.webp){ width="600" }
 
-Click **Save & Apply**.
+4. Click **Save & Apply**.
 
-!!! note "Why disable DHCP?"
+!!! info "Why disable DHCP?"
     Two DHCP servers on the same network will hand out conflicting leases, causing intermittent connectivity for all clients. Only the main router should run DHCP.
 
 ### 5. Configure the 5 GHz mesh backhaul
 
 This is the wireless link that connects the two routers together. The settings must be **identical** on both devices.
 
-On each router, go to **Network > Wireless**. Find the radios (i.e. radio0, radio1) and remove any default Wi-Fi networks attached to it.
+1. On each router, go to **Network → Wireless**.
+2. Find the radios (e.g. `radio0`, `radio1`) and remove any default Wi-Fi networks attached to them.
 
-![LuCI Wireless page with the default 5 GHz network being removed](images/Wireless-Mesh-remove-default-wifi.webp){ width="600" }
+    ![LuCI Wireless page with the default 5 GHz network being removed](images/Wireless-Mesh-remove-default-wifi.webp){ width="600" }
 
-Click **Add** on the 5 GHz radio to create a new wireless interface.
+3. Click **Add** on the 5 GHz radio to create a new wireless interface.
 
-![LuCI showing the Add button on the 5 GHz radio](images/Wireless-Mesh-add-5ghz-interface.webp){ width="600" }
+    ![LuCI showing the Add button on the 5 GHz radio](images/Wireless-Mesh-add-5ghz-interface.webp){ width="600" }
 
-Configure the new interface with these settings:
+4. Configure the **Device Configuration** section:
 
-**Device Configuration:**
+    - **Channel**: A fixed channel (e.g., **44**). Do **not** use Auto.
+    - **Width**: **20 MHz** or **40 MHz**. Narrower channels penetrate walls better.
 
-| Setting   | Value                                                                 |
-|-----------|-----------------------------------------------------------------------|
-| Channel   | A fixed channel (e.g., **44**). Do **not** use Auto.                  |
-| Width     | **20 MHz** or **40 MHz**. Narrower channels penetrate walls better.   |
+5. Configure the **Interface Configuration** section:
 
-**Interface Configuration:**
+    - **Mode**: **802.11s**
+    - **Mesh ID**: `School_Backhaul` (must match exactly on both routers)
+    - **Network**: check the box for **lan**
 
-| Setting   | Value                                                     |
-|-----------|-----------------------------------------------------------|
-| Mode      | **802.11s**                                               |
-| Mesh ID   | `School_Backhaul` (must match exactly on both routers)    |
-| Network   | Check the box for **lan**                                 |
+    ![LuCI radio and interface configuration for the 5 GHz mesh backhaul](images/Wireless-Mesh-radio-configuration.webp){ width="600" }
 
-![LuCI radio and interface configuration for the 5 GHz mesh backhaul](images/Wireless-Mesh-radio-configuration.webp){ width="600" }
+6. Configure the **Wireless Security** section:
 
-**Wireless Security:**
+    - **Encryption**: **WPA3-SAE**
+    - **Key**: a strong password, identical on both routers
 
-| Setting    | Value                                                        |
-|------------|--------------------------------------------------------------|
-| Encryption | **WPA3-SAE**                                                 |
-| Key        | A strong password, identical on both routers                 |
+    ![LuCI wireless security configuration for the mesh interface](images/Wireless-Mesh-mesh-security.webp){ width="600" }
 
-![LuCI wireless security configuration for the mesh interface](images/Wireless-Mesh-mesh-security.webp){ width="600" }
+7. Click **Save & Apply** on both routers.
+8. Check the **Network → Wireless** page — a **Tx/Rx rate** appearing on the mesh interface and an entry under **Associated Stations** confirm the link is up.
 
-Click **Save & Apply** on both routers. Then check the **Network > Wireless** page -- a **Tx/Rx rate** appearing on the mesh interface and an entry under **Associated Stations** confirm the link is up.
-
-![LuCI Wireless page showing the mesh peer listed under Associated Stations](images/Wireless-Mesh-associated-stations.webp){ width="600" }
+    ![LuCI Wireless page showing the mesh peer listed under Associated Stations](images/Wireless-Mesh-associated-stations.webp){ width="600" }
 
 !!! tip "No link forming?"
     Double-check that the channel, mesh ID, encryption type, and key are identical on both routers. Also ensure both devices are within radio range and that no DFS channels are causing radar detection delays.
@@ -153,37 +150,31 @@ Click **Save & Apply** on both routers. Then check the **Network > Wireless** pa
 
 This is the Wi-Fi network that end users will connect to. Configure it on **both** routers so users can roam seamlessly between them.
 
-Go to **Network > Wireless**, find the **2.4 GHz radio**, and click **Add** (or **Edit** if a default network exists).
+1. Go to **Network → Wireless**.
+2. Find the **2.4 GHz radio** and click **Add** (or **Edit** if a default network exists).
+3. Configure the **Device Configuration** section:
 
-**Device Configuration:**
+    - **Channel**: **Auto**, or a fixed non-overlapping channel (**1**, **6**, or **11**)
+    - **Transmit Power**: Default or Medium (approximately 15–18 dBm)
 
-| Setting         | Value                                                              |
-|-----------------|--------------------------------------------------------------------|
-| Channel         | **Auto**, or a fixed non-overlapping channel (**1**, **6**, or **11**) |
-| Transmit Power  | Default or Medium (approximately 15--18 dBm)                      |
+4. Configure the **Interface Configuration** section:
 
-**Interface Configuration:**
+    - **Mode**: **Access Point**
+    - **ESSID**: `School_Student_WiFi`
+    - **Network**: check the box for **lan**
 
-| Setting   | Value                          |
-|-----------|--------------------------------|
-| Mode      | **Access Point**               |
-| ESSID     | `School_Student_WiFi`          |
-| Network   | Check the box for **lan**      |
+    ![LuCI 2.4 GHz interface configuration for the student access point](images/Wireless-Mesh-2ghz-ap-config.webp){ width="600" }
 
-![LuCI 2.4 GHz interface configuration for the student access point](images/Wireless-Mesh-2ghz-ap-config.webp){ width="600" }
+5. Configure the **Wireless Security** section:
 
-**Wireless Security:**
+    - **Encryption**: **WPA2-PSK** (best compatibility with older student devices)
+    - **Key**: the shared password for students
 
-| Setting    | Value                                                                     |
-|------------|---------------------------------------------------------------------------|
-| Encryption | **WPA2-PSK** (best compatibility with older student devices)              |
-| Key        | The shared password for students                                          |
+    ![LuCI 2.4 GHz wireless security settings](images/Wireless-Mesh-2ghz-ap-security.webp){ width="600" }
 
-![LuCI 2.4 GHz wireless security settings](images/Wireless-Mesh-2ghz-ap-security.webp){ width="600" }
+6. Click **Save & Apply**.
 
-Click **Save & Apply**.
-
-!!! note "Seamless roaming between access points"
+!!! info "Seamless roaming between access points"
     For users to move between coverage areas without re-entering the password, the **ESSID**, **Encryption**, and **Key** must be identical on the 2.4 GHz AP of all routers. Devices will automatically switch to the strongest available signal.
 
 ## References

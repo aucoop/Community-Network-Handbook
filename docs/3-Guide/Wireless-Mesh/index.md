@@ -2,54 +2,41 @@
 
 This section covers how to set up an 802.11s wireless mesh network using OpenWrt routers. A mesh network allows multiple routers to communicate wirelessly, extending coverage without running Ethernet cables between buildings or access points.
 
-This section implements the concepts introduced in [Chapter 2.2 — Expanding Coverage](../../2-Imaginary-Use-Case/2.2-Expanding-Coverage/index.md).
+This section implements the concepts introduced in [Chapter 2.2 — Expanding Coverage](../../2-Imaginary-Use-Case/2.2-Expanding-Coverage/index.md), in particular [Wired vs Wireless](../../2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.3-Wired-vs-Wireless.md) and [One Router to Rule Them All](../../2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.4-DHCP-Satellite.md).
 
-## Two Approaches
+## Recommended path: two iterations
 
-There are two common ways to configure satellite (secondary) routers in your mesh network. Both approaches create a working mesh, but they differ in how you manage IP addresses:
+Do not pick one approach over the other — you start with the simpler one to get the network working, and then evolve it for easier long-term management.
 
-### 1. Static IP Mesh (Manual Assignment)
+### Iteration 1 — Static IP Mesh
 
-In this approach, you manually assign a unique static IP address to each satellite router before connecting it to the mesh. This is straightforward and works well for small deployments where you can easily track which IP belongs to which device.
+Get the mesh working first with the simplest possible setup. Each satellite router is given a unique **static LAN IP** by hand, its local DHCP server is disabled, and the 802.11s mesh backhaul plus a shared 2.4 GHz access point are brought up.
 
-**When to use:**
+This is the fastest way to confirm that the mesh links form, that satellites bridge traffic correctly, and that clients roam between access points. It is the **recommended starting point for every deployment**.
 
-- Small networks with few satellites (2–5 routers)
-- Quick initial testing and prototyping
-- Situations where you want full control over IP assignments from the start
+[Go to Iteration 1 — Static IP Mesh](1-Static-IP-Mesh/index.md)
 
-[Go to Static IP Mesh Guide](1-Static-IP-Mesh/index.md)
+### Iteration 2 — DHCP-based Mesh
 
-### 2. DHCP-Based Mesh (Automatic Assignment)
+Once Iteration 1 is up and running, upgrade each satellite so it gets its LAN IP from the **main router via DHCP**, pinned with a static lease. At the same time, you disable WAN and the firewall on the satellites so they become true "dumb APs" that only bridge traffic.
 
-In this approach, satellites request their IP address from the main router via DHCP, just like any other client device. You then create a static DHCP lease on the main router to ensure the satellite always receives the same IP.
+This iteration centralizes IP management on the main router, makes onboarding new satellites easier, and matches the "one router to rule them all" model from Chapter 2.2.4. It is the **recommended target state** for any deployment that is going to grow or be maintained over time.
 
-**When to use:**
+[Go to Iteration 2 — DHCP-based Mesh](2-DHCP-Mesh/index.md)
 
-- Larger networks with many satellites
-- When you want centralized IP management from the main router
-- When adding new satellites frequently (easier onboarding)
+!!! tip "Start with Iteration 1, then move to Iteration 2"
+    Always begin with the Static IP Mesh guide. Once the mesh is stable and clients can roam, follow the DHCP-based Mesh guide to centralize IP management. The DHCP guide is written to work both for new satellites and for converting the satellites you already configured in Iteration 1.
 
-[Go to DHCP-Based Mesh Guide](2-DHCP-Mesh/index.md)
+!!! info "Can I stop after Iteration 1?"
+    For very small or temporary deployments (2–3 routers, no plan to grow), Iteration 1 is enough. For everything else, plan to do both — the second iteration removes a whole class of long-term operational problems.
 
-## Which Should You Choose?
+## What both iterations cover
 
-| Factor | Static IP | DHCP-Based |
-|--------|-----------|------------|
-| Setup complexity | Simpler initial config | Slightly more steps |
-| IP management | Distributed (on each device) | Centralized (main router) |
-| Adding new satellites | Manual IP planning | Automatic, then pin with lease |
-| Troubleshooting | IP always known | Must check DHCP leases |
-| Best for | Small, stable networks | Growing, dynamic networks |
+Across both iterations, the guides walk you through:
 
-!!! tip "Start with Static; migrate to DHCP later"
-    If you're new to mesh networking, start with the **Static IP Mesh** guide to get your network running quickly. Once you're comfortable, you can migrate satellites to the **DHCP-Based** approach for easier long-term management — the [DHCP guide](2-DHCP-Mesh/index.md) explains how to convert existing satellites.
+- Replacing the default Wi-Fi package with the mesh-capable `wpad-mesh-wolfssl`.
+- Creating a 5 GHz 802.11s mesh backhaul between routers.
+- Configuring a shared 2.4 GHz access point so clients roam seamlessly.
+- Ensuring only the main router runs DHCP, so satellites never compete with it.
 
-## Common to Both Approaches
-
-Regardless of which IP assignment method you choose, both guides cover:
-
-- Replacing the default Wi-Fi package with the mesh-capable `wpad-mesh-wolfssl`
-- Creating a 5 GHz 802.11s mesh backhaul between routers
-- Configuring a shared 2.4 GHz access point for end users
-- Disabling DHCP server on satellites to avoid conflicts
+The difference is **how the satellite gets its own management IP**: hard-coded in Iteration 1, assigned by the main router (and pinned with a static lease) in Iteration 2.
