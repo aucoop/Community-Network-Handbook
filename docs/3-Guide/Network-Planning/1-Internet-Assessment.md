@@ -58,8 +58,8 @@ When you arrive at a site, you face one of two scenarios: either there is an exi
 
 2. Perform the budget comparison exercise above to verify the current solution is optimal.
 
-!!! info "Working with constraints"
-    Sometimes the internet service is provided by a government entity or institution and cannot be changed. Even so, document the alternatives for future reference.
+    !!! info "Working with constraints"
+        Sometimes the internet service is provided by a government entity or institution and cannot be changed. Even so, document the alternatives for future reference.
 
 3. Locate the internet entry point—this is where your network planning begins.
 
