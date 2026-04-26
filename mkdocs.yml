@@ -69,6 +69,11 @@ nav:
       - 2-Imaginary-Use-Case/2.21-Sustainability/index.md
   - 3. Guide:
     - 3-Guide/index.md
+    - Network Planning:
+      - 3-Guide/Network-Planning/index.md
+      - Internet Assessment: 3-Guide/Network-Planning/1-Internet-Assessment.md
+      - Site Assessment: 3-Guide/Network-Planning/2-Site-Assessment.md
+      - Expansion Planning: 3-Guide/Network-Planning/3-Expansion-Planning.md
     - Antennas:
       - 3-Guide/Antennas/index.md
     - Captive Portal:

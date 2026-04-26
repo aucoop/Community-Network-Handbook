@@ -14,6 +14,9 @@ So you need **your own router** — one you control.
 
 For that our way to go is OpenWrt. In a nutshell OpenWrt is "Linux, but for routers". So it's extremely recommended (and that's what the guide is based on)  to use OpenWrt routers. The next chapters will guide you on what router select and how to put OpenWrt on them.
 
+!!! tip "Guide reference"
+    For a structured approach to evaluating ISPs, comparing plans, and choosing the right internet connection for your site, see [Guide — Internet Assessment](../../3-Guide/Network-Planning/1-Internet-Assessment.md).
+
 ---
 
 **Next steps:**
