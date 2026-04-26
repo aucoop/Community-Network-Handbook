@@ -27,7 +27,7 @@ Availability at site,,,"(Yes/No/Check required)","(Yes/No/Check required)","(Yes
 
 SECTION 3: WEIGHTED SCORING
 Criterion,Weight,ISP 1 Score (1-5),ISP 1 Weighted,ISP 2 Score (1-5),ISP 2 Weighted,ISP 3 Score (1-5),ISP 3 Weighted,ISP 4 Score (1-5),ISP 4 Weighted
-Meets download speed needs,5,,"=B*C","","=E*F","","=H*I","","=K*L"
+Meets download speed needs,5,,"=B*C","","=B*E","","=B*G","","=B*I"
 Meets upload speed needs,3,,,,,,,,,
 Acceptable latency,3,,,,,,,,,
 Within budget,5,,,,,,,,,
