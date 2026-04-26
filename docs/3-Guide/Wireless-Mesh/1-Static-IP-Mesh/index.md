@@ -58,7 +58,7 @@ Each router needs a unique IP on your subnet so they do not conflict.
 3. Click **Save & Apply**. You will need to reconnect to the router using the new IP address.
 4. On the **secondary router only**, set the **IPv4 gateway** to the main router's IP (e.g., `192.168.70.1`) in the same **LAN** interface edit screen.
 5. On the **secondary router only**, switch to the **Advanced Settings** tab and add the main router's IP (e.g., `192.168.70.1`) as a **custom DNS server**.
-6. Click **Save & Apply**. Reconnect to the router using the new IP address.
+6. Click **Apply Unchecked** --> Red option. If you only click "Save & Apply" most probably the router will rollback the changes you've made. Reconnect to the router using the new IP address.
 
 !!! info "Why configure gateway and DNS on the secondary router?"
     The secondary router itself needs internet access for management tasks like package updates and NTP sync. Pointing its gateway and DNS to the main router gives it that connectivity.
