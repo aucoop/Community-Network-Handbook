@@ -89,8 +89,8 @@ nav:
       - 3-Guide/IP-Addressing/index.md
     - Wireless Mesh:
       - 3-Guide/Wireless-Mesh/index.md
-      - Static IP Mesh: 3-Guide/Wireless-Mesh/1-Static-IP-Mesh/index.md
-      - DHCP-Based Mesh: 3-Guide/Wireless-Mesh/2-DHCP-Mesh/index.md
+      - Iteration 1 — Static IP Mesh: 3-Guide/Wireless-Mesh/1-Static-IP-Mesh/index.md
+      - Iteration 2 — DHCP-based Mesh: 3-Guide/Wireless-Mesh/2-DHCP-Mesh/index.md
     - Nextcloud:
       - 3-Guide/Nextcloud/index.md
     - OpenWISP:
