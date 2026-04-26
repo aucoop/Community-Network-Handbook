@@ -62,7 +62,7 @@ flowchart TD
         CABLE -->|Yes| ETHERNET
         CABLE -->|No| DISTANCE{Distance<br/>< 50m?}
         DISTANCE -->|Yes| MESH[Mesh Wi-Fi]
-        DISTANCE -->|No| PTP[Point-to-Point Wifi Antennas]
+        DISTANCE -->|No| PTP[Point-to-Point Wi‑Fi Antennas]
         
         ETHERNET --> DEPLOY([Deploy Network])
         MESH --> DEPLOY
