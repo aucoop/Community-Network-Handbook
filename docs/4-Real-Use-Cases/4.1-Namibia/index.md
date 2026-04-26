@@ -67,7 +67,7 @@ The team created a simple IP plan following the guide in [Chapter 3 — IP Addre
 
 ![Final network deployment with mesh routers covering all school buildings](images/4.1-network-after.webp)
 
-![IP addressing plan showing each router's assigned address and location](images/4.1-network-ip-plan.webp)
+![IP addressing plan showing each router's assigned address and location](../../3-Guide/IP-Addressing/images/IP-Addressing-ip-plan-example.webp)
 
 ## Deployment
 
