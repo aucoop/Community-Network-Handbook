@@ -72,7 +72,7 @@ Create a simple document or spreadsheet that tracks:
 - **Location** — where the device is physically located
 - **MAC address** (optional) — useful for DHCP reservations
 
-![Example IP addressing plan spreadsheet](images/IP-Addressing-ip-plan-example.webp){ width="600" }
+![Example IP addressing plan spreadsheet](../../4-Real-Use-Cases/4.1-Namibia/images/4.1-network-ip-plan.webp){ width="600" }
 
 !!! tip "Keep it updated"
     An outdated IP plan is worse than no plan. Update it every time you add, move, or remove a device.
