@@ -47,8 +47,8 @@ When you arrive at a site, you face one of two scenarios: either there is an exi
     | Local support available | 3 | Faster problem resolution |
     | No long-term contract | 2 | Flexibility to change if needs evolve |
 
-!!! tip "Match the plan to the use case"
-    Different network uses have vastly different bandwidth requirements. Before selecting a plan, define how many users will connect simultaneously, what applications they will use (web browsing, video streaming, file transfers), and during which hours peak usage will occur. This understanding drives the right choice.
+    !!! tip "Match the plan to the use case"
+        Different network uses have vastly different bandwidth requirements. Before selecting a plan, define how many users will connect simultaneously, what applications they will use (web browsing, video streaming, file transfers), and during which hours peak usage will occur. This understanding drives the right choice.
 
 6. Discuss the options with the community and select the most appropriate ISP.
 
