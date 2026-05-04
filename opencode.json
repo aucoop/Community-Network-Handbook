@@ -1,0 +1,13 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "github-copilot": {
+      "models": {
+        "opus": {
+          "id": "claude-opus-4.7",
+          "name": "Claude Opus (alias -> 4.7)"
+        }
+      }
+    }
+  }
+}
