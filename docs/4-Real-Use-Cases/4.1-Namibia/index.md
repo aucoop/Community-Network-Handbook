@@ -29,7 +29,7 @@ The result: teachers in the staff room had unreliable connectivity, most classro
 
 ![Network state when the team arrived — fragmented coverage with two independent ADSL routers](images/4.1-network-before.webp)
 
-## Network Design
+Setting up 9 machines manually would take most of a day. Using PXE network boot and Clonezilla, the same task was completed in about an hour.
 
 ### The Problem
 
@@ -69,7 +69,10 @@ The team created a simple IP plan following the guide in [Chapter 3 — IP Addre
 
 ![IP addressing plan showing each router's assigned address and location](../../3-Guide/IP-Addressing/images/IP-Addressing-ip-plan-example.webp)
 
-## Deployment
+| Model          | CPU          | RAM    | Storage         | Quantity |
+|----------------|--------------|--------|-----------------|----------|
+| Lenovo T460    | Intel i5-6200U | 8 GB DDR4 | ~466 GB HDD | 7        |
+| Lenovo X260    | Intel i5-6200U | 8 GB DDR4 | ~238 GB SSD / ~466 GB HDD | 2 |
 
 ### Timeline
 
@@ -102,7 +105,7 @@ One team member's laptop couldn't connect to the mesh. The routers were configur
 
 Gochas experiences frequent power outages, especially during rainy season. The town's communication tower runs on a generator that shuts off at 8 PM. During one outage, the team lost both power and internet for three days — a reminder that community networks in remote areas need resilience planning.
 
-## Current State
+The deployment followed the [Laptop Deployment Guide](../../3-Guide/Laptop-Deployment/index.md):
 
 ### What's Running
 

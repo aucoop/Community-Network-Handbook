@@ -1,0 +1,77 @@
+% -----------------------------------------------------------------
+% Community Network Handbook — LaTeX preamble for Pandoc PDF output
+% -----------------------------------------------------------------
+
+% Admonition boxes via tcolorbox
+\usepackage[most]{tcolorbox}
+
+% Define admonition colours (matching MkDocs Material palette)
+\definecolor{admteal}{HTML}{009688}
+\definecolor{admcyan}{HTML}{0097A7}
+\definecolor{admorange}{HTML}{FF9100}
+\definecolor{admgray}{HTML}{757575}
+\definecolor{admred}{HTML}{FF1744}
+\definecolor{admviolet}{HTML}{7C4DFF}
+
+% Reusable admonition environment: \begin{admonitionbox}{color}{title}
+\newtcolorbox{admonitionbox}[2]{%
+	enhanced,
+	% breakable,  % keep admonitions on a single page
+	colback=#1!5!white,
+	colframe=#1!70!black,
+	coltitle=white,
+	fonttitle=\bfseries\sffamily,
+	title=#2,
+	arc=1.5mm,
+	boxrule=0.5mm,
+	left=3mm,
+	right=3mm,
+	top=2mm,
+	bottom=2mm,
+	before upper={\setlength{\parskip}{0.4em}},
+}
+
+% Map colour names used by the Lua filter to actual colours
+\colorlet{teal}{admteal}
+\colorlet{cyan}{admcyan}
+\colorlet{orange}{admorange}
+\colorlet{gray}{admgray}
+\colorlet{red}{admred}
+\colorlet{violet}{admviolet}
+
+% Better code block styling
+\usepackage{framed}
+
+% Slightly tighter line spacing for readability
+\usepackage{setspace}
+\setstretch{1.08}
+
+% Nicer chapter headings (optional, works with book class)
+\usepackage{titlesec}
+\titleformat{\part}[display]
+{\centering\Huge\bfseries\sffamily}
+{\partname\ \thepart}{20pt}{\Huge}
+\titleformat{\chapter}[display]
+{\Large\bfseries\sffamily}
+{\chaptertitlename\ \thechapter}{12pt}{\LARGE}
+\titleformat{\section}
+{\large\bfseries\sffamily}
+{\thesection}{1em}{}
+\titleformat{\subsection}
+{\normalsize\bfseries\sffamily}
+{\thesubsection}{1em}{}
+
+% Running headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\itshape\leftmark}
+\fancyhead[RO]{\small\itshape\rightmark}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Better URL line breaking
+\usepackage{xurl}
+
+% Prevent overfull hboxes in code blocks
+\usepackage{microtype}

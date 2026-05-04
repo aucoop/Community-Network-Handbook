@@ -4,3 +4,4 @@ public/
 public/
 venv
 .claude/
+build/
