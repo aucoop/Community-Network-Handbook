@@ -62,7 +62,13 @@ Time to go public.
 - [2.19 — *"I want people to find us from outside"*](2.19-Domain/index.md)
 - [2.20 — *"Let's show the world what we built!"*](2.20-Website/index.md)
 
-### :material-infinity: Act 6 — The Long Run
+### :material-laptop: Act 6 — Equipping the Community
+
+The network is ready — now get machines into people's hands.
+
+- [2.22 — *"We have 20 laptops and no time to set them up one by one"*](2.22-Equipping the community/index.md)
+
+### :material-infinity: Act 7 — The Long Run
 
 The network must outlive you.
 
