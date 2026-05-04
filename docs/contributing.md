@@ -46,4 +46,4 @@ Then open `http://127.0.0.1:8000` in your browser.
 
 ## Questions?
 
-Open an issue on GitHub — we're happy to help.
+[Open an issue on GitHub](https://github.com/aucoop/Community-Network-Handbook/issues/new) — we're happy to help.

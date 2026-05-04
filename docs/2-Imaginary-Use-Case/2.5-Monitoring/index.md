@@ -2,7 +2,7 @@
 
 One of the routers in the library stopped working on Monday. Nobody noticed until Thursday, when a teacher complained that the internet was down in her classroom.
 
-You need **monitoring** — a system that watches your network 24/7 and alerts you the moment something goes wrong. **Zabbix** is a professional-grade monitoring platform that can track every router, server, and service in your network.
+You need **monitoring** — a system that watches your network 24/7 and alerts you the moment something goes wrong. **Zabbix** is a professional-grade monitoring platform that can track every router, server, and service in your network. The good think is that they support monitoring OpenWrt routers and other network devices using SNMP.
 
 When a device goes down, you get an email — or a Telegram message — within minutes.
 
