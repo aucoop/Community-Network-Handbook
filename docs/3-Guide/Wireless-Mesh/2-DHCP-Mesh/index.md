@@ -1,11 +1,11 @@
-# Configure Satellite Routers with DHCP
+# Configure Satellite Routers with DHCP (Iteration 2)
 
-This guide covers how to configure a satellite (secondary) router in your mesh network to receive its IP address via DHCP from the main router, turning it into a "dumb AP" that only bridges traffic.
+This guide covers the **second iteration** of a wireless mesh deployment: converting each satellite (secondary) router so it receives its LAN IP from the main router via DHCP, turning it into a true "dumb AP" that only bridges traffic. WAN and the firewall are also disabled on the satellite.
 
-This guide implements the concept introduced in [Chapter 2 — One Router to Rule Them All](../../../2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.4-DHCP-Satellite.md).
+This guide implements the concept introduced in [Chapter 2.2.4 — One Router to Rule Them All](../../../2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.4-DHCP-Satellite.md).
 
-!!! info "This guide builds on the Static IP Mesh guide"
-    The [Static IP Mesh guide](../1-Static-IP-Mesh/index.md) has you assign a **static LAN IP** to the secondary router and disable its DHCP server manually. This guide offers an alternative approach: instead of a hard-coded static IP, the satellite requests its address via DHCP from the main router, and you then pin that address with a static lease. You can follow this guide to set up new satellites, or to convert existing satellites from static IP to DHCP.
+!!! info "This is the second iteration of the mesh deployment"
+    This guide is the recommended evolution of the [Static IP Mesh guide (Iteration 1)](../1-Static-IP-Mesh/index.md). In Iteration 1 you assign each satellite a hard-coded static LAN IP and disable its DHCP server manually. Here, the satellite instead requests its address via DHCP from the main router, and you pin that address with a static lease — matching the "one router to rule them all" model from Chapter 2.2.4. Use this guide to upgrade the satellites you configured in Iteration 1, or to set up new satellites directly in this mode.
 
 ## What You'll Learn
 
@@ -43,12 +43,12 @@ After completing this guide:
 1. Go to **Network → Interfaces**.
 2. Find the **LAN** interface and click **Edit**.
 
-![OpenWrt LuCI Interfaces page with LAN interface](images/DHCP-lan-interface-edit.webp){ width="600" }
+    ![OpenWrt LuCI Interfaces page with LAN interface](images/DHCP-lan-interface-edit.webp){ width="600" }
 
 3. In **General Settings**, change **Protocol** to **DHCP client**.
 4. Click **Save** but **do not apply yet**.
 
-![Setting LAN protocol to DHCP client](images/DHCP-set-protocol-dhcp-client.webp){ width="600" }
+    ![Setting LAN protocol to DHCP client](images/DHCP-set-protocol-dhcp-client.webp){ width="600" }
 
 !!! info "Why DHCP client?"
     By setting the satellite's LAN interface to DHCP client mode, it will request an IP address from the main router instead of using a manually configured static IP. This simplifies management and avoids IP conflicts.
@@ -58,15 +58,15 @@ After completing this guide:
 1. Go to **Network → Wireless**.
 2. Review your wireless interfaces.
 
-![Wireless overview showing available interfaces](images/DHCP-wireless-overview.webp){ width="600" }
+    ![Wireless overview showing available interfaces](images/DHCP-wireless-overview.webp){ width="600" }
 
 3. Check the **client-facing WiFi AP** interface — ensure **Network** is set to **lan**.
 
-![WiFi AP interface with Network set to lan](images/DHCP-wifi-ap-network-lan.webp){ width="600" }
+    ![WiFi AP interface with Network set to lan](images/DHCP-wifi-ap-network-lan.webp){ width="600" }
 
 4. Check the **802.11s mesh interface** — ensure **Network** is also set to **lan**.
 
-![Mesh interface with Network set to lan](images/DHCP-mesh-network-lan.webp){ width="600" }
+    ![Mesh interface with Network set to lan](images/DHCP-mesh-network-lan.webp){ width="600" }
 
 !!! info "Why attach to LAN?"
     All wireless interfaces must be bridged to the LAN interface so that traffic from WiFi clients flows through to the main router. If an interface isn't attached to LAN, devices connecting to it won't get internet access.
