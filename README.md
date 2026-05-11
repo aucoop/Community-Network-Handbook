@@ -1,6 +1,6 @@
 # Community-Network-Handbook
 A field guide to build community networks from scratch
-
+test test
 This directory contains the source documentation for the project. The documentation is built using [Zensical](https://zensical.org/), a modern static site generator by the creators of Material for MkDocs.
 
 ## Prerequisites
