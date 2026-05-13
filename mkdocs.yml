@@ -1,6 +1,9 @@
 site_name: Community Network Handbook
 site_description: A field guide to build community networks from scratch
 site_dir: public
+repo_url: https://github.com/aucoop/Community-Network-Handbook
+repo_name: aucoop/Community-Network-Handbook
+edit_uri: edit/main/docs/
 copyright: Copyright 2025-present, AUCOOP (https://aucoop.upc.edu)
 
 nav:
@@ -150,6 +153,7 @@ theme:
     - navigation.indexes
     - navigation.footer
     - toc.integrate
+    - content.action.edit
     - content.code.copy
     - content.code.annotate
   palette:

@@ -4,6 +4,18 @@ This handbook is open source and built to grow. Whether you're fixing a typo, ad
 
 ## How to contribute
 
+### Browser edits on GitHub
+
+1. Open the page you want to improve in the published handbook.
+2. Click the **Edit this page** button.
+3. GitHub will open the source file in your browser.
+4. Make your change and commit it through the GitHub web editor.
+5. GitHub will guide you to open a Pull Request.
+
+This is the easiest path if you do not use Git locally. Direct edits to `main` are blocked, so contributions go through Pull Requests.
+
+### Local Git workflow
+
 1. **Fork the repository** on GitHub
 2. **Create a branch** for your changes
 3. **Edit or add files** in the `docs/` folder (all content is Markdown)
