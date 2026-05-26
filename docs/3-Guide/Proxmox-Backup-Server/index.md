@@ -95,7 +95,6 @@ If you prefer not to dedicate a physical machine, you can run PBS inside an LXC 
     - **Username:** `root@pam`
     - **Password:** the root password set during installation
 
-<!-- TODO: Replace placeholder image — screenshot of PBS web UI login page -->
 ![PBS web interface login](images/PBS-web-login.webp){ width="600" }
 
 ### 5. Configure package repositories
@@ -120,7 +119,6 @@ By default, PBS is configured to use the enterprise repository, which requires a
         wget https://enterprise.proxmox.com/debian/proxmox-release-trixie.gpg -O /usr/share/keyrings/proxmox-archive-keyring.gpg
         ```
 
-<!-- TODO: Replace placeholder image — screenshot of PBS repository configuration -->
 ![PBS repository configuration](images/PBS-repository-config.webp){ width="600" }
 
 ### 6. Create a datastore
@@ -143,7 +141,6 @@ A datastore is where PBS stores all backup data. It should point to a dedicated 
     - **Backing Path:** `/mnt/backups`
 4. Click **Add**.
 
-<!-- TODO: Replace placeholder image — screenshot of PBS datastore creation dialog -->
 ![PBS datastore creation](images/PBS-add-datastore.webp){ width="600" }
 
 !!! info "Retention policy"
@@ -207,7 +204,6 @@ On your Proxmox VE node, add the PBS as a storage backend.
     - **Fingerprint:** find this on the PBS web UI by navigating to **Datastore → [Your Datastore] → Show Connection Information**
 4. Click **Add**.
 
-<!-- TODO: Replace placeholder image — screenshot of PVE Add PBS storage dialog -->
 ![PVE add PBS storage](images/PVE-add-pbs-storage.webp){ width="600" }
 
 !!! warning "Error: Cannot find datastore, check permissions and existence"
@@ -227,7 +223,6 @@ On your Proxmox VE node, add the PBS as a storage backend.
     - **Compression:** `ZSTD` (good balance of speed and compression ratio)
 3. Click **Create**.
 
-<!-- TODO: Replace placeholder image — screenshot of PVE backup job creation -->
 ![PVE backup job configuration](images/PVE-backup-job.webp){ width="600" }
 
 !!! info "Backup modes"
