@@ -101,7 +101,9 @@ If you prefer not to dedicate a physical machine, you can run PBS inside an LXC 
     - **Password:** the root password set during installation
     - **Realm:** `Proxmox Backup authentication server`
 
-![PBS web interface login](images/PBS-web-login.webp){ width="600" }
+<figure markdown="span">
+  ![PBS web interface login](images/PBS-web-login.webp){ width="600" }
+</figure>
 
 ### 3. Configure package repositories
 
@@ -125,7 +127,9 @@ By default, PBS is configured to use the enterprise repository, which requires a
         wget https://enterprise.proxmox.com/debian/proxmox-release-trixie.gpg -O /usr/share/keyrings/proxmox-archive-keyring.gpg
         ```
 
-![PBS repository configuration](images/PBS-repository-config.webp){ width="600" }
+<figure markdown="span">
+  ![PBS repository configuration](images/PBS-repository-config.webp){ width="900" }
+</figure>
 
 ### 4. Create a datastore
 
@@ -149,7 +153,9 @@ A datastore is where PBS stores all backup data. It should point to a dedicated 
     - **Backing Path:** `/mnt/backups`
 4. Click **Add**.
 
-![PBS datastore creation](images/PBS-add-datastore.webp){ width="600" }
+<figure markdown="span">
+  ![PBS datastore creation](images/PBS-add-datastore.webp){ width="600" }
+</figure>
 
 ### 5. Create a backup user and API token
 
@@ -209,7 +215,9 @@ On your Proxmox VE node, add the PBS as a storage backend.
     - **Fingerprint:** find this on the PBS web UI by navigating to **Datastore → [Your Datastore] → Show Connection Information**
 4. Click **Add**.
 
-![PVE add PBS storage](images/PVE-add-pbs-storage.webp){ width="600" }
+<figure markdown="span">
+  ![PVE add PBS storage](images/PVE-add-pbs-storage.webp){ width="600" }
+</figure>
 
 !!! warning "Error: Cannot find datastore, check permissions and existence"
     This error from PVE usually has one of these causes:
@@ -230,7 +238,9 @@ On your Proxmox VE node, add the PBS as a storage backend.
     - **Compression:** `ZSTD` (good balance of speed and compression ratio)
 3. Click **Create**.
 
-![PVE backup job configuration](images/PVE-backup-job.webp){ width="600" }
+<figure markdown="span">
+  ![PVE backup job configuration](images/PVE-backup-job.webp){ width="600" }
+</figure>
 
 !!! info "Backup modes"
     - **Snapshot:** backs up the VM while it's running (requires QEMU guest agent for consistency)
