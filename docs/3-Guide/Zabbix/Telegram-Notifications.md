@@ -3,7 +3,7 @@
 This guide covers how to configure Zabbix to send alert notifications through a Telegram bot, so you receive instant messages when a monitored host or service has a problem.
 
 This guide implements the concept introduced in
-[Chapter 2 -- Monitoring](../../2-Imaginary-Use-Case/2.5-Monitoring/index.md).
+[Chapter 2 — Monitoring](../../2-Imaginary-Use-Case/2.5-Monitoring/index.md).
 
 ## What You'll Learn
 
@@ -40,7 +40,7 @@ This guide implements the concept introduced in
 3. Follow the prompts:
     - Enter a **display name** for your bot (e.g., `Zabbix Alerts`).
     - Enter a **username** for your bot (must end in `bot`, e.g., `mynetwork_zabbix_bot`).
-4. BotFather replies with your bot's **API token**. Copy and save it -- you will need it in Step 3.
+4. BotFather replies with your bot's **API token**. Copy and save it — you will need it in Step 3.
 
 ![BotFather conversation with API token](images/Telegram-botfather-token.webp){ width="600" }
 
@@ -105,7 +105,7 @@ You need the chat ID of the user or group that should receive notifications.
 Zabbix ships with a pre-configured Telegram webhook media type. You just need to add your bot token.
 
 1. Log in to the Zabbix web interface.
-2. Navigate to **Alerts --> Media types**.
+2. Navigate to **Alerts → Media types**.
 3. Find **Telegram** in the list and click on it to edit.
 4. In the **Parameters** section, set the following:
     - **`api_token`**: paste your bot API token from Step 1.
@@ -117,7 +117,7 @@ Zabbix ships with a pre-configured Telegram webhook media type. You just need to
 
 
 !!! tip "Test the media type"
-    Click the **Test** button at the rigth of the Telegram media type configuration. Zabbix opens a form pre-filled with all the webhook parameters. Because there is no real event, macro values like `{ALERT.SENDTO}` are not resolved automatically -- you must enter test values manually.
+    Click the **Test** button at the right of the Telegram media type configuration. Zabbix opens a form pre-filled with all the webhook parameters. Because there is no real event, macro values like `{ALERT.SENDTO}` are not resolved automatically — you must enter test values manually.
 
     Fill in the following fields (leave any field not listed at its default value):
 
@@ -127,7 +127,7 @@ Zabbix ships with a pre-configured Telegram webhook media type. You just need to
     | `alert_subject` | `Test subject` |
     | `api_chat_id` | Your numeric chat ID (e.g. `123456789`) |
     | `api_parse_mode` | `Markdown` (leave as-is) |
-    | `api_token` | *(leave as-is -- already filled from the configuration)* |
+    | `api_token` | *(leave as-is — already filled from the configuration)* |
     | `event_nseverity` | `3` |
     | `event_severity` | `Warning` |
     | `event_source` | `0` |
@@ -137,7 +137,7 @@ Zabbix ships with a pre-configured Telegram webhook media type. You just need to
     | `event_update_status` | `0` |
     | `event_value` | `1` |
 
-    The critical field is **`api_chat_id`** -- it defaults to `{ALERT.SENDTO}`, which is not resolved during a manual test. Replace it with the actual numeric chat ID you obtained in Step 2.
+    The critical field is **`api_chat_id`** — it defaults to `{ALERT.SENDTO}`, which is not resolved during a manual test. Replace it with the actual numeric chat ID you obtained in Step 2.
 
     Click **Test**. A successful response looks like `{"ok":true,"result":{...}}` and you should receive a message from the bot in Telegram. If the test fails, double-check the token, verify the chat ID is correct, and ensure the bot was added to the group (for group chat IDs).
 
@@ -145,7 +145,7 @@ Zabbix ships with a pre-configured Telegram webhook media type. You just need to
 
 ### 4. Add Telegram as a notification channel for a user
 
-1. Navigate to **Users --> Users**.
+1. Navigate to **Users → Users**.
 2. Click on the user that should receive Telegram notifications (e.g., **Admin**).
 3. Go to the **Media** tab.
 4. Click **Add** and fill in:
@@ -170,14 +170,14 @@ Zabbix ships with a pre-configured Telegram webhook media type. You just need to
 !!! info "What are trigger actions?"
     Trigger actions tell Zabbix what to do when a trigger fires (a problem is detected) and when the problem is resolved.
 
-1. Navigate to **Alerts --> Actions --> Trigger actions**.
+1. Navigate to **Alerts → Actions → Trigger actions**.
 2. Enable the default **Report problems to Zabbix administrators** action.
 
 ![Trigger actions list](images/Telegram-trigger-actions-list.webp){ width="600" }
 
 
 !!! info "Why recovery operations matter"
-    Without recovery operations, you only get notified when something breaks -- not when it comes back online. Configuring both ensures you know when a problem starts and when it is resolved.
+    Without recovery operations, you only get notified when something breaks — not when it comes back online. Configuring both ensures you know when a problem starts and when it is resolved.
 
 ---
 
@@ -185,7 +185,7 @@ Zabbix ships with a pre-configured Telegram webhook media type. You just need to
 
 The default Telegram messages may be too verbose or lack information relevant to your network. You can customize them per media type.
 
-1. Navigate to **Alerts --> Media types**.
+1. Navigate to **Alerts → Media types**.
 2. Click on **Telegram**.
 3. Scroll down to **Message templates**.
 4. Click the **Problem** template to edit it and paste the following:
@@ -233,10 +233,10 @@ The default Telegram messages may be too verbose or lack information relevant to
 
 ## References
 
-- Zabbix Telegram integration page -- <https://www.zabbix.com/integrations/telegram>
-- Zabbix 7.0 Documentation -- Media types -- <https://www.zabbix.com/documentation/7.0/en/manual/config/notifications/media>
-- Zabbix 7.0 Documentation -- Trigger actions -- <https://www.zabbix.com/documentation/7.0/en/manual/config/notifications/action>
-- Zabbix 7.0 Documentation -- Notification macros -- <https://www.zabbix.com/documentation/7.0/en/manual/appendix/macros/supported_by_location>
+- Zabbix Telegram integration page — <https://www.zabbix.com/integrations/telegram>
+- Zabbix 7.0 Documentation — Media types — <https://www.zabbix.com/documentation/7.0/en/manual/config/notifications/media>
+- Zabbix 7.0 Documentation — Trigger actions — <https://www.zabbix.com/documentation/7.0/en/manual/config/notifications/action>
+- Zabbix 7.0 Documentation — Notification macros — <https://www.zabbix.com/documentation/7.0/en/manual/appendix/macros/supported_by_location>
 
 ## Revision History
 
