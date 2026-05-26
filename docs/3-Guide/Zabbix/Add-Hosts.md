@@ -1,6 +1,6 @@
 # Add Hosts to Zabbix
 
-This guide covers how to register network devices and servers in your Zabbix monitoring system, including OpenWrt routers (Zabbix Agent), antennas (SNMP), and Linux servers running Docker (Zabbix Agent 2).
+This guide covers how to register network devices and servers in your Zabbix monitoring system, including OpenWrt routers (Zabbix Agent), antennas (SNMP), and Linux servers (Zabbix Agent 2) with optional Docker monitoring.
 
 This guide implements the concept introduced in
 [Chapter 2 — Monitoring](../../2-Imaginary-Use-Case/2.5-Monitoring/index.md).
@@ -10,7 +10,8 @@ This guide implements the concept introduced in
 - How to add an OpenWrt router as a monitored host using Zabbix Agent
 - How to configure the Zabbix agent on OpenWrt to accept server connections
 - How to add an antenna or network device using SNMP
-- How to install Zabbix Agent 2 on a Linux server and monitor Docker containers
+- How to install Zabbix Agent 2 on a Linux server (Debian/Proxmox or Ubuntu)
+- How to optionally enable Docker container monitoring with Zabbix Agent 2
 
 ## Prerequisites
 
@@ -29,7 +30,7 @@ This guide implements the concept introduced in
 | Zabbix Agent 2 | 7.0              |
 
 !!! tip "Got many devices? Skip to automatic discovery"
-    If you need to add many hosts at once, Zabbix's built-in network discovery can scan your subnet and add devices automatically. See [Step 5 — Discover hosts automatically](#5-optional-discover-hosts-automatically) before starting the manual steps below.
+    If you need to add many hosts at once, Zabbix's built-in network discovery can scan your subnet and add devices automatically. See [Step 6 — Discover hosts automatically](#6-optional-discover-hosts-automatically) before starting the manual steps below.
 
 ## Step-by-Step Implementation
 
@@ -94,7 +95,7 @@ Before adding individual hosts, create a host group to organize them.
 2. Click **Create host** (top-right corner).
 
     !!! info "Already discovered?"
-        If you used the automatic discovery method (Step 5), the host may already exist. In that case, click on it to edit and continue with the next sub-steps.
+        If you used the automatic discovery method (Step 6), the host may already exist. In that case, click on it to edit and continue with the next sub-steps.
 
 3. Fill in the host configuration:
     - **Host name**: a descriptive name (e.g., `router-library`)
@@ -105,7 +106,9 @@ Before adding individual hosts, create a host group to organize them.
 4. Go to the **Templates** tab, click **Select**, and link the **Linux by Zabbix agent** template.
 5. Click **Add** to save the host.
 
-![Zabbix Data collection Hosts page](images/Add-Hosts-data-collection-hosts.webp){ width="600" }
+<figure markdown="span">
+  ![Zabbix Data collection Hosts page](images/Add-Hosts-data-collection-hosts.webp){ width="600" }
+</figure>
 
 
 !!! tip "Verify the connection"
@@ -138,27 +141,40 @@ Most wireless antennas and managed switches support SNMP for monitoring. The pro
 
 ---
 
-### 4. Add a Linux server with Docker (Zabbix Agent 2)
+### 4. Add a Linux server (Zabbix Agent 2)
 
-Zabbix Agent 2 is required for Docker monitoring because it includes a built-in Docker plugin that the classic `zabbix-agentd` does not support.
+Zabbix Agent 2 is a modern monitoring agent that supports extended plugins (including Docker). This step covers installing it on any Debian-based Linux server.
 
 #### 4a. Install Zabbix Agent 2 on the server
 
 1. SSH into your Linux server.
-2. Download and install the Zabbix repository package. See the [Zabbix download documentation](https://www.zabbix.com/download) for the correct package for your distribution.
+2. Download and install the Zabbix repository package for Debian 12 (Bookworm), which also applies to Proxmox VE:
 
-    !!! info "Ubuntu example"
+    ```bash
+    wget https://repo.zabbix.com/zabbix/7.4/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.4+debian12_all.deb
+    dpkg -i zabbix-release_latest_7.4+debian12_all.deb
+    apt update
+    ```
+
+    !!! info "Ubuntu 24.04"
+        If your server runs Ubuntu instead of Debian/Proxmox, use the Ubuntu repository package:
         ```bash
         wget https://repo.zabbix.com/zabbix/7.4/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.4+ubuntu24.04_all.deb
         dpkg -i zabbix-release_latest_7.4+ubuntu24.04_all.deb
         apt update
         ```
 
-3. Install Zabbix Agent 2 and its plugins:
+3. Install Zabbix Agent 2:
 
     ```bash
-    sudo apt install -y zabbix-agent2 zabbix-agent2-plugin-*
+    sudo apt install -y zabbix-agent2
     ```
+
+    !!! info "Why no plugin wildcard?"
+        Earlier versions of this guide used `zabbix-agent2-plugin-*` to install all available plugins. That wildcard pulls in hardware-specific plugins such as `zabbix-agent2-plugin-nvidia`, which causes the agent to fail on machines without an NVIDIA GPU. The Docker monitoring plugin is built into Zabbix Agent 2 itself and does not require a separate package, so the wildcard is not needed for any use case in this guide.
+
+    !!! warning "Expected startup error during install"
+        When installing, dpkg tries to start the service immediately. This will fail because the configuration has not been set yet. This is expected — proceed to the next steps to configure the agent, then start it manually.
 
 4. Edit the agent configuration file:
 
@@ -171,17 +187,39 @@ Zabbix Agent 2 is required for Docker monitoring because it includes a built-in 
     ```ini
     Server=192.168.10.1
     ServerActive=192.168.10.1
-    Hostname=docker-server-01
+    Hostname=server-01
     ```
 
-6. Restart and enable the agent:
+6. Start and enable the agent:
 
     ```bash
-    sudo systemctl restart zabbix-agent2
+    sudo systemctl start zabbix-agent2
     sudo systemctl enable zabbix-agent2
     ```
 
-#### 4b. Grant Docker access to the Zabbix user
+#### 4b. Register the server in the Zabbix web interface
+
+1. In the Zabbix web interface, navigate to **Data collection → Hosts**.
+2. Click **Create host**.
+3. Fill in the host configuration:
+    - **Host name**: must match the `Hostname` set in `zabbix_agent2.conf` (e.g., `server-01`)
+    - **Host groups**: select or create a group (e.g., `Servers`)
+    - **Interfaces**: click **Add** and select **Agent**
+        - **IP address**: the server's IP (e.g., `192.168.10.4`)
+        - **Port**: `10050`
+4. Go to the **Templates** tab and link the `Linux by Zabbix agent active` template.
+5. Click **Add** to save the host.
+
+!!! tip "Verify the connection"
+    After adding the host, wait a few minutes and check the **Availability** column on the **Data collection → Hosts** page. A green **ZBX** icon means the Zabbix server can reach the agent.
+
+---
+
+### 5. (Optional) Enable Docker monitoring
+
+If your Linux server runs Docker, you can extend the Zabbix Agent 2 installation from Step 4 to monitor containers. Zabbix Agent 2 includes a built-in Docker plugin that the classic `zabbix-agentd` does not support.
+
+#### 5a. Grant Docker access to the Zabbix user
 
 1. Add the `zabbix` user to the `docker` group so the agent can query Docker:
 
@@ -218,32 +256,24 @@ Zabbix Agent 2 is required for Docker monitoring because it includes a built-in 
 
     Common issues include the `zabbix` user not being in the `docker` group, or the Docker socket permissions being too restrictive.
 
-#### 4c. Register the server in the Zabbix web interface
+#### 5b. Link the Docker template in the Zabbix web interface
 
 1. In the Zabbix web interface, navigate to **Data collection → Hosts**.
-2. Click **Create host**.
-3. Fill in the host configuration:
-    - **Host name**: must match the `Hostname` set in `zabbix_agent2.conf` (e.g., `docker-server-01`)
-    - **Host groups**: select or create a group (e.g., `Servers`)
-    - **Interfaces**: click **Add** and select **Agent**
-        - **IP address**: the server's IP (e.g., `192.168.10.4`)
-        - **Port**: `10050`
-4. Go to the **Templates** tab and link:
-    - `Linux by Zabbix agent active` — for general OS monitoring
-    - `Docker by Zabbix agent 2` — for container monitoring
-5. Click **Add** to save the host.
-
+2. Click on the host you registered in Step 4b.
+3. Go to the **Templates** tab and click **Select**.
+4. Search for and link the `Docker by Zabbix agent 2` template.
+5. Click **Update** to save.
 
 !!! tip "Verify Docker monitoring"
     After a few minutes, navigate to **Monitoring → Hosts**, click on your Docker server, and check the **Latest data** tab. You should see items like `docker.containers.running`, `docker.images`, and individual container metrics.
 
 ---
 
-### 5. (Optional) Discover hosts automatically
+### 6. (Optional) Discover hosts automatically
 
 Instead of creating every host manually, you can let Zabbix scan your network and add discovered devices on its own. This is useful when you have many hosts and want a quick initial inventory.
 
-#### 5a. Enable the built-in discovery rule
+#### 6a. Enable the built-in discovery rule
 
 1. In the Zabbix web interface, navigate to **Data collection → Discovery**.
 2. You will see a pre-configured rule called **Local network**. Click on it to edit.
@@ -260,9 +290,11 @@ Instead of creating every host manually, you can let Zabbix scan your network an
 5. Tick the **Enabled** checkbox at the bottom of the form.
 6. Click **Update** to save.
 
-![Discovery rule with custom checks](images/Add-Hosts-discovery-checks.webp){ width="600" }
+<figure markdown="span">
+  ![Discovery rule with custom checks](images/Add-Hosts-discovery-checks.webp){ width="600" }
+</figure>
 
-#### 5b. Create a discovery action
+#### 6b. Create a discovery action
 
 A discovery rule alone only scans — you need an action to tell Zabbix what to do with the results.
 
@@ -273,12 +305,16 @@ A discovery rule alone only scans — you need an action to tell Zabbix what to 
     - Set the condition type to **Discovery rule**.
     - Click **Select** and choose the **Local network** rule you just enabled.
     
-    ![Discovery action condition](images/Add-Hosts-discovery-action-condition.webp){ width="600" }
+    <figure markdown="span">
+      ![Discovery action condition](images/Add-Hosts-discovery-action-condition.webp){ width="600" }
+    </figure>
 
 5. Switch to the **Operations** tab and click **Add**.
 6. Select **Add host** as the operation type.
 
-    ![Discovery action configuration](images/Add-Hosts-discovery-action.webp){ width="600" }
+    <figure markdown="span">
+      ![Discovery action configuration](images/Add-Hosts-discovery-action.webp){ width="600" }
+    </figure>
 
 7. Click **Add** to save the action.
 
@@ -286,7 +322,7 @@ A discovery rule alone only scans — you need an action to tell Zabbix what to 
 !!! tip "Additional operations"
     Besides **Add host**, you can also configure operations to add the host to a specific group, link a template, or send a notification. These are useful once you have a more established monitoring setup.
 
-#### 5c. Verify discovered hosts
+#### 6c. Verify discovered hosts
 
 1. Navigate to **Monitoring → Discovery**.
 2. Wait several minutes for the scan to complete. If no results appear after a few minutes, restart the Zabbix server:
@@ -307,6 +343,8 @@ A discovery rule alone only scans — you need an action to tell Zabbix what to 
 
 ## References
 
+<!-- TODO: Revisar referencias. Para empezar estamos usando la docu de zabbix 7.0... --->
+
 - YouTube: "Add Zabbix - Monitoring and Alerting with @AwesomeOpenSource" — <https://www.youtube.com/watch?v=DFdDEf5iib4&t=67s>
 - Zabbix 7.0 Documentation — Configuring a host — <https://www.zabbix.com/documentation/7.0/en/manual/config/hosts/host>
 - Zabbix 7.0 Documentation — SNMP agent monitoring — <https://www.zabbix.com/documentation/7.0/en/manual/config/items/itemtypes/snmp>
@@ -318,4 +356,4 @@ A discovery rule alone only scans — you need an action to tell Zabbix what to 
 
 | Date       | Version | Changes                | Author           | Contributors                |
 |------------|---------|------------------------|------------------|-----------------------------|
-| 2026-04-01 | 1.0     | Initial guide creation | Jaime Motje      | Maria Jover, Sergio Giménez, Joan Torres |
+| 2026-04-01 | 1.0     | Initial guide creation | Jaime Motje      | Sergio Giménez, Joan Torres |

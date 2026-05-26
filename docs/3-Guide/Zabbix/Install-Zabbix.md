@@ -60,7 +60,9 @@ This guide implements the concept introduced in
 
 2. The Zabbix welcome page appears, confirming the web frontend is running.
 
-    ![Zabbix 7.4 welcome page](images/Install-Zabbix-welcome-page.webp){ width="600" }
+    <figure markdown="span">
+      ![Zabbix 7.4 welcome page](images/Install-Zabbix-welcome-page.webp){ width="600" }
+    </figure>
 
 3. Click **Next step** to proceed.
 
@@ -74,7 +76,9 @@ This guide implements the concept introduced in
     cat ~/zabbix.creds
     ```
 
-    ![Proxmox console showing Zabbix credentials](images/Install-Zabbix-proxmox-credentials.webp){ width="600" }
+    <figure markdown="span">
+      ![Proxmox console showing Zabbix credentials](images/Install-Zabbix-proxmox-credentials.webp){ width="600" }
+    </figure>
 
 3. Back in the browser, on the **Configure DB connection** page, fill in the fields using the credentials from the previous sub-step:
     - **Database host:** the value shown in the credentials file (typically `localhost`)
@@ -83,7 +87,9 @@ This guide implements the concept introduced in
     - **User:** the database user from the credentials file
     - **Password:** the database password from the credentials file
 
-    ![Zabbix database connection configuration page](images/Install-Zabbix-db-connection.webp){ width="600" }
+    <figure markdown="span">
+      ![Zabbix database connection configuration page](images/Install-Zabbix-db-connection.webp){ width="600" }
+    </figure>
 
 4. Click **Next step** to continue.
 
@@ -93,12 +99,16 @@ This guide implements the concept introduced in
     - **Zabbix server name:** enter a descriptive name for your server (e.g., `Community Network Zabbix`)
     - **Default time zone:** select your local timezone
 
-    ![Zabbix settings page with server name and timezone](images/Install-Zabbix-settings.webp){ width="600" }
+    <figure markdown="span">
+      ![Zabbix settings page with server name and timezone](images/Install-Zabbix-settings.webp){ width="600" }
+    </figure>
 
 2. Click **Next step** to review the configuration summary.
 3. Verify all settings are correct and click **Finish**.
 
-![Zabbix installation complete](images/Install-Zabbix-complete.webp){ width="600" }
+<figure markdown="span">
+  ![Zabbix installation complete](images/Install-Zabbix-complete.webp){ width="600" }
+</figure>
 
 !!! tip "Default login credentials"
     After completing the setup wizard, log in to Zabbix with the default credentials: username `Admin` (capital A) and password `zabbix`. Change the default password immediately under **Users Settings → Profile → Change password**.

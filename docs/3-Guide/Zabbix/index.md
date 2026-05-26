@@ -9,7 +9,7 @@ This section implements the concepts introduced in
 
 - Understanding the Zabbix architecture (server, agent, SNMP)
 - Installing Zabbix server on a Proxmox LXC container or bare metal
-- Adding hosts to Zabbix: OpenWrt routers (Zabbix Agent), antennas (SNMP), and Docker servers (Zabbix Agent 2)
+- Adding hosts to Zabbix: OpenWrt routers (Zabbix Agent), antennas (SNMP), and Linux servers (Zabbix Agent 2) with optional Docker monitoring
 - Configuring alert triggers (device down, high CPU, disk full)
 - Setting up Telegram bot notifications for real-time alerts on problems and recoveries
 - Creating useful dashboards for network-wide visibility

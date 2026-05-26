@@ -42,7 +42,9 @@ This guide implements the concept introduced in
     - Enter a **username** for your bot (must end in `bot`, e.g., `mynetwork_zabbix_bot`).
 4. BotFather replies with your bot's **API token**. Copy and save it — you will need it in Step 3.
 
-![BotFather conversation with API token](images/Telegram-botfather-token.webp){ width="600" }
+<figure markdown="span">
+  ![BotFather conversation with API token](images/Telegram-botfather-token.webp){ width="600" }
+</figure>
 
 !!! warning "Keep your token secret"
     Anyone with the bot token can send messages as your bot. Do not share it publicly or commit it to version control.
@@ -64,7 +66,9 @@ You need the chat ID of the user or group that should receive notifications.
 
 3. The bot replies with your numeric chat ID. Copy it.
 
-    ![Personal chat ID from @myidbot](images/Telegram-chat-id-personal.webp){ width="600" }
+    <figure markdown="span">
+      ![Personal chat ID from @myidbot](images/Telegram-chat-id-personal.webp){ width="600" }
+    </figure>
 
 4. Open a conversation with your own bot (the one you created in Step 1) and send:
 
@@ -87,7 +91,9 @@ You need the chat ID of the user or group that should receive notifications.
 
 4. The bot replies with the group's numeric chat ID (it will be a negative number). Copy it.
 
-    ![Group chat ID from @myidbot](images/Telegram-chat-id-group.webp){ width="600" }
+    <figure markdown="span">
+      ![Group chat ID from @myidbot](images/Telegram-chat-id-group.webp){ width="600" }
+    </figure>
 
 5. Also send the following in the group so your bot can post messages:
 
@@ -113,7 +119,9 @@ Zabbix ships with a pre-configured Telegram webhook media type. You just need to
 5. Ensure the media type is **Enabled**.
 6. Click **Update** to save.
 
-![Telegram media type configuration in Zabbix](images/Telegram-media-type-config.webp){ width="600" }
+<figure markdown="span">
+  ![Telegram media type configuration in Zabbix](images/Telegram-media-type-config.webp){ width="600" }
+</figure>
 
 
 !!! tip "Test the media type"
@@ -159,9 +167,13 @@ Zabbix ships with a pre-configured Telegram webhook media type. You just need to
 !!! info "Personal vs. group chat IDs"
     Personal chat IDs are **positive** numbers (e.g., `1234567890`). Group chat IDs are **negative** numbers (e.g., `-1234567890`). Make sure to include the minus sign when entering a group chat ID.
 
-![User media configuration with personal chat ID](images/Telegram-user-media.webp){ width="600" }
+<figure markdown="span">
+  ![User media configuration with personal chat ID](images/Telegram-user-media.webp){ width="600" }
+</figure>
 
-![User media configuration with group chat ID](images/Telegram-user-media-group.webp){ width="600" }
+<figure markdown="span">
+  ![User media configuration with group chat ID](images/Telegram-user-media-group.webp){ width="600" }
+</figure>
 
 ---
 
@@ -173,7 +185,9 @@ Zabbix ships with a pre-configured Telegram webhook media type. You just need to
 1. Navigate to **Alerts → Actions → Trigger actions**.
 2. Enable the default **Report problems to Zabbix administrators** action.
 
-![Trigger actions list](images/Telegram-trigger-actions-list.webp){ width="600" }
+<figure markdown="span">
+  ![Trigger actions list](images/Telegram-trigger-actions-list.webp){ width="600" }
+</figure>
 
 
 !!! info "Why recovery operations matter"
