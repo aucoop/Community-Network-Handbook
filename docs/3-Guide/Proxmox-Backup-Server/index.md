@@ -32,13 +32,16 @@ This guide implements the concept introduced in
 
 ### 1. Install PBS
 
+!!! tip "Already have a PBS instance?"
+    If your network already has a Proxmox Backup Server running, skip this step. Ask your administrator for the PBS IP address, datastore name, and an API token with `DatastoreBackup` permissions, then continue from **Step 6**.
+
 PBS can run on dedicated hardware or as a virtualized instance. Choose the approach that fits your resources:
 
 - **Dedicated hardware (recommended for production):** Install PBS from the official ISO on a separate physical machine. This gives the best isolation — a Proxmox VE node failure won't take your backups down with it.
 - **LXC container (good for small deployments):** Run PBS inside a container on a Proxmox node. Simpler to set up, but your backups live on the same infrastructure they protect. Make sure the backup disk is physically separate.
 
 !!! info "System requirements"
-    See oficial system requirements on [system requirements](https://pbs.proxmox.com/docs/system-requirements.html)
+    See official system requirements on [system requirements](https://pbs.proxmox.com/docs/system-requirements.html)
 
     - **CPU:** 4+ cores (more cores help with compression and checksumming during parallel backups)
     - **RAM:** 4 GiB minimum for the OS and PBS daemons, plus roughly 1 GiB per TiB of backup storage
@@ -284,6 +287,6 @@ Over time, backups accumulate. Pruning removes old backups based on your retenti
 
 ## Revision History
 
-| Date       | Version | Changes                | Author | Contributors |
-|------------|---------|------------------------|--------|--------------|
-| 2026-04-02 | 1.0     | Initial guide creation | Jaime Motje    | Sergio Giménez              |
+| Date       | Version | Changes                | Author      | Contributors   |
+|------------|---------|------------------------|-------------|----------------|
+| 2026-04-02 | 1.0     | Initial guide creation | Jaime Motje | Sergio Giménez |
