@@ -261,7 +261,7 @@ Always test that you can restore from a backup. A backup you've never tested is 
 
 **Restore a backup:**
 
-1. Navigate to **Datacenter → Storage → pbs-community → Content**.
+1. Navigate to **Datacenter → Storage → [your PBS storage] → Content**.
 2. Select the backup you want to restore.
 3. Click **Restore**.
 4. Choose the target node and storage for the restored VM/container.
@@ -280,7 +280,7 @@ Over time, backups accumulate. Pruning removes old backups based on your retenti
 
 **Set up pruning:**
 
-1. In the PBS web UI, navigate to **Datastore → community-backups → Prune & GC**.
+1. In the PBS web UI, navigate to **Datastore → [your datastore] → Prune & GC → Prune Jobs → Add**.
 2. Set the retention policy:
     - **Keep Last:** 3
     - **Keep Daily:** 7
@@ -288,6 +288,10 @@ Over time, backups accumulate. Pruning removes old backups based on your retenti
     - **Keep Monthly:** 3
 3. Set the schedule (e.g., daily).
 4. Click **Save**.
+
+<figure markdown="span">
+  ![PBS prune and garbage collection](images/PBS-prune-gc.webp){ width="600" }
+</figure>
 
 **Garbage collection runs automatically** after pruning. You can also trigger it manually from the same page.
 
