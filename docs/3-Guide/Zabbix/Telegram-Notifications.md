@@ -126,7 +126,7 @@ Zabbix ships with a pre-configured Telegram webhook media type. You just need to
     | `alert_message` | `Test alert message` |
     | `alert_subject` | `Test subject` |
     | `api_chat_id` | Your numeric chat ID (e.g. `123456789`) |
-    | `api_parse_mode` | `Markdown` (leave as-is) |
+    | `api_parse_mode` | `HTML` (leave as-is) |
     | `api_token` | *(leave as-is — already filled from the configuration)* |
     | `event_nseverity` | `3` |
     | `event_severity` | `Warning` |

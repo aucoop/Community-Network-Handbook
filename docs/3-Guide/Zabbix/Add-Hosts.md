@@ -145,13 +145,14 @@ Zabbix Agent 2 is required for Docker monitoring because it includes a built-in 
 #### 4a. Install Zabbix Agent 2 on the server
 
 1. SSH into your Linux server.
-2. Download and install the Zabbix repository package (Debian 12 example):
+2. Download and install the Zabbix repository package. See the [Zabbix download documentation](https://www.zabbix.com/download) for the correct package for your distribution.
 
-    ```bash
-    wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.0+debian12_all.deb
-    sudo dpkg -i zabbix-release_latest_7.0+debian12_all.deb
-    sudo apt update
-    ```
+    !!! info "Ubuntu example"
+        ```bash
+        wget https://repo.zabbix.com/zabbix/7.4/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.4+ubuntu24.04_all.deb
+        dpkg -i zabbix-release_latest_7.4+ubuntu24.04_all.deb
+        apt update
+        ```
 
 3. Install Zabbix Agent 2 and its plugins:
 
@@ -178,14 +179,6 @@ Zabbix Agent 2 is required for Docker monitoring because it includes a built-in 
     ```bash
     sudo systemctl restart zabbix-agent2
     sudo systemctl enable zabbix-agent2
-    ```
-
-!!! info "Ubuntu users"
-    On Ubuntu 24.04, use the appropriate repository package:
-
-    ```bash
-    wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.0+ubuntu24.04_all.deb
-    sudo dpkg -i zabbix-release_latest_7.0+ubuntu24.04_all.deb
     ```
 
 #### 4b. Grant Docker access to the Zabbix user
