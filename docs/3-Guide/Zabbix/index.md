@@ -14,8 +14,6 @@ This section implements the concepts introduced in
 - Setting up Telegram bot notifications for real-time alerts on problems and recoveries
 - Creating useful dashboards for network-wide visibility
 
-!!! info "Work in Progress"
-    Alert trigger configuration and dashboard setup guides are not yet written.
 
 ## Guides
 
