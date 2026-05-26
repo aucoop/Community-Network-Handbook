@@ -80,8 +80,16 @@ If you prefer not to dedicate a physical machine, you can run PBS inside an LXC 
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/proxmox-backup-server.sh)"
     ```
 3. Follow the prompts to configure the container (CPU, RAM, storage, network).
-4. The script will create and start the container with PBS pre-installed.
-5. Run the post-install script to optimize and configure the PBS container:
+4. The script will create and start the container with PBS pre-installed. Note the container ID (`CTID`) shown when it finishes.
+5. Enter the new PBS container from the Proxmox VE host:
+    ```bash
+    pct enter <CTID>
+    ```
+6. The helper script creates the container **without a root password**. Set one now — this is the password you will use to log into the PBS web interface:
+    ```bash
+    passwd root
+    ```
+7. Still inside the container, run the post-install script to optimize and configure PBS (it disables the enterprise repo, enables the no-subscription repo, and fixes the Debian sources):
     ```bash
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/tools/pve/post-pbs-install.sh)"
     ```
@@ -97,9 +105,9 @@ If you prefer not to dedicate a physical machine, you can run PBS inside an LXC 
     ```
 2. Accept the self-signed certificate warning.
 3. Log in with:
-    - **Username:** `admin`
-    - **Password:** the root password set during installation
-    - **Realm:** `Proxmox Backup authentication server`
+    - **Username:** `root`
+    - **Password:** the root password set during installation (for the LXC install, the one you set with `passwd root` in Step 1)
+    - **Realm:** `Linux PAM standard authentication`
 
 <figure markdown="span">
   ![PBS web interface login](images/PBS-web-login.webp){ width="600" }
@@ -297,7 +305,8 @@ Over time, backups accumulate. Pruning removes old backups based on your retenti
 - [Proxmox Backup Server Documentation](https://pbs.proxmox.com/docs/)
 - [System Requirements](https://pbs.proxmox.com/docs/system-requirements.html)
 - [Downloads](https://www.proxmox.com/en/downloads/category/proxmox-backup-server)
-- [Proxmox VE Helper-Scripts Community Repository](https://community-scripts.github.io/ProxmoxVE/)
+- [Proxmox Backup Server (PBS) Script](https://community-scripts.org/scripts/proxmox-backup-server)
+- [PBS Post Install Script](https://community-scripts.org/scripts/post-pbs-install)
 
 ## Revision History
 
