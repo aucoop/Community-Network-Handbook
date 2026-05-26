@@ -77,7 +77,7 @@ If you prefer not to dedicate a physical machine, you can run PBS inside an LXC 
 1. SSH into your Proxmox VE node.
 2. Run the helper script:
     ```bash
-    bash -c "$(wget -qLO - https://community-scripts.github.io/ProxmoxVE/scripts?id=proxmox-backup-server)"
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/proxmox-backup-server.sh)"
     ```
 3. Follow the prompts to configure the container (CPU, RAM, storage, network).
 4. The script will create and start the container with PBS pre-installed.
