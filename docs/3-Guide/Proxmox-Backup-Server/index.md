@@ -133,8 +133,6 @@ By default, PBS is configured to use the enterprise repository, which requires a
 
 ### 4. Create a datastore
 
-<!-- TODO: Test -->
-
 A datastore is where PBS stores all backup data. It should point to a dedicated disk or mount point separate from the OS.
 
 1. If your backup disk is not yet mounted, format and mount it:
@@ -227,8 +225,6 @@ On your Proxmox VE node, add the PBS as a storage backend.
 
 ### 7. Schedule backup jobs
 
-<!-- TODO: Verify if the bkp at the school was created -->
-
 1. In the Proxmox VE web UI, navigate to **Datacenter → Backup → Add**.
 2. Configure the job:
     - **Storage:** select your PBS storage (e.g., `pbs-community`)
@@ -248,8 +244,6 @@ On your Proxmox VE node, add the PBS as a storage backend.
     - **Stop:** shuts down the VM, backs it up, then restarts it — most consistent but causes downtime
 
 ### 8. Verify and restore from backups
-
-<!-- TODO: Verify if it works -->
 
 Always test that you can restore from a backup. A backup you've never tested is a backup you can't trust.
 
