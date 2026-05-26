@@ -292,6 +292,12 @@ Over time, backups accumulate. Pruning removes old backups based on your retenti
 !!! warning "Monitor disk usage"
     Deduplication means disk usage doesn't scale linearly with backup count, but it still grows. Check the datastore usage regularly under **Datastore → Summary** and adjust retention or add storage before running out of space.
 
+## References
+
+- [Proxmox Backup Server Documentation](https://pbs.proxmox.com/docs/)
+- [System Requirements](https://pbs.proxmox.com/docs/system-requirements.html)
+- [Downloads](https://www.proxmox.com/en/downloads/category/proxmox-backup-server)
+- [Proxmox VE Helper-Scripts Community Repository](https://community-scripts.github.io/ProxmoxVE/)
 
 ## Revision History
 
