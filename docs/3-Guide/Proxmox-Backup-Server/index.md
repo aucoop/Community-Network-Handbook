@@ -212,7 +212,7 @@ On your Proxmox VE node, add the PBS as a storage backend.
     - **Datastore:** `community-backups` (must match the datastore name on PBS)
     - **Username:** `backup@pbs!pve-auto` (user + token ID)
     - **Password:** paste the API token secret
-    - **Fingerprint:** find this on the PBS web UI by navigating to **Datastore → [Your Datastore] → Show Connection Information**
+    - **Fingerprint:** find this on the PBS web UI by navigating to **Datastore → &lt;Your Datastore&gt; → Show Connection Information**
 4. Click **Add**.
 
 <figure markdown="span">
@@ -261,7 +261,7 @@ Always test that you can restore from a backup. A backup you've never tested is 
 
 **Restore a backup:**
 
-1. Navigate to **Datacenter → Storage → [your PBS storage] → Content**.
+1. Navigate to **Datacenter → Storage → &lt;your PBS storage&gt; → Content**.
 2. Select the backup you want to restore.
 3. Click **Restore**.
 4. Choose the target node and storage for the restored VM/container.
@@ -280,7 +280,7 @@ Over time, backups accumulate. Pruning removes old backups based on your retenti
 
 **Set up pruning:**
 
-1. In the PBS web UI, navigate to **Datastore → [your datastore] → Prune & GC → Prune Jobs → Add**.
+1. In the PBS web UI, navigate to **Datastore → &lt;your datastore&gt; → Prune & GC → Prune Jobs → Add**.
 2. Set the retention policy:
     - **Keep Last:** 3
     - **Keep Daily:** 7
