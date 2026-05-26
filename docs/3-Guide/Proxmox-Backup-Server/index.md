@@ -26,7 +26,7 @@ This guide implements the concept introduced in
 | Software               | Version        |
 |------------------------|----------------|
 | Proxmox Backup Server  | 4.0.18         |
-| Proxmox VE             | 9.1.12         |
+| Proxmox VE             | 9.1.2          |
 
 ## Step-by-Step Implementation
 
@@ -182,6 +182,16 @@ Avoid using the root account for automated backups. Create a dedicated user and 
 12. Click **Add**.
 13. **Copy the token secret immediately** — it is shown only once.
 
+**Assign permissions to the API token:**
+
+14. Navigate to **Configuration → Access Control → Permissions**.
+15. Click **Add → API Token Permission**.
+16. Set:
+    - **Path:** `/datastore/community-backups` (or your datastore name)
+    - **API Token:** `backup@pbs!pve-auto`
+    - **Role:** `DatastoreBackup`
+17. Click **Add**.
+
 ### 8. Connect Proxmox VE to PBS
 
 On your Proxmox VE node, add the PBS as a storage backend.
@@ -194,14 +204,17 @@ On your Proxmox VE node, add the PBS as a storage backend.
     - **Datastore:** `community-backups` (must match the datastore name on PBS)
     - **Username:** `backup@pbs!pve-auto` (user + token ID)
     - **Password:** paste the API token secret
-    - **Fingerprint:** find this on the PBS web UI under **Dashboard** (the SHA-256 fingerprint of the SSL certificate)
+    - **Fingerprint:** find this on the PBS web UI by navigating to **Datastore → [Your Datastore] → Show Connection Information**
 4. Click **Add**.
 
 <!-- TODO: Replace placeholder image — screenshot of PVE Add PBS storage dialog -->
 ![PVE add PBS storage](images/PVE-add-pbs-storage.webp){ width="600" }
 
-!!! tip "Finding the PBS fingerprint"
-    On the PBS web UI, go to **Dashboard**. The fingerprint is displayed in the top section. Copy the full SHA-256 string.
+!!! warning "Error: Cannot find datastore, check permissions and existence"
+    This error from PVE usually has one of these causes:
+
+    1. **Missing API token permission** — adding a User Permission for `backup@pbs` is not enough. You must also add an **API Token Permission** for `backup@pbs!pve-auto` on the datastore path (see Step 7, sub-steps 14–17).
+    2. **Datastore name mismatch** — the name in the **Datastore** field must match exactly what is configured on PBS, including case. Verify it in the PBS web UI under **Datastore**.
 
 ### 9. Schedule backup jobs
 
