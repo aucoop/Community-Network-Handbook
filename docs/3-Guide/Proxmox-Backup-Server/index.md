@@ -80,7 +80,7 @@ If you prefer not to dedicate a physical machine, you can run PBS inside an LXC 
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/proxmox-backup-server.sh)"
     ```
 3. Follow the prompts to configure the container (CPU, RAM, storage, network).
-4. The script will create and start the container with PBS pre-installed. Note the container ID (`CTID`) shown when it finishes.
+4. The script will create and start the container with PBS pre-installed. Note the container ID (`CTID`) shown when it finishes (e.g., `LXC Container 102 was successfully created.`).
 5. Enter the new PBS container from the Proxmox VE host:
     ```bash
     pct enter <CTID>
@@ -302,11 +302,11 @@ Over time, backups accumulate. Pruning removes old backups based on your retenti
 
 ## References
 
-- [Proxmox Backup Server Documentation](https://pbs.proxmox.com/docs/)
-- [System Requirements](https://pbs.proxmox.com/docs/system-requirements.html)
-- [Downloads](https://www.proxmox.com/en/downloads/category/proxmox-backup-server)
-- [Proxmox Backup Server (PBS) Script](https://community-scripts.org/scripts/proxmox-backup-server)
-- [PBS Post Install Script](https://community-scripts.org/scripts/post-pbs-install)
+- Official Documentation: "Proxmox Backup Server Documentation" -- <https://pbs.proxmox.com/docs/>
+- Official Documentation: "System Requirements" -- <https://pbs.proxmox.com/docs/system-requirements.html>
+- Official Download Page: "Downloads" -- <https://www.proxmox.com/en/downloads/category/proxmox-backup-server>
+- Community Script: "Proxmox Backup Server (PBS) Script" -- <https://community-scripts.org/scripts/proxmox-backup-server>
+- Community Script: "PBS Post Install Script" -- <https://community-scripts.org/scripts/post-pbs-install>
 
 ## Revision History
 
