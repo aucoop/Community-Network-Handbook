@@ -145,6 +145,8 @@ nav:
     - 4-Real-Use-Cases/index.md
     - Namibia:
       - 4-Real-Use-Cases/4.1-Namibia/index.md
+  - Glossary:
+    - Terms &amp; acronyms: glossary.md
   - Contributing:
     - contributing/index.md
     - Authoring with AI agents: contributing/authoring-with-agents.md
@@ -196,13 +198,16 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
   - admonition
+  - abbr
   - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      auto_append:
+        - .includes/abbreviations.txt
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.arithmatex:
