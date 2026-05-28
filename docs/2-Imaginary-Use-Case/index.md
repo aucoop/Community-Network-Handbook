@@ -51,7 +51,7 @@ The community wants more than just internet.
 Everything works — now make sure it keeps working.
 
 - [2.15 — *"The power went out and everything died"*](2.15-Power/index.md)
-- [2.16 — *"What if the server catches fire?"*](2.16-Backups/index.md)
+- [2.16 — *"The disk died and we lost everything."*](2.16-Backups/index.md)
 - [2.17 — *"The school can't afford any downtime!"*](2.17-High-Availability/index.md)
 - [2.18 — *"When was the last time we updated anything?"*](2.18-Updates/index.md)
 
