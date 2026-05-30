@@ -66,6 +66,7 @@ A quick reference for acronyms and terms used throughout this handbook. Most ent
 ## S
 
 - **SNMP — Simple Network Management Protocol.** Used by monitoring tools to collect metrics from network devices.
+- **SSH — Secure Shell.** An encrypted protocol for remote command-line access to a device. The standard way to administer routers, servers, and APs over the network.
 - **SSID.** The human-readable name of a Wi-Fi network.
 - **Subnet.** A subdivision of an IP network. Each subnet has its own address range.
 

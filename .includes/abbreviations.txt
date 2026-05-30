@@ -15,6 +15,7 @@
 *[PXE]: Preboot Execution Environment — boot a machine over the network
 *[RADIUS]: Remote Authentication Dial-In User Service — centralised authentication
 *[SNMP]: Simple Network Management Protocol — used by monitoring tools
+*[SSH]: Secure Shell — encrypted remote command-line access to a device
 *[SSID]: Service Set Identifier — the human-readable Wi-Fi network name
 *[UCI]: Unified Configuration Interface — OpenWrt's configuration system
 *[UPS]: Uninterruptible Power Supply — battery that rides out power cuts
