@@ -339,4 +339,4 @@ Before performing maintenance (firmware updates, hardware replacement, RAM upgra
 
 | Date       | Version | Changes                | Author | Contributors |
 |------------|---------|------------------------|--------|--------------|
-| 2026-04-09 | 1.0     | Initial guide creation | JML    |              |
+| 2026-04-09 | 1.0     | Initial guide creation | Jaime Motjé    |              |
