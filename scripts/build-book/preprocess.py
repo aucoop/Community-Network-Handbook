@@ -36,7 +36,7 @@ NAV_ORDER = [
     ("1-Introduction/1.1-Motivation.md", 1),
     ("1-Introduction/1.2-Target-Reader.md", 1),
 
-    # Part 2: Imaginary Use Case
+    # Part 2: The Story of a Community Network
     ("2-Imaginary-Use-Case/index.md", 0),
     # Act 1 -- Getting Connected
     ("2-Imaginary-Use-Case/2.1-The-First-Router/index.md", 1),

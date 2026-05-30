@@ -17,7 +17,7 @@ This handbook is for anyone who has heard of *community networks* and wants to l
     A fictional but realistic journey: from the first router to a full
     deployment, one challenge at a time. The best place to start.
 
-    [:octicons-arrow-right-24: Chapter 2 — Imaginary Use Case](2-Imaginary-Use-Case/index.md)
+    [:octicons-arrow-right-24: Chapter 2 — The Story of a Community Network](2-Imaginary-Use-Case/index.md)
 
 -   :material-wrench: **Jump to the guide**
 

@@ -20,7 +20,7 @@ The content lives in `docs/` and is organized in four parts:
 | Part | Folder | What it is |
 |---|---|---|
 | 1. Introduction | `docs/1-Introduction/` | Why the handbook exists and who it's for |
-| 2. Imaginary Use Case | `docs/2-Imaginary-Use-Case/` | A story that builds a network step by step |
+| 2. The Story of a Community Network | `docs/2-Imaginary-Use-Case/` | A story that builds a network step by step |
 | 3. Guide | `docs/3-Guide/` | Self-contained technical recipes |
 | 4. Real Use Cases | `docs/4-Real-Use-Cases/` | Field deployments (e.g. Namibia) |
 

@@ -14,4 +14,4 @@ These are community networks that have been built, deployed, and are running in 
 - [4.1 — Namibia](4.1-Namibia/index.md)
 
 !!! tip "Add your own"
-    Have you deployed a community network using this handbook? We'd love to include your story. See [Contributing](../contributing/index.md) for how to submit a case study.
+    Have you deployed a community network using this handbook? We'd love to include your story. See [Contributing](../contributing/case-study.md) for how to submit a case study.
