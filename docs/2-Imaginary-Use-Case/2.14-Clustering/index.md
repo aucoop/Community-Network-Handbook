@@ -1,17 +1,22 @@
-# *"One machine isn't enough anymore"*
+# *"CPU at 95%, memory full. Now what?"*
 
-Your Proxmox server is running seven containers and two VMs. The CPU is at 90%, RAM is nearly full, and adding more services means degrading the ones already running.
+It is Tuesday morning. While you are busy configuring a new OpenWrt router, the teacher has asked all thirty students to open Nextcloud and download the reading for today's lesson. You are in the next building when your phone vibrates --- a WhatsApp message from the teacher: "Nextcloud is not loading, the kids are just sitting here." You pull up the Proxmox dashboard and see the CPU pinned at 95%, memory almost full, swap climbing. A locally hosted AI assistant is processing a massive text summary in the background, the DNS container is struggling, and Nextcloud has slowed to a crawl under thirty simultaneous downloads. You know what would fix it --- restart the Nextcloud container and kill the AI generation job --- but restarting anything on this single machine risks taking down DNS, the captive portal, and every other service with it. The teacher is waiting. The students are waiting. And there is nothing you can do right now that does not make things worse.
 
-Time for a **cluster** — multiple physical machines working together as one. With Proxmox clustering you can:
+What you actually need is a way to spread the work across more than one machine. Proxmox VE lets you join two or more physical servers into a **cluster** so they appear as one system in a single web dashboard. That is **unified management**: you see every node's CPU, memory, and storage side by side and manage all your VMs and containers from the same place, no juggling separate browser tabs or SSH sessions for each box. Load balancing follows naturally --- with a second node in the cluster, requests and services spread across machines so no single server gets overwhelmed the moment a classroom starts downloading.
 
-- **Spread the load** across multiple servers
-- **Migrate services** from one machine to another (even live, without downtime)
-- **Add capacity** gradually — buy a second machine when you need it, a third later
+Splitting services between nodes also gives you **workload isolation**. DNS and the captive portal live on one node; Nextcloud and the AI assistant live on the other. A heavy AI generation job can no longer choke the service that hands out IP addresses, because they are not sharing the same CPU anymore. Heavy or experimental workloads --- a media transcoder someone wants to try, an educational video library --- stay safely away from anything critical.
 
-!!! info "Work in Progress"
-    This section will introduce clustering concepts and when it makes sense to scale from one server to multiple.
+Now replay that Tuesday morning, but this time you have a cluster. The teacher messages you, you open the dashboard, and instead of staring at a single overloaded machine you drag the Nextcloud container to the second node. The **live migration** takes a few seconds; the class continues downloading and nobody notices anything happened. The crisis is over before you finish your coffee.
+
+The cluster also solves two problems that have been quietly nagging you. That old office PC a community member donated last month has been sitting in a corner because there was no clean way to use it alongside your existing server. In a Proxmox cluster you join it in an afternoon and its RAM and CPU appear in the shared pool immediately --- gradual scaling, no rebuild required. And when it comes time to patch the operating system, you no longer have to take every service offline at once. You migrate the running VMs to the other node first, update the empty node, bring it back, and repeat --- maintenance without downtime.
+
+Finally, because the cluster tracks which VMs run on which nodes, it can do something a single machine never could. If a node dies --- a failed power supply, a bad disk --- **High Availability** means the cluster restarts its VMs on a surviving node automatically. Your users see a brief interruption instead of a full outage. That topic deserves its own discussion, covered in [Chapter 2.17](../2.17-High-Availability/index.md).
+
+None of this is free, though, and it is worth knowing what you are signing up for before you join that second machine. The nodes need a **reliable, low-latency link** to coordinate --- a simple gigabit switch dedicated to the cluster is ideal, and flaky networking between nodes causes more clustering grief than anything else. The cluster also decides things by majority vote, called **quorum**, so the machines always agree on who is in charge and never act on stale information; that means you want an **odd number of nodes**, with three as the comfortable minimum and a two-node cluster needing a small tie-breaker to vote sanely. And more machines mean a little more operational care --- more to patch, more to monitor. The payoff is resilience, but this is real infrastructure now, not one box under a desk.
+
+## When *not* to cluster
+
+Be honest about whether you've actually outgrown one machine. If your single server is running comfortably at 40% CPU with RAM to spare, clustering adds complexity you don't need yet — a bigger single machine, or simply better-sized containers, may be the right call for now. Cluster when you hit a *real* wall: you're out of capacity and adding more would degrade what's running, or downtime has become genuinely unacceptable. At that point, scaling outward is exactly the right move.
 
 !!! tip "Guide reference"
-    For step-by-step clustering instructions, see [Guide — Clustering](../../3-Guide/Clustering/index.md).
-
-<!-- TODO: When to cluster (and when not to), Proxmox cluster requirements, networking between nodes -->
+    For step-by-step clustering instructions, see [Guide -- Clustering](../../3-Guide/Clustering/index.md).
