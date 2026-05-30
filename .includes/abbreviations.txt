@@ -10,6 +10,7 @@
 *[FOSS]: Free and Open Source Software
 *[LXC]: Linux Containers — lightweight virtualisation used by Proxmox
 *[MTU]: Maximum Transmission Unit — largest packet a link carries without fragmentation
+*[NAS]: Network Attached Storage — a dedicated file-storage device on the network
 *[NAT]: Network Address Translation — lets many devices share one public IP
 *[PoE]: Power over Ethernet — power and data over one Ethernet cable
 *[PXE]: Preboot Execution Environment — boot a machine over the network

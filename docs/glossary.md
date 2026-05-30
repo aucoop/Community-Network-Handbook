@@ -46,6 +46,7 @@ A quick reference for acronyms and terms used throughout this handbook. Most ent
 
 ## N
 
+- **NAS — Network Attached Storage.** A dedicated device that provides shared file storage to the network. See [Storage](3-Guide/Storage/index.md).
 - **NAT — Network Address Translation.** Lets many devices share a single public IP address.
 - **Netmaker.** A management overlay built on WireGuard. See [VPN](3-Guide/VPN/index.md).
 
