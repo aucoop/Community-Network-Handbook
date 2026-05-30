@@ -12,5 +12,9 @@ The cluster also solves two problems that have been quietly nagging you. That ol
 
 Finally, because the cluster tracks which VMs run on which nodes, it can do something a single machine never could. If a node dies --- a failed power supply, a bad disk --- **High Availability** means the cluster restarts its VMs on a surviving node automatically. Your users see a brief interruption instead of a full outage. That topic deserves its own discussion, covered in [Chapter 2.17](../2.17-High-Availability/index.md).
 
+## When *not* to cluster
+
+Be honest about whether you've actually outgrown one machine. If your single server is running comfortably at 40% CPU with RAM to spare, clustering adds complexity you don't need yet — a bigger single machine, or simply better-sized containers, may be the right call for now. Cluster when you hit a *real* wall: you're out of capacity and adding more would degrade what's running, or downtime has become genuinely unacceptable. At that point, scaling outward is exactly the right move.
+
 !!! tip "Guide reference"
     For step-by-step clustering instructions, see [Guide -- Clustering](../../3-Guide/Clustering/index.md).
