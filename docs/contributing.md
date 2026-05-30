@@ -29,19 +29,31 @@ This is the easiest path if you do not use Git locally. Direct edits to `main` a
 - **Real use cases** — document a community network deployment (Chapter 4)
 - **Translations** — help make this handbook accessible in other languages
 
+!!! tip "Good first contributions"
+    New here? Fix a typo, replace a placeholder image with a real screenshot, or add a missing cross-link between the story and the guide. Small, focused pull requests are the easiest to review and merge.
+
 ## Writing style
 
 - **Be practical** — show how, not just why
 - **Be direct** — use simple language, short sentences
 - **Be honest** — share what didn't work, not just what did
 - **Use admonitions** for tips (`!!! tip`), warnings (`!!! warning`), and notes (`!!! info`)
-- **Link to the Guide** from the Imaginary Use Case, and vice versa
+- **Link to the Guide** from the Imaginary Use Case, and vice versa — the two tracks are meant to mirror each other, so every story section should point to its guide recipe and back.
+
+## Adding images
+
+Keep images close to the page that uses them and light enough to load over a slow connection:
+
+- Put images in a co-located `images/` subfolder next to the Markdown file that uses them.
+- Use the **`.webp`** format — it's much smaller than PNG or JPG for the same quality.
+- Name files descriptively (e.g. `zabbix-dashboard-overview.webp`), not `image1.webp`.
+- Give every image meaningful alt text: `![Zabbix dashboard showing router uptime](images/zabbix-dashboard-overview.webp)`.
 
 ## Local development
 
 ```bash
-# Clone the repo
-git clone https://github.com/YOUR_ORG/Community-Network-Handbook.git
+# Clone the repo (or your fork)
+git clone https://github.com/aucoop/Community-Network-Handbook.git
 cd Community-Network-Handbook
 
 # Create a virtual environment and install dependencies

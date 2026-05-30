@@ -155,10 +155,15 @@ theme:
     - navigation.sections
     - navigation.indexes
     - navigation.footer
+    - navigation.top
+    - navigation.tracking
     - toc.integrate
     - content.action.edit
     - content.code.copy
     - content.code.annotate
+    - content.tooltips
+    - search.highlight
+    - search.suggest
   palette:
     - media: "(prefers-color-scheme)"
       primary: teal
@@ -206,6 +211,9 @@ markdown_extensions:
   - tables
   - md_in_html
 
+extra_css:
+  - stylesheets/extra.css
+
 extra_javascript:
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
@@ -226,3 +234,10 @@ plugins:
 
 extra:
   book_download_url: https://github.com/aucoop/Community-Network-Handbook/releases/latest/download/Community-Network-Handbook.pdf
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/aucoop/Community-Network-Handbook
+      name: Handbook on GitHub
+    - icon: material/web
+      link: https://aucoop.upc.edu
+      name: AUCOOP
