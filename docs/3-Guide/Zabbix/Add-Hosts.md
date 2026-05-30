@@ -343,17 +343,15 @@ A discovery rule alone only scans — you need an action to tell Zabbix what to 
 
 ## References
 
-<!-- TODO: Revisar referencias. Para empezar estamos usando la docu de zabbix 7.0... --->
-
 - YouTube: "Add Zabbix - Monitoring and Alerting with @AwesomeOpenSource" — <https://www.youtube.com/watch?v=DFdDEf5iib4&t=67s>
-- Zabbix 7.0 Documentation — Configuring a host — <https://www.zabbix.com/documentation/7.0/en/manual/config/hosts/host>
-- Zabbix 7.0 Documentation — SNMP agent monitoring — <https://www.zabbix.com/documentation/7.0/en/manual/config/items/itemtypes/snmp>
-- Zabbix 7.0 Documentation — Docker plugin (Agent 2) — <https://www.zabbix.com/documentation/7.0/en/manual/appendix/config/zabbix_agent2_plugins/d_plugin>
-- Zabbix Agent configuration parameters — <https://www.zabbix.com/documentation/7.0/en/manual/appendix/config/zabbix_agentd>
-- Zabbix 7.0 Documentation — Network discovery — <https://www.zabbix.com/documentation/7.0/en/manual/discovery/network_discovery>
+- Zabbix 7.0 Documentation — Configuring a host — <https://www.zabbix.com/documentation/7.4/en/manual/config/hosts/host>
+- Zabbix 7.0 Documentation — SNMP agent monitoring — <https://www.zabbix.com/documentation/7.4/en/manual/config/items/itemtypes/snmp>
+- Zabbix 7.0 Documentation — Docker plugin (Agent 2) — <https://www.zabbix.com/documentation/7.4/en/manual/appendix/config/zabbix_agent2_plugins/d_plugin>
+- Zabbix Agent configuration parameters — <https://www.zabbix.com/documentation/7.4/en/manual/appendix/config/zabbix_agentd>
+- Zabbix 7.0 Documentation — Network discovery — <https://www.zabbix.com/documentation/7.4/en/manual/discovery/network_discovery>
 
 ## Revision History
 
 | Date       | Version | Changes                | Author           | Contributors                |
 |------------|---------|------------------------|------------------|-----------------------------|
-| 2026-04-01 | 1.0     | Initial guide creation | Jaime Motje      | Sergio Giménez, Joan Torres |
+| 2026-04-01 | 1.0     | Initial guide creation | Jaime Motjé      | Sergio Giménez, Joan Torres |

@@ -62,7 +62,6 @@ This guide implements the concept introduced in
 2. Navigate to **Nodes --> Add Devices**.
 3. Select the **Config files** tab.
 
-<!-- TODO: Replace placeholder image — screenshot of Netmaker "Add new node" dialog with the Config files tab selected -->
 ![Netmaker Add Device dialog with the Config files tab selected](images/WireGuard-Config-add-node-config-tab.webp){ width="600" }
 
 4. Give the node a name (e.g., `jaime-laptop`).
@@ -70,7 +69,6 @@ This guide implements the concept introduced in
 6. Click **Create** to generate the configuration.
 7. Download the `.conf` file.
 
-<!-- TODO: Replace placeholder image — screenshot showing the generated config file ready to download -->
 ![Netmaker showing the generated WireGuard config file download](images/WireGuard-Config-download-conf.webp){ width="600" }
 
 !!! tip "Save the config securely"

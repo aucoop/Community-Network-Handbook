@@ -2,10 +2,11 @@
 
 This guide covers how to deploy a Netmaker server on a Virtual Private Server (VPS) to create and manage WireGuard-based virtual networks for your community network.
 
+This guide implements the concept introduced in
+[Chapter 2 --- Remote Access](../../2-Imaginary-Use-Case/2.7-Remote-Access/index.md).
+
 !!! info "VPS already set up?" 
     Multiple VPNs can be configured on the same Netmaker server. Could it be that your network administration is already running a Netmaker instance? If so, you can skip this guide and jump to the next one on enrolling client nodes. **Ask your network administrator if you're not sure!**
-
-<!-- TODO: Add Ch2 cross-link once the corresponding Chapter 2 story for VPN/Remote Access is written -->
 
 ## What You'll Learn
 
