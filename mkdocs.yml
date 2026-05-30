@@ -145,7 +145,10 @@ nav:
     - 4-Real-Use-Cases/index.md
     - Namibia:
       - 4-Real-Use-Cases/4.1-Namibia/index.md
-  - Contributing: contributing.md
+  - Contributing:
+    - contributing/index.md
+    - Authoring with AI agents: contributing/authoring-with-agents.md
+    - Case study template: contributing/case-study.md
 
 theme:
   name: material

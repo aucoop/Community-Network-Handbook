@@ -44,7 +44,7 @@ This handbook is for anyone who has heard of *community networks* and wants to l
     This is a living book. Fix a typo, expand a section, or add your own
     deployment — even straight from your browser.
 
-    [:octicons-arrow-right-24: How to contribute](contributing.md)
+    [:octicons-arrow-right-24: How to contribute](contributing/index.md)
 
 </div>
 
