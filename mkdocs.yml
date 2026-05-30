@@ -26,9 +26,7 @@ nav:
       - IP Addressing: 2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.2-IP-Addressing.md
       - Wired vs Wireless: 2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.3-Wired-vs-Wireless.md
       - DHCP Satellite: 2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.4-DHCP-Satellite.md
-    - The Other Building:
-      - 2-Imaginary-Use-Case/2.3-The-Other-Building/index.md
-      - Antennas: 2-Imaginary-Use-Case/2.3-The-Other-Building/2.3.1-Antennas.md
+    - The Other Building: 2-Imaginary-Use-Case/2.3-The-Other-Building/index.md
     # Act 2 — Growing Pains
     - Mass Config:
       - 2-Imaginary-Use-Case/2.4-Mass-Config/index.md
