@@ -23,6 +23,6 @@
 *[VLAN]: Virtual LAN — splits one physical network into logical ones
 *[VM]: Virtual Machine — a full guest OS on a hypervisor
 *[VPN]: Virtual Private Network — an encrypted tunnel between machines or networks
-*[VPS]: Virtual Private Server
+*[VPS]: Virtual Private Server — a rented virtual machine for hosting public-facing services
 *[WPA2]: Wi-Fi Protected Access 2 — a Wi-Fi encryption standard
 *[WPA3]: Wi-Fi Protected Access 3 — the newer Wi-Fi encryption standard

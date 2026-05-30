@@ -81,6 +81,7 @@ A quick reference for acronyms and terms used throughout this handbook. Most ent
 - **VLAN — Virtual LAN.** A way to split one physical network into multiple logical ones.
 - **VM — Virtual Machine.** A full guest operating system running on a hypervisor.
 - **VPN — Virtual Private Network.** An encrypted tunnel between machines or networks. See [VPN](3-Guide/VPN/index.md).
+- **VPS — Virtual Private Server.** A virtual machine rented from a hosting provider, typically used to host a public-facing service or VPN endpoint. See [Netmaker on a VPS](3-Guide/VPN/Netmaker-VPS.md).
 
 ## W
 
