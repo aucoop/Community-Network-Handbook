@@ -46,6 +46,7 @@ A quick reference for acronyms and terms used throughout this handbook. Most ent
 
 ## N
 
+- **NAS — Network Attached Storage.** A dedicated device that provides shared file storage to the network. See [Storage](3-Guide/Storage/index.md).
 - **NAT — Network Address Translation.** Lets many devices share a single public IP address.
 - **Netmaker.** A management overlay built on WireGuard. See [VPN](3-Guide/VPN/index.md).
 
@@ -66,6 +67,7 @@ A quick reference for acronyms and terms used throughout this handbook. Most ent
 ## S
 
 - **SNMP — Simple Network Management Protocol.** Used by monitoring tools to collect metrics from network devices.
+- **SSH — Secure Shell.** An encrypted protocol for remote command-line access to a device. The standard way to administer routers, servers, and APs over the network.
 - **SSID.** The human-readable name of a Wi-Fi network.
 - **Subnet.** A subdivision of an IP network. Each subnet has its own address range.
 
@@ -79,6 +81,7 @@ A quick reference for acronyms and terms used throughout this handbook. Most ent
 - **VLAN — Virtual LAN.** A way to split one physical network into multiple logical ones.
 - **VM — Virtual Machine.** A full guest operating system running on a hypervisor.
 - **VPN — Virtual Private Network.** An encrypted tunnel between machines or networks. See [VPN](3-Guide/VPN/index.md).
+- **VPS — Virtual Private Server.** A virtual machine rented from a hosting provider, typically used to host a public-facing service or VPN endpoint. See [Netmaker on a VPS](3-Guide/VPN/Netmaker-VPS.md).
 
 ## W
 

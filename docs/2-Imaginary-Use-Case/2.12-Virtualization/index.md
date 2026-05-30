@@ -8,13 +8,24 @@ The solution is **virtualization** --- running each service in its own isolated 
 
 **Proxmox VE** is the platform we use for this. It is free and open-source, runs on standard x86 hardware (a mini PC with an Intel N100 and 8 GB of RAM is enough to get started), and supports both LXC containers and KVM virtual machines through a web interface. You do not need to touch the command line for day-to-day operations. With Proxmox, that same mini PC can run a container for Nextcloud, another for Zabbix, another for DNS, and even a lightweight virtual OpenWrt router --- all isolated from each other. If Nextcloud crashes, your DNS keeps resolving. If you need to update Zabbix, you do it inside its container without risking anything else.
 
-!!! info "Work in Progress"
-    This section will be expanded with more detail on container vs VM trade-offs, minimum hardware sizing for different workloads, and strategies for organizing services across containers.
+## Container or VM? A simple rule
+
+You'll face this choice for every service you deploy, and a simple rule covers almost every case: **use a container unless you have a specific reason not to.** Containers (LXC, in Proxmox) are light, start in seconds, and let you pack many services onto modest hardware — exactly what a community network needs. Reach for a full **virtual machine** only when you genuinely need a *different operating system*, a custom kernel, or the strongest possible isolation between a workload and everything else. In practice that means most of your services — Nextcloud, DNS, Zabbix, a captive-portal backend — run happily in containers, and you keep VMs in reserve for the rare exception.
+
+## Sizing the hardware
+
+You don't need a server-room machine to start. A mini PC with an **Intel N100 and 8 GB of RAM** is enough to run a useful stack of containers, and it sips power — important where electricity is unreliable or off-grid. As a rough guide:
+
+- **RAM is the first thing you run out of.** Most containers are happy with 256–512 MB; a database-backed service like Nextcloud wants 1–2 GB. Add up your services, then leave headroom — running at 90% memory is asking for trouble.
+- **Storage matters more than CPU.** An N100 has plenty of compute for these workloads, but file-sharing and media services fill disks fast. Plan storage deliberately (the next section is entirely about this).
+- **Leave room to grow.** Size for the services you'll add in six months, not just today's. When even a comfortable machine fills up, that's the signal to cluster — covered later in this chapter.
+
+## Organizing your services
+
+A little discipline here saves a lot of pain later. Give **each service its own container** rather than stacking several inside one — that's the whole point of the isolation. Name them clearly (`nextcloud`, `dns`, `zabbix`) so the Proxmox console reads like a map of your network. Keep a service's data on a predictable volume so backups are simple. And write down which container does what; the next volunteer — or you, in a year — will be grateful for it.
 
 !!! tip "Guide reference"
     For step-by-step instructions, see the [Proxmox guides](../../3-Guide/Proxmox/index.md):
 
     - [Install Proxmox VE on Bare Metal](../../3-Guide/Proxmox/Install-Proxmox.md) --- download, install, and configure Proxmox on a dedicated machine.
     - [Run OpenWrt as an LXC Container](../../3-Guide/Proxmox/OpenWrt-LXC.md) --- deploy a virtual router inside Proxmox for routing and firewall duties.
-
-<!-- TODO: Container vs VM decision framework, hardware sizing table, service organization strategies -->
