@@ -1,4 +1,4 @@
-# Community Network Handbook
+# Community Network Handbook Borrame
 
 A practical, opinionated guide to building community networks from scratch — even with limited resources.
 
