@@ -4,24 +4,56 @@ A practical, opinionated guide to building community networks from scratch — e
 
 ---
 
-This project is an attempt to guide someone who has heard the community networks concept and wants to learn how to build one from scratch.
+This handbook is for anyone who has heard of *community networks* and wants to learn how to build one. It distills what we learned building them with [AUCOOP](https://aucoop.upc.edu) — the good, the bad, and what we'd do differently — into practical steps you can follow in your own context.
 
-This guide is based on our experience at [Hahatay Network](https://hahatay.network). We explain everything we did — the good and the bad — and how the project still runs since 2021. The guide is written mainly by people who have been volunteering in the project since the beginning.
+## Find your way around
 
-So this is a collection of lessons learned, but we believe many of those lessons are general enough to be useful for other people who want to start their own community networks.
+<div class="grid cards" markdown>
+
+-   :material-book-open-variant: **Read the story**
+
+    ---
+
+    A fictional but realistic journey: from the first router to a full
+    deployment, one challenge at a time. The best place to start.
+
+    [:octicons-arrow-right-24: Chapter 2 — The Story of a Community Network](2-Imaginary-Use-Case/index.md)
+
+-   :material-wrench: **Jump to the guide**
+
+    ---
+
+    Step-by-step technical recipes for every technology in the story.
+    Self-contained — open the one you need.
+
+    [:octicons-arrow-right-24: Chapter 3 — The Guide](3-Guide/index.md)
+
+-   :material-map-marker-radius: **See a real deployment**
+
+    ---
+
+    How we built a network at a primary school in Gochas, Namibia —
+    what we planned, what we found, what we changed.
+
+    [:octicons-arrow-right-24: Chapter 4 — Real Use Cases](4-Real-Use-Cases/index.md)
+
+-   :material-hand-heart: **Contribute**
+
+    ---
+
+    This is a living book. Fix a typo, expand a section, or add your own
+    deployment — even straight from your browser.
+
+    [:octicons-arrow-right-24: How to contribute](contributing/index.md)
+
+</div>
 
 ## The principles behind this handbook
 
-- **Be practical:** we focus on the *how-to* more than the *why*. There are many resources explaining the why, but not so many that explain how to do it step by step.
-- **On a budget:** we show how to build community networks at low cost, using affordable equipment and free and open-source software whenever possible.
-- **This is an opinioned guide:** there are many ways to build community networks, and this is just one way based on our experience. We don't claim it is the best way, just one that worked for us.
-- **This is a living book:** it is designed to be easy to extend (adding text files in the `docs/` folder is enough).
+- **Be practical:** we focus on the *how-to* more than the *why*. There are many resources explaining the why, but few that explain how to do it step by step.
+- **On a budget:** we show how to build community networks at low cost, using affordable or second-hand equipment and free and open-source software whenever possible.
+- **This is an opinionated guide:** there are many ways to build community networks, and this is just one — the one that worked for us. We don't claim it is the best.
+- **This is a living book:** it is designed to be easy to extend: add a Markdown file under `docs/`, then link it from `mkdocs.yml` so it appears in the site navigation.
 
 !!! note "Not just for community networks"
     Despite the name, this guide works for **any small-to-medium network** setup. We use "community network" terminology because that's the context it was born in, but the techniques apply broadly.
-
-## Contributing
-
-The text lives on GitHub, which means anyone can contribute improvements, corrections, and new chapters. Even without technical knowledge, you can edit directly on GitHub.
-
-See [Contributing](contributing.md) for details.

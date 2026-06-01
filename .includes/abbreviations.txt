@@ -1,0 +1,28 @@
+*[AP]: Access Point — provides Wi-Fi to client devices
+*[APs]: Access Points — provide Wi-Fi to client devices
+*[AUCOOP]: Associació d'Universitaris per a la Cooperació — UPC student volunteer association
+*[BSSID]: Basic Service Set Identifier — the MAC address of a Wi-Fi radio
+*[CIDR]: Classless Inter-Domain Routing — the /24-style subnet notation
+*[CPE]: Customer Premises Equipment — device at the user end of a link
+*[DHCP]: Dynamic Host Configuration Protocol — hands out IP addresses automatically
+*[DNS]: Domain Name System — turns names into IP addresses
+*[ESSID]: Extended Service Set Identifier — the shared Wi-Fi network name across several APs
+*[FOSS]: Free and Open Source Software
+*[LXC]: Linux Containers — lightweight virtualisation used by Proxmox
+*[MTU]: Maximum Transmission Unit — largest packet a link carries without fragmentation
+*[NAS]: Network Attached Storage — a dedicated file-storage device on the network
+*[NAT]: Network Address Translation — lets many devices share one public IP
+*[PoE]: Power over Ethernet — power and data over one Ethernet cable
+*[PXE]: Preboot Execution Environment — boot a machine over the network
+*[RADIUS]: Remote Authentication Dial-In User Service — centralised authentication
+*[SNMP]: Simple Network Management Protocol — used by monitoring tools
+*[SSH]: Secure Shell — encrypted remote command-line access to a device
+*[SSID]: Service Set Identifier — the human-readable Wi-Fi network name
+*[UCI]: Unified Configuration Interface — OpenWrt's configuration system
+*[UPS]: Uninterruptible Power Supply — battery that rides out power cuts
+*[VLAN]: Virtual LAN — splits one physical network into logical ones
+*[VM]: Virtual Machine — a full guest OS on a hypervisor
+*[VPN]: Virtual Private Network — an encrypted tunnel between machines or networks
+*[VPS]: Virtual Private Server — a rented virtual machine for hosting public-facing services
+*[WPA2]: Wi-Fi Protected Access 2 — a Wi-Fi encryption standard
+*[WPA3]: Wi-Fi Protected Access 3 — the newer Wi-Fi encryption standard

@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Community Network Handbook — brand polish
+   Small, theme-friendly tweaks on top of the Material theme. Keep it light.
+   ========================================================================== */
+
+/* --- Landing page grid cards ------------------------------------------------
+   The home page uses Material grid cards as entry points. Give their leading
+   icon the accent colour and a little more presence. */
+.md-typeset .grid.cards > ul > li > p:first-child .twemoji,
+.md-typeset .grid.cards > ul > li > hr + p .twemoji {
+  color: var(--md-accent-fg-color);
+}
+
+/* Cards have body text of different lengths, which leaves the "arrow" links
+   floating at different heights. Lay each card out as a flex column and push
+   its last element (the link) to the bottom so the links align across the row. */
+.md-typeset .grid.cards > ul > li {
+  display: flex;
+  flex-direction: column;
+}
+
+.md-typeset .grid.cards > ul > li > :last-child {
+  margin-top: auto;
+}
+
+.md-typeset .grid.cards > ul > li .twemoji svg {
+  width: 1.6em;
+  height: 1.6em;
+}
+
+/* Make the card's "title" line read like a heading. */
+.md-typeset .grid.cards > ul > li > p:first-child strong {
+  font-size: 1.05rem;
+}
+
+/* --- Page rhythm ------------------------------------------------------------
+   A touch more breathing room under the top-level page title. */
+.md-typeset h1 {
+  margin-bottom: 0.8em;
+}
+
+/* ==========================================================================
+   Slide gallery — shared styles for case-study slide decks.
+   Lifted out of individual pages so any case study can reuse `.slides-grid`
+   without re-declaring the CSS inline.
+   ========================================================================== */
+.slides-grid table {
+  border-collapse: collapse;
+}
+
+.slides-grid td {
+  padding: 6px;
+  vertical-align: top;
+}
+
+.slides-grid img {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 4px;
+  transition: box-shadow 0.25s, border-color 0.25s;
+}
+
+.slides-grid a:hover img {
+  border-color: transparent;
+  box-shadow: var(--md-shadow-z2);
+}
+
+/* Lightbox overlay used by the slide galleries. */
+#slide-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+}
+
+#slide-lightbox-bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+#slide-lightbox-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+#slide-lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  border-radius: 4px;
+}
+
+#slide-lightbox-close {
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}

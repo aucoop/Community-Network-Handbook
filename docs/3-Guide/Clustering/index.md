@@ -1,17 +1,10 @@
-# Clustering — Multi-Server Setup
+# Clustering
 
-Scale beyond a single machine with a Proxmox cluster.
+This section covers building and operating a Proxmox VE cluster -- from initial setup to day-to-day workload management across nodes.
 
-!!! info "Work in Progress"
-    This guide will cover creating a Proxmox cluster and distributing workloads across multiple nodes.
+These guides implement the concept introduced in [Chapter 2.14 -- Clustering](../../2-Imaginary-Use-Case/2.14-Clustering/index.md).
 
-## What You'll Learn
+## Available Guides
 
-- When clustering makes sense (and when it doesn't)
-- Hardware and networking requirements for a cluster
-- Creating a Proxmox cluster
-- Shared storage options (Ceph, NFS, iSCSI)
-- Live migration of VMs and containers between nodes
-- Cluster management and monitoring
-
-<!-- TODO: Cluster creation steps, network requirements, Ceph setup, migration walkthrough -->
+- [Create and Manage a Cluster](Create-Cluster.md)
+- [Migrate VMs and Containers](Migrate-Containers.md)

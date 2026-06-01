@@ -12,7 +12,7 @@ nav:
     - 1-Introduction/index.md
     - Motivation: 1-Introduction/1.1-Motivation.md
     - Target Reader: 1-Introduction/1.2-Target-Reader.md
-  - 2. Imaginary Use Case:
+  - 2. The Story of a Community Network:
     - 2-Imaginary-Use-Case/index.md
     # Act 1 — Getting Connected
     - The First Router:
@@ -26,9 +26,7 @@ nav:
       - IP Addressing: 2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.2-IP-Addressing.md
       - Wired vs Wireless: 2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.3-Wired-vs-Wireless.md
       - DHCP Satellite: 2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.4-DHCP-Satellite.md
-    - The Other Building:
-      - 2-Imaginary-Use-Case/2.3-The-Other-Building/index.md
-      - Antennas: 2-Imaginary-Use-Case/2.3-The-Other-Building/2.3.1-Antennas.md
+    - The Other Building: 2-Imaginary-Use-Case/2.3-The-Other-Building/index.md
     # Act 2 — Growing Pains
     - Mass Config:
       - 2-Imaginary-Use-Case/2.4-Mass-Config/index.md
@@ -90,6 +88,8 @@ nav:
       - 3-Guide/Captive-Portal/index.md
     - Clustering:
       - 3-Guide/Clustering/index.md
+      - Create and Manage a Cluster: 3-Guide/Clustering/Create-Cluster.md
+      - Migrate VMs and Containers: 3-Guide/Clustering/Migrate-Containers.md
     - DNS:
       - 3-Guide/DNS/index.md
     - Domain:
@@ -138,11 +138,19 @@ nav:
       - 3-Guide/Website/index.md
     - Zabbix:
       - 3-Guide/Zabbix/index.md
+      - Install Zabbix Server: 3-Guide/Zabbix/Install-Zabbix.md
+      - Add Hosts: 3-Guide/Zabbix/Add-Hosts.md
+      - Telegram Notifications: 3-Guide/Zabbix/Telegram-Notifications.md
   - 4. Real Use Cases:
     - 4-Real-Use-Cases/index.md
     - Namibia:
       - 4-Real-Use-Cases/4.1-Namibia/index.md
-  - Contributing: contributing.md
+  - Glossary:
+    - Terms &amp; acronyms: glossary.md
+  - Contributing:
+    - contributing/index.md
+    - Authoring with AI agents: contributing/authoring-with-agents.md
+    - Case study template: contributing/case-study.md
 
 theme:
   name: material
@@ -152,10 +160,15 @@ theme:
     - navigation.sections
     - navigation.indexes
     - navigation.footer
+    - navigation.top
+    - navigation.tracking
     - toc.integrate
     - content.action.edit
     - content.code.copy
     - content.code.annotate
+    - content.tooltips
+    - search.highlight
+    - search.suggest
   palette:
     - media: "(prefers-color-scheme)"
       primary: teal
@@ -185,13 +198,16 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
   - admonition
+  - abbr
   - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      auto_append:
+        - .includes/abbreviations.txt
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.arithmatex:
@@ -202,6 +218,9 @@ markdown_extensions:
   - attr_list
   - tables
   - md_in_html
+
+extra_css:
+  - stylesheets/extra.css
 
 extra_javascript:
   - javascripts/mathjax.js
@@ -223,3 +242,10 @@ plugins:
 
 extra:
   book_download_url: https://github.com/aucoop/Community-Network-Handbook/releases/latest/download/Community-Network-Handbook.pdf
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/aucoop/Community-Network-Handbook
+      name: Handbook on GitHub
+    - icon: material/web
+      link: https://aucoop.upc.edu
+      name: AUCOOP

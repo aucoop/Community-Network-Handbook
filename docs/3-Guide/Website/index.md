@@ -9,9 +9,8 @@ Show the world what your community has built.
 
 - Choosing a static site generator (Hugo, MkDocs, Jekyll)
 - Writing content in Markdown
-- Hosting on your own server (Proxmox container + Nginx)
-- Hosting on GitHub Pages as a free alternative or backup
-- Setting up a reverse proxy with HTTPS
+- Hosting externally on GitHub Pages (recommended) — free, reachable, and off your own uplink
+- Pointing your domain at it with HTTPS
 - Keeping the site updated
 
-<!-- TODO: MkDocs/Hugo quickstart, Nginx config, GitHub Pages setup, CI/CD pipeline -->
+<!-- TODO: MkDocs/Hugo quickstart, GitHub Pages setup, custom domain + HTTPS, CI/CD pipeline -->
