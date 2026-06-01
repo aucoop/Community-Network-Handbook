@@ -2,7 +2,7 @@
 
 This guide covers how to prepare a customized Linux Mint image, set up a PXE server, and mass-deploy the image to multiple laptops over the network using Clonezilla.
 
-This guide implements the concept introduced in [Chapter 2.22 -- Laptop Deployment](../../2-Imaginary-Use-Case/2.22-Laptop-Deployment/index.md).
+This guide implements the concept introduced in [Chapter 2.22 -- Equipping the Community](../../2-Imaginary-Use-Case/2.22-Equipping-the-community/index.md).
 
 ---
 
@@ -34,7 +34,7 @@ By following these principles, you can ensure a high-performing and user-centric
 - Basic familiarity with the Linux command line
 
 !!! note "Hardware compatibility"
-    All target machines should have similar hardware (same architecture). Disk sizes can vary, but the source **partition layout** in the Clonezilla image must fit on the smallest target disk. If the golden master was captured from a 466 GB disk, you must shrink the filesystem and partition before capturing the image -- even if the actual data is only 12 GB. See [Step 5a](#5a-shrink-the-partition-for-smaller-target-disks) for details.
+    All target machines should have similar hardware (same architecture). Disk sizes can vary, but the source **partition layout** in the Clonezilla image must fit on the smallest target disk. If the golden master was captured from a 466 GB disk, you must shrink the filesystem and partition before capturing the image -- even if the actual data is only 12 GB. See [Step 5a](#5a-why-resizing-is-necessary) for details.
 
 ## Used Versions
 
@@ -161,7 +161,7 @@ You should see files like `sda1.vfat-ptcl-img.gz`, `sda2.ext4-ptcl-img.gz`, `sda
 ### Phase 3 -- Resize the Image for Smaller Target Disks
 
 !!! info "Skip this phase if all target disks are the same size as the master"
-    This phase is only needed when some target disks are smaller than the disk the image was captured from. If all machines have the same disk size, proceed directly to [Phase 4](#phase-4----set-up-the-pxe-server).
+    This phase is only needed when some target disks are smaller than the disk the image was captured from. If all machines have the same disk size, proceed directly to [Phase 4](#phase-4-set-up-the-pxe-server).
 
 #### 5a. Why resizing is necessary
 
