@@ -48,7 +48,6 @@ NAV_ORDER = [
     ("2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.2-IP-Addressing.md", 2),
     ("2-Imaginary-Use-Case/2.2-Expanding-Coverage/2.2.3-Wired-vs-Wireless.md", 2),
     ("2-Imaginary-Use-Case/2.3-The-Other-Building/index.md", 1),
-    ("2-Imaginary-Use-Case/2.3-The-Other-Building/2.3.1-Antennas.md", 2),
     # Act 2 -- Growing Pains
     ("2-Imaginary-Use-Case/2.4-Mass-Config/index.md", 1),
     ("2-Imaginary-Use-Case/2.5-Monitoring/index.md", 1),
@@ -71,7 +70,7 @@ NAV_ORDER = [
     ("2-Imaginary-Use-Case/2.19-Domain/index.md", 1),
     ("2-Imaginary-Use-Case/2.20-Website/index.md", 1),
     # Act 6 -- Equipping the Community
-    ("2-Imaginary-Use-Case/2.22-Laptop-Deployment/index.md", 1),
+    ("2-Imaginary-Use-Case/2.22-Equipping-the-community/index.md", 1),
     # Act 7 -- The Long Run
     ("2-Imaginary-Use-Case/2.21-Sustainability/index.md", 1),
 
@@ -80,6 +79,8 @@ NAV_ORDER = [
     ("3-Guide/Antennas/index.md", 1),
     ("3-Guide/Captive-Portal/index.md", 1),
     ("3-Guide/Clustering/index.md", 1),
+    ("3-Guide/Clustering/Create-Cluster.md", 2),
+    ("3-Guide/Clustering/Migrate-Containers.md", 2),
     ("3-Guide/DNS/index.md", 1),
     ("3-Guide/Domain/index.md", 1),
     ("3-Guide/Flash-OpenWrt/index.md", 1),
@@ -101,6 +102,9 @@ NAV_ORDER = [
     ("3-Guide/VPN/index.md", 1),
     ("3-Guide/Website/index.md", 1),
     ("3-Guide/Zabbix/index.md", 1),
+    ("3-Guide/Zabbix/Install-Zabbix.md", 2),
+    ("3-Guide/Zabbix/Add-Hosts.md", 2),
+    ("3-Guide/Zabbix/Telegram-Notifications.md", 2),
 
     # Part 4: Real Use Cases
     ("4-Real-Use-Cases/index.md", 0),
