@@ -84,4 +84,4 @@ On Windows PowerShell:
 
 ## Contributing
 
-Contributions are welcome — corrections, clearer explanations, new guide sections, or your own deployment story. See the [Contributing guide](docs/contributing.md). Even without Git, you can edit any page directly from the **Edit this page** button on the published site.
+Contributions are welcome — corrections, clearer explanations, new guide sections, or your own deployment story. See the [Contributing guide](docs/contributing/index.md). Even without Git, you can edit any page directly from the **Edit this page** button on the published site.
