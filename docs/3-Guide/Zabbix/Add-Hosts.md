@@ -27,7 +27,7 @@ This guide implements the concept introduced in
 |----------------|------------------|
 | Zabbix Server  | 7.4              |
 | OpenWrt        | 25.12.1          |
-| Zabbix Agent 2 | 7.0              |
+| Zabbix Agent 2 | 7.4              |
 
 !!! tip "Got many devices? Skip to automatic discovery"
     If you need to add many hosts at once, Zabbix's built-in network discovery can scan your subnet and add devices automatically. See [Step 6 — Discover hosts automatically](#6-optional-discover-hosts-automatically) before starting the manual steps below.
