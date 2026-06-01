@@ -71,6 +71,10 @@ NAV_ORDER = [
     ("2-Imaginary-Use-Case/2.20-Website/index.md", 1),
     # Act 6 -- Equipping the Community
     ("2-Imaginary-Use-Case/2.22-Equipping-the-community/index.md", 1),
+    ("2-Imaginary-Use-Case/2.22-Equipping-the-community/2.22.1-The-Refurbished-Advantage.md", 2),
+    ("2-Imaginary-Use-Case/2.22-Equipping-the-community/2.22.2-Cataloging-Your-Hardware.md", 2),
+    ("2-Imaginary-Use-Case/2.22-Equipping-the-community/2.22.3-Adding-Operating-System.md", 2),
+    ("2-Imaginary-Use-Case/2.22-Equipping-the-community/2.22.4-Scaling-the-Deployment.md", 2),
     # Act 7 -- The Long Run
     ("2-Imaginary-Use-Case/2.21-Sustainability/index.md", 1),
 
