@@ -53,7 +53,7 @@ This handbook is for anyone who has heard of *community networks* and wants to l
 - **Be practical:** we focus on the *how-to* more than the *why*. There are many resources explaining the why, but few that explain how to do it step by step.
 - **On a budget:** we show how to build community networks at low cost, using affordable or second-hand equipment and free and open-source software whenever possible.
 - **This is an opinionated guide:** there are many ways to build community networks, and this is just one — the one that worked for us. We don't claim it is the best.
-- **This is a living book:** it is designed to be easy to extend. Adding a Markdown file to the `docs/` folder is enough.
+- **This is a living book:** it is designed to be easy to extend: add a Markdown file under `docs/`, then link it from `mkdocs.yml` so it appears in the site navigation.
 
 !!! note "Not just for community networks"
     Despite the name, this guide works for **any small-to-medium network** setup. We use "community network" terminology because that's the context it was born in, but the techniques apply broadly.
